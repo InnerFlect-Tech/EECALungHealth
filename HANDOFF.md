@@ -7,7 +7,7 @@
 - **What:** EECA Lung Health "Sovereignty Hub" — marketing site + consultation platform.
 - **Live domain:** `https://eecalunghealth.com` (current production domain).
 - **Old domain (legacy):** `sovereigntyhub.innovations4health.org` — being retired.
-- **Repo:** `github.com/IndiasFernandes/Sovereignty-Hub` (private). Branches:
+- **Repo:** `github.com/InnerFlect-Tech/EECALungHealth` (private). Branches:
   `main` = stable/deployed, `dev` = working. As of this doc, both point at the
   same commit (`0f001c7`) — fully in sync, nothing pending merge.
 - **Live app lives in `web/`** (React + Vite + TypeScript). Root-level `index.html`
