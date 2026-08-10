@@ -1,8 +1,13 @@
-# Deploying EECA Hub (Sovereignty Hub subdomain)
+# Deploying EECA Hub
 
-**FTP:** `web@sovereigntyhub.innovations4health.org` → document root `/`
+> **Current live path:** production is now `https://eecalunghealth.com`, deployed
+> via CI: `gh workflow run deploy.yml --ref main` (see `.github/workflows/deploy.yml`,
+> rsync-over-SSH). The FTP instructions below are the historical/fallback path to
+> the old partner-hosted domain (retired) — kept for reference only.
 
-**Live URL:** https://sovereigntyhub.innovations4health.org/
+**FTP (legacy, retired domain):** `web@sovereigntyhub.innovations4health.org` → document root `/`
+
+**Live URL:** https://eecalunghealth.com/
 
 The main site (`innovations4health.org`) is separate — do not deploy this build there.
 
@@ -58,7 +63,7 @@ Ensure `api/uploads/` is writable by the web server (755 or 775).
 
 | Check | URL |
 |-------|-----|
-| Site | https://sovereigntyhub.innovations4health.org/ |
+| Site | https://eecalunghealth.com/ |
 | Consultation (header button) | /consultation |
 | Admin login | /admin/login |
 | API session | /api/session.php → `{"authenticated":false}` |

@@ -1,6 +1,6 @@
-# Sovereignty Hub
+# EECA Lung Health (Sovereignty Hub)
 
-EECA Hub site and consultation platform for [sovereigntyhub.innovations4health.org](https://sovereigntyhub.innovations4health.org/).
+EECA Hub site and consultation platform for [eecalunghealth.com](https://eecalunghealth.com/).
 
 ## Repository layout
 

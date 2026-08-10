@@ -94,6 +94,6 @@ function notify_team(array $CONFIG, array $row): void
         . 'Country: ' . ($row['country'] ?? '—') . "\n"
         . 'Urgency score: ' . $row['urgency_score'] . "\n"
         . 'Contact: ' . ($contact['email'] ?? 'none') . "\n\n"
-        . 'View in admin: https://sovereigntyhub.innovations4health.org/admin/responses/' . $row['id'];
-    @mail($to, $subject, $body, 'From: noreply@innovations4health.org');
+        . 'View in admin: https://eecalunghealth.com/admin/responses/' . $row['id'];
+    @mail($to, $subject, $body, 'From: noreply@eecalunghealth.com');
 }

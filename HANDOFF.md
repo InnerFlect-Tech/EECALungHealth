@@ -76,5 +76,9 @@
 - Verify MCPs with `/mcp`.
 
 ## Notes
-- No vault SSOT exists for this project (unlike Essência). Git history + this
-  file are the record — keep this file current when picking up new work.
+- Vault SSOT exists at `~/Documents/My OS/20 Brands/EECA Lung Health/` (a
+  separate personal Obsidian vault at `~/Documents/My OS`, distinct from the
+  Innerflect company vault). Start with `00 Overview.md` and `Project Rules.md`.
+  The prompt to open a fresh conversation on this project lives at
+  `50 Strategy/Project Prompts/Our Projects/06 EECA Lung Health.md` in that
+  same vault — keep both that prompt and this file current together.
