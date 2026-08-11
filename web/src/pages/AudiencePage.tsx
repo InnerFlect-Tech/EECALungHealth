@@ -8,7 +8,7 @@ import { useI18n } from '../i18n/I18nProvider';
 import { tr } from '../i18n/formRu';
 import '../audience.css';
 
-type Audience = 'policymakers' | 'partners';
+type Audience = 'policymakers' | 'partners' | 'civil-society';
 
 const HERO: Record<Audience, { eyebrow: string; title: string; lead: string; cta: string; proof: string; img: string }> = {
   policymakers: {
@@ -20,6 +20,11 @@ const HERO: Record<Audience, { eyebrow: string; title: string; lead: string; cta
     eyebrow: 'For partners', title: 'A governed platform to build on.',
     lead: 'Bring your technology, diagnostics, capital or funding into a proven, standards-based regional health system — with a clearly defined role and measurable impact.',
     cta: 'Explore a partnership', proof: 'Standards-based, human-reviewed, sovereign by design.', img: '/assets/images/diagnostics.webp',
+  },
+  'civil-society': {
+    eyebrow: 'For civil society', title: 'Your evidence, reaching the people who can act on it.',
+    lead: 'The Hub creates a direct link between affected communities and political decision-makers — so community-generated evidence, recommendations and requests reach the politicians who have the mandate and resources to act.',
+    cta: 'Share your community’s evidence', proof: 'A standing seat on the Civil Society Council — not a one-time submission.', img: '/assets/images/donors.webp',
   },
 };
 
@@ -38,11 +43,19 @@ const GET: Record<Audience, { title: string; items: string[] }> = {
     'Association with a trusted parliamentary network',
     'Full budget and terms — available on request',
   ] },
+  'civil-society': { title: 'What this creates for you', items: [
+    'A direct channel from community evidence to the MPs who can act on it',
+    'Your priorities turned into legislative asks — not just recommendations',
+    'A seat on the Civil Society Council — standing oversight, not a one-off submission',
+    'Aggregated, non-identifiable reporting — no individual patient data ever exposed',
+    'Visible tracking of your input, from submission through to policy or budget outcome',
+  ] },
 };
 
 const CLOSE: Record<Audience, { title: string; lead: string }> = {
   policymakers: { title: 'Turn your decision into delivered care.', lead: 'Start a confidential conversation about your country.' },
   partners: { title: 'Build with a proven regional platform.', lead: "Let's discuss where your organisation fits — from technology to funding." },
+  'civil-society': { title: 'Turn lived experience into legal and financial commitment.', lead: "Share what your community needs — we'll make sure it reaches decision-makers who can act on it." },
 };
 
 const PROOF = [
@@ -190,7 +203,35 @@ function Partners() {
   );
 }
 
-const BODY = { policymakers: Policymakers, partners: Partners };
+/* ---------------- CIVIL SOCIETY — evidence to commitment (kept lean) ---------------- */
+function CivilSociety() {
+  const { lang } = useI18n();
+  const flow = [
+    { t: 'Share', d: 'Community-generated evidence, recommendations and requests submitted through the Hub.' },
+    { t: 'Reach', d: 'Routed directly to the parliamentarians and caucuses with the mandate to act.' },
+    { t: 'Commit', d: 'Translated into legislative asks — new laws, amendments or policy changes.' },
+    { t: 'Fund', d: 'Backed by budget allocation and tracked through to delivered care.' },
+  ];
+  return (
+    <section className="section aud-dark aud-flow">
+      <div className="container">
+        <Reveal><p className="eyebrow eyebrow-onDark">{tr('The mechanism', lang)}</p></Reveal>
+        <Reveal><h2>{tr('From lived experience to legal commitment.', lang)}</h2></Reveal>
+        <Reveal><p className="section-lead">{tr('This is not consultation theatre — it is a mechanism that turns community priorities into political commitments, legal frameworks and concrete financial resources.', lang)}</p></Reveal>
+        <ol className="path">
+          {flow.map((s, i) => (
+            <Reveal as="li" className="path-step" delay={i * 90} key={s.t}>
+              <span className="path-num">0{i + 1}</span>
+              <div className="path-body"><strong>{tr(s.t, lang)}</strong><p>{tr(s.d, lang)}</p></div>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+const BODY = { policymakers: Policymakers, partners: Partners, 'civil-society': CivilSociety };
 
 export function AudiencePage({ audience }: { audience: Audience }) {
   const { lang } = useI18n();
@@ -213,8 +254,8 @@ export function AudiencePage({ audience }: { audience: Audience }) {
           <h1>{tr(h.title, lang)}</h1>
           <p className="page-hero-lead">{tr(h.lead, lang)}</p>
           <div className="aud-hero-cta">
-            <BriefingCTA variant="primary" kind="briefing" />
-            <Link to="/concept-note" className="concept-note-link">{tr('Download the concept note', lang)}</Link>
+            <Link to="/consultation" className="btn btn-primary">{tr('Ready to Participate', lang)}</Link>
+            <Link to="/concept-note" className="btn btn-secondary">{tr('Read the Concept Note', lang)}</Link>
           </div>
           <p className="aud-proof">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
@@ -255,9 +296,8 @@ export function AudiencePage({ audience }: { audience: Audience }) {
           <h2>{tr(close.title, lang)}</h2>
           <p className="cta-lead">{tr(close.lead, lang)}</p>
           <div className="cta-buttons">
-            <BriefingCTA variant="primary" kind="briefing" />
-            <Link to="/concept-note" className="btn btn-secondary">{tr('Download the concept note', lang)}</Link>
-            <BriefingCTA variant="inline" kind="mou" labelKey="briefing-tertiary" />
+            <BriefingCTA variant="primary" />
+            <Link to="/consultation" className="btn btn-secondary">{tr('Ready to Participate', lang)}</Link>
           </div>
         </div>
       </section>

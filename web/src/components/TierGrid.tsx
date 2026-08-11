@@ -1,38 +1,18 @@
-import { T, useI18n } from '../i18n/I18nProvider';
+import { T } from '../i18n/I18nProvider';
 
 type Tier = {
   key: 'founding' | 'regional' | 'platform';
-  amount: string;
+  when: string;
   benefits: number;
 };
 
 const TIERS: Tier[] = [
-  { key: 'founding', amount: '$60K', benefits: 5 },
-  { key: 'regional', amount: '$250K', benefits: 5 },
-  { key: 'platform', amount: '$1M+', benefits: 5 },
+  { key: 'founding', when: 'tier-founding-when', benefits: 5 },
+  { key: 'regional', when: 'tier-regional-when', benefits: 5 },
+  { key: 'platform', when: 'tier-platform-when', benefits: 5 },
 ];
 
-function tierMailto(tierKey: Tier['key'], lang: 'en' | 'ru'): string {
-  const tierLabelEn = { founding: 'Founding Funder', regional: 'Regional Partner', platform: 'Platform Underwriter' }[tierKey];
-  const subject =
-    lang === 'ru'
-      ? `Обсуждение уровня — ${tierLabelEn} — Sovereignty Hub`
-      : `Tier discussion — ${tierLabelEn} — Sovereignty Hub`;
-  const body =
-    lang === 'ru'
-      ? `Здравствуйте, Алесия,\n\nМы хотели бы обсудить участие на уровне ${tierLabelEn} EECA Lung Health Sovereignty Hub.\n\nОрганизация:\nИмя:\nРоль:\n\nСпасибо.`
-      : `Hello Alesia,\n\nWe'd like to explore participation at the ${tierLabelEn} tier of the EECA Lung Health Sovereignty Hub.\n\nOrganisation:\nName:\nRole:\n\nThanks.`;
-  const params = new URLSearchParams({
-    cc: 'hello@innerflect.tech',
-    subject,
-    body,
-  });
-  return `mailto:alesia.matusevych@globaltbcaucus.org?${params.toString().replace(/\+/g, '%20')}`;
-}
-
 export function TierGrid() {
-  const { lang } = useI18n();
-
   return (
     <section className="tier-section">
       <div className="tier-head">
@@ -40,15 +20,20 @@ export function TierGrid() {
         <h2 className="tier-title"><T k="tiers-title" /></h2>
         <p className="section-lead"><T k="tiers-lead" /></p>
       </div>
+
+      <div className="tier-axis" aria-hidden="true">
+        {TIERS.map((tier, i) => (
+          <div className="tier-axis-point" key={tier.key}>
+            <span>0{i + 1} · <T k={tier.when} /></span>
+          </div>
+        ))}
+      </div>
+
       <div className="tier-grid">
         {TIERS.map((tier) => (
-          <article
-            className={`tier-card tier-${tier.key}${tier.key === 'founding' ? ' is-featured' : ''}`}
-            key={tier.key}
-          >
+          <article className="tier-card" key={tier.key}>
             <header className="tier-card-head">
               <p className="tier-badge"><T k={`tier-${tier.key}-name`} /></p>
-              <p className="tier-amount">{tier.amount}</p>
               <p className="tier-tagline"><T k={`tier-${tier.key}-tagline`} /></p>
             </header>
             <ul className="tier-benefits">
@@ -61,12 +46,6 @@ export function TierGrid() {
                 </li>
               ))}
             </ul>
-            <a
-              className={`btn ${tier.key === 'founding' ? 'btn-primary' : 'btn-secondary'} tier-cta`}
-              href={tierMailto(tier.key, lang)}
-            >
-              <T k="tier-cta" />
-            </a>
           </article>
         ))}
       </div>

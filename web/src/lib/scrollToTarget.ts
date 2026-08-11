@@ -9,13 +9,9 @@ export function scrollToTop(): void {
   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 }
 
-export function scrollForRoute(pathname: string, hash: string): void {
+export function scrollForRoute(_pathname: string, hash: string): void {
   if (hash) {
     if (scrollToElement(hash.slice(1))) return;
-  }
-
-  if (pathname === '/consultation') {
-    if (scrollToElement('consultation-form')) return;
   }
 
   scrollToTop();

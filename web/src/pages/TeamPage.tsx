@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { SiteLayout } from '../components/Layout';
 import { T } from '../i18n/I18nProvider';
 
@@ -24,7 +23,7 @@ const team: TeamMember[] = [
     roleText: 'team-alesia-role-text',
     photo: '/assets/images/team/team-alesia.png',
     alt: 'Portrait of Alesia Matusevych',
-    linkedin: 'https://www.linkedin.com/in/alesia-matusevych/',
+    linkedin: 'https://www.linkedin.com/in/alesia-matusevych-558813a1/',
   },
   {
     name: 'team-gayane-name',
@@ -46,7 +45,7 @@ const team: TeamMember[] = [
     roleText: 'team-daniel-role-text',
     photo: '/assets/images/team/team-daniel.png',
     alt: 'Portrait of Daniel Fernandes',
-    linkedin: 'https://www.linkedin.com/in/danielindiasfernandes/',
+    linkedin: 'https://www.linkedin.com/in/indiasfernandes/',
   },
 ];
 
@@ -96,9 +95,6 @@ export function TeamPage() {
               </article>
             ))}
           </div>
-          <p>
-            <Link className="link-arrow" to="/"><T k="team-back" /></Link>
-          </p>
         </div>
       </section>
     </SiteLayout>

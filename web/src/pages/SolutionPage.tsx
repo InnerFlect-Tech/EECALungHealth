@@ -94,7 +94,6 @@ export function SolutionPage() {
             <div className="loop-foundation">
               <span><T k="loop-foundation" /></span>
             </div>
-            <p className="loop-caption"><T k="loop-caption" /></p>
           </div>
 
           {/* Three capabilities, each shown as a real screen in the product */}
@@ -191,9 +190,8 @@ export function SolutionPage() {
           <p className="cta-lead"><T k="cta-lead" /></p>
           <p className="cta-sub"><T k="cta-sub" /></p>
           <div className="cta-buttons">
-            <BriefingCTA variant="primary" kind="briefing" />
+            <BriefingCTA variant="primary" />
             <Link to="/concept-note" className="btn btn-secondary"><T k="briefing-secondary" /></Link>
-            <BriefingCTA variant="inline" kind="mou" labelKey="briefing-tertiary" />
           </div>
         </div>
       </section>

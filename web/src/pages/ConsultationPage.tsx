@@ -11,7 +11,7 @@ function ConsultHero() {
     <div className="consult-hero">
       <div className="consult-hero-inner">
         <div className="consult-eyebrow">
-          {tr('Regional Stakeholder Consultation · Discovery v1.0', lang)}
+          {tr('Regional Stakeholder Insights', lang)}
         </div>
         <h1>
           {tr('Your input will shape', lang)}
@@ -34,6 +34,7 @@ function ConsultHero() {
           <span className="consult-pill">{tr('7–10 minutes', lang)}</span>
           <span className="consult-pill">{tr('No individual patient data collected', lang)}</span>
           <span className="consult-pill">{tr('All responses inform product decisions', lang)}</span>
+          <span className="consult-pill">{tr('Your perspective, not your budget', lang)}</span>
         </div>
         <div className="consult-cta-row">
           <a
@@ -44,9 +45,9 @@ function ConsultHero() {
               scrollToElement('consultation-form', true);
             }}
           >
-            {tr('Begin the Consultation', lang)}
+            {tr('Ready to Participate', lang)}
           </a>
-          <Link to="/" className="btn btn-secondary">{tr('Learn about the Hub', lang)}</Link>
+          <Link to="/" className="btn btn-secondary">{tr('Learn more about the Hub', lang)}</Link>
         </div>
         <div className="consult-privacy">
           <strong>{tr('Privacy and consent:', lang)}</strong>{' '}

@@ -12,6 +12,8 @@ export function Header({ current }: HeaderProps) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const onConsultation = current === 'consultation' || location.pathname.startsWith('/consultation');
+  const isActive = (path: string) => location.pathname === path;
+  const isParticipateActive = ['/for-funders', '/policymakers', '/partners', '/civil-society'].includes(location.pathname);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -32,7 +34,7 @@ export function Header({ current }: HeaderProps) {
           <span className="logo-text">{t('logo-text')}</span>
         </Link>
         <Link
-          to="/consultation#consultation-form"
+          to="/consultation"
           className="nav-consultation-cta nav-consultation-bar"
           aria-current={onConsultation ? 'page' : undefined}
           onClick={() => setMenuOpen(false)}
@@ -53,24 +55,37 @@ export function Header({ current }: HeaderProps) {
         </button>
         <nav className="nav" id="main-nav" aria-label="Main navigation">
           <ul onClick={() => setMenuOpen(false)}>
-            <li><Link to="/solution">{t('nav-solution')}</Link></li>
-            <li><Link to="/for-funders">{t('nav-funders')}</Link></li>
+            <li><Link to="/solution" className={isActive('/solution') ? 'is-active' : undefined} aria-current={isActive('/solution') ? 'page' : undefined}>{t('nav-solution')}</Link></li>
             <li className="nav-has-drop">
-              <button type="button" className="nav-drop-btn" aria-haspopup="true" onClick={(e) => e.stopPropagation()}>
+              <button
+                type="button"
+                className={`nav-drop-btn${isParticipateActive ? ' is-active' : ''}`}
+                aria-haspopup="true"
+                aria-current={isParticipateActive ? 'page' : undefined}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  // A mouse click focuses the button, which keeps the dropdown
+                  // open via :focus-within even after the pointer leaves. Blur
+                  // it so a click behaves like hover — closes on mouseleave —
+                  // while :focus-within still opens it for keyboard/Tab users.
+                  e.currentTarget.blur();
+                }}
+              >
                 {t('nav-participate')}
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
               </button>
               <ul className="nav-drop">
-                <li><Link to="/policymakers">{t('nav-policymakers')}</Link></li>
-                <li><Link to="/partners">{t('nav-partners')}</Link></li>
-                <li><Link to="/contact">{t('who-cs-t')}</Link></li>
+                <li><Link to="/for-funders" className={isActive('/for-funders') ? 'is-active' : undefined} aria-current={isActive('/for-funders') ? 'page' : undefined}>{t('nav-funders')}</Link></li>
+                <li><Link to="/policymakers" className={isActive('/policymakers') ? 'is-active' : undefined} aria-current={isActive('/policymakers') ? 'page' : undefined}>{t('nav-policymakers')}</Link></li>
+                <li><Link to="/partners" className={isActive('/partners') ? 'is-active' : undefined} aria-current={isActive('/partners') ? 'page' : undefined}>{t('nav-partners')}</Link></li>
+                <li><Link to="/civil-society" className={isActive('/civil-society') ? 'is-active' : undefined} aria-current={isActive('/civil-society') ? 'page' : undefined}>{t('who-cs-t')}</Link></li>
               </ul>
             </li>
-            <li><Link to="/team">{t('nav-team')}</Link></li>
-            <li><Link to="/contact">{t('nav-contact')}</Link></li>
+            <li><Link to="/team" className={isActive('/team') ? 'is-active' : undefined} aria-current={isActive('/team') ? 'page' : undefined}>{t('nav-team')}</Link></li>
+            <li><Link to="/contact" className={isActive('/contact') ? 'is-active' : undefined} aria-current={isActive('/contact') ? 'page' : undefined}>{t('nav-contact')}</Link></li>
           </ul>
           <Link
-            to="/consultation#consultation-form"
+            to="/consultation"
             className="nav-consultation-cta nav-consultation-menu"
             aria-current={onConsultation ? 'page' : undefined}
             onClick={() => setMenuOpen(false)}
@@ -149,11 +164,13 @@ export function Footer() {
 
         <nav className="footer-col" aria-label="Explore">
           <span className="footer-col-h">{t('footer-explore')}</span>
+          <Link to="/solution">{t('nav-solution')}</Link>
           <Link to="/for-funders">{t('nav-funders')}</Link>
           <Link to="/policymakers">{t('nav-policymakers')}</Link>
           <Link to="/partners">{t('nav-partners')}</Link>
+          <Link to="/civil-society">{t('who-cs-t')}</Link>
           <Link to="/concept-note">{t('nav-concept-note')}</Link>
-          <Link to="/contact">{t('who-cs-t')}</Link>
+          <Link to="/consultation">{t('nav-consultation')}</Link>
           <Link to="/team">{t('nav-team')}</Link>
           <Link to="/contact">{t('nav-contact')}</Link>
         </nav>

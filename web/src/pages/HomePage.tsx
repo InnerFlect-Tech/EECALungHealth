@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { SiteLayout } from '../components/Layout';
 import { BriefingCTA } from '../components/BriefingCTA';
 import { T, useI18n } from '../i18n/I18nProvider';
-import { ACTIVITY_FEED } from '../lib/activityFeed';
 
 const svg = { viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true };
 const SOL_ICONS = {
@@ -20,18 +19,8 @@ const SOL_ICONS = {
   ),
 };
 
-function fmtDate(iso: string, lang: 'en' | 'ru'): string {
-  const d = new Date(iso + 'T00:00:00Z');
-  return d.toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    timeZone: 'UTC',
-  });
-}
-
 export function HomePage() {
-  const { t, lang } = useI18n();
+  const { t } = useI18n();
   return (
     <SiteLayout>
       <section className="hero hero-feature">
@@ -42,8 +31,8 @@ export function HomePage() {
             <h1><T k="hero-headline" html /></h1>
             <p className="hero-lead"><T k="hero-lead" /></p>
             <div className="hero-buttons">
-              <BriefingCTA variant="primary" kind="briefing" />
-              <Link to="/for-funders" className="btn btn-hero-secondary"><T k="hero-see-ask" /></Link>
+              <Link to="/for-funders" className="btn btn-primary"><T k="hero-see-ask" /></Link>
+              <BriefingCTA variant="secondary" />
             </div>
           </div>
           <aside className="hero-statcard" aria-label="Programme at a glance">
@@ -68,7 +57,7 @@ export function HomePage() {
           <p className="section-lead home-funder-lead"><T k="home-funder-lead" /></p>
 
           <div className="funders-impact-grid">
-            {(['a', 'b', 'c'] as const).map((k) => (
+            {(['c', 'a', 'b'] as const).map((k) => (
               <article className="funders-impact-card" key={k}>
                 <strong className="funders-impact-value"><T k={`home-fi-${k}-val`} /></strong>
                 <p className="funders-impact-desc"><T k={`home-fi-${k}-lab`} /></p>
@@ -80,7 +69,7 @@ export function HomePage() {
             <p className="eyebrow home-council-eyebrow"><T k="council-title" /></p>
             <div className="council-strip">
               <div className="council-card">
-                <img src="/assets/images/team/team-gayane.png" alt="" loading="lazy" />
+                <img src="/assets/images/team/team-gayane.png" alt="" loading="lazy" style={{ objectPosition: 'center 30%' }} />
                 <div className="council-meta">
                   <strong><T k="council-a-name" /></strong>
                   <span><T k="council-a-role" /></span>
@@ -93,8 +82,10 @@ export function HomePage() {
                   <span><T k="council-b-role" /></span>
                 </div>
               </div>
-              <div className="council-card is-invited">
-                <div className="council-monogram" aria-hidden="true"><span>WE</span></div>
+              <div className="council-card">
+                <span className="council-photo-zoom">
+                  <img src="/assets/images/team/team-daniel.png" alt="" loading="lazy" style={{ width: '6.2rem', height: '100%', maxWidth: 'none', objectPosition: 'center 0%' }} />
+                </span>
                 <div className="council-meta">
                   <strong><T k="council-c-name" /></strong>
                   <span><T k="council-c-role" /></span>
@@ -103,12 +94,8 @@ export function HomePage() {
             </div>
           </div>
 
-          <p className="working-pilot-proof-home"><T k="working-pilot-proof" /></p>
-
           <div className="home-funder-actions">
-            <BriefingCTA variant="primary" kind="briefing" />
-            <Link to="/for-funders" className="btn btn-secondary"><T k="hero-see-ask" /></Link>
-            <Link to="/concept-note" className="link-arrow"><T k="briefing-secondary" /></Link>
+            <Link to="/team" className="link-arrow"><T k="home-team-cta" /></Link>
           </div>
         </div>
       </section>
@@ -122,7 +109,7 @@ export function HomePage() {
             {([
               { to: '/policymakers', t: 'who-pm-t', d: 'who-pm-d' },
               { to: '/partners', t: 'who-pa-t', d: 'who-pa-d' },
-              { to: '/contact', t: 'who-cs-t', d: 'who-cs-d' },
+              { to: '/civil-society', t: 'who-cs-t', d: 'who-cs-d' },
             ] as const).map((w) => (
               <Link className="who-card" to={w.to} key={w.to}>
                 <strong><T k={w.t} /></strong>
@@ -130,6 +117,11 @@ export function HomePage() {
                 <span className="who-arrow" aria-hidden="true">→</span>
               </Link>
             ))}
+          </div>
+
+          <div className="who-participate">
+            <Link to="/consultation" className="btn btn-primary"><T k="who-participate-cta" /></Link>
+            <p className="who-participate-text"><T k="who-participate-lead" html /></p>
           </div>
         </div>
       </section>
@@ -142,7 +134,7 @@ export function HomePage() {
           </div>
           <div className="whatis-body">
             <p><T k="what-is-p1" html /></p>
-            <a href="#urgency" className="link-arrow"><T k="what-is-link" /></a>
+            <p className="whatis-urgent-lead"><strong><T k="what-is-link" /></strong></p>
             <p><T k="what-is-p2" html /></p>
           </div>
         </div>
@@ -153,6 +145,9 @@ export function HomePage() {
               <li key={c}>{c.trim()}</li>
             ))}
           </ul>
+        </div>
+        <div className="container">
+          <p><Link className="link-arrow" to="/concept-note"><T k="whatis-concept-note-cta" /></Link></p>
         </div>
       </section>
 
@@ -196,29 +191,6 @@ export function HomePage() {
         </div>
       </section>
 
-      <section id="activity" className="section activity-section">
-        <div className="container">
-          <p className="eyebrow"><T k="activity-eyebrow" /></p>
-          <h2 className="activity-title"><T k="activity-title" /></h2>
-          <ul className="activity-strip">
-            {ACTIVITY_FEED.map((item) => (
-              <li className="activity-item" key={item.id}>
-                <time className="activity-date" dateTime={item.dateISO}>{fmtDate(item.dateISO, lang)}</time>
-                <div className="activity-body">
-                  <strong className="activity-item-title"><T k={item.titleKey} /></strong>
-                  <span className="activity-item-desc"><T k={item.descKey} /></span>
-                </div>
-                {item.linkTo ? (
-                  <Link to={item.linkTo} className="activity-link" aria-label={t(item.titleKey)}>
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                ) : null}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       <section id="solution" className="section section-alt">
         <div className="container">
           <p className="eyebrow"><T k="nav-approach" /></p>
@@ -248,10 +220,6 @@ export function HomePage() {
               </div>
               <span className="loop-pulse" aria-hidden="true" />
             </div>
-            <div className="loop-foundation">{/* governed data layer bar */}
-              <span><T k="loop-foundation" /></span>
-            </div>
-            <p className="loop-caption"><T k="loop-caption" /></p>
           </div>
 
           <p className="sol-engine-note"><T k="sol-engine-note" /></p>
@@ -278,8 +246,7 @@ export function HomePage() {
             ))}
           </ol>
           <p className="invest-note">
-            <T k="approach-confidential" />{' '}
-            <Link className="link-arrow" to="/contact"><T k="request-budget-cta" /></Link>
+            <T k="approach-confidential" />
           </p>
         </div>
       </section>
@@ -313,9 +280,8 @@ export function HomePage() {
           <p className="cta-lead"><T k="cta-lead" /></p>
           <p className="cta-sub"><T k="cta-sub" /></p>
           <div className="cta-buttons">
-            <BriefingCTA variant="primary" kind="briefing" />
+            <BriefingCTA variant="primary" />
             <Link to="/concept-note" className="btn btn-secondary"><T k="briefing-secondary" /></Link>
-            <BriefingCTA variant="inline" kind="mou" labelKey="briefing-tertiary" />
           </div>
         </div>
       </section>

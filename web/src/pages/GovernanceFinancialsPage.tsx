@@ -42,7 +42,7 @@ export function GovernanceFinancialsPage() {
             <Link to="/concept-note" className="btn btn-primary">
               <T k="briefing-secondary" />
             </Link>
-            <BriefingCTA variant="secondary" kind="briefing" />
+            <BriefingCTA variant="secondary" />
           </div>
         </div>
       </section>

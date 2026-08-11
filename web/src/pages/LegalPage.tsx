@@ -140,7 +140,7 @@ export function LegalPage({ doc }: { doc: Doc }) {
           <p className="legal-updated">{UPDATED}</p>
           <Body />
           <p className="legal-back">
-            <Link className="link-arrow" to="/">Back to homepage</Link>
+            <Link className="link-arrow" to="/">Back to Homepage</Link>
           </p>
         </div>
       </section>

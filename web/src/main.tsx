@@ -6,6 +6,10 @@ import './consultation.css';
 import './admin.css';
 import './partners.css';
 
+if ('scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

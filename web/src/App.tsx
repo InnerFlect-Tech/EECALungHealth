@@ -34,6 +34,7 @@ export default function App() {
           {/* Audience pages */}
           <Route path="/policymakers" element={<AudiencePage audience="policymakers" />} />
           <Route path="/partners" element={<AudiencePage audience="partners" />} />
+          <Route path="/civil-society" element={<AudiencePage audience="civil-society" />} />
           <Route path="/donors" element={<Navigate to="/partners" replace />} />
           <Route path="/for-funders" element={<ForFundersPage />} />
           <Route path="/concept-note" element={<ConceptNotePage />} />

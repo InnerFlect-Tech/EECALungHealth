@@ -99,7 +99,7 @@ export function FunderFitPage() {
               <h2><T k="ff-done-title" /></h2>
               <p><T k="ff-done-lead" /></p>
               <div className="cta-buttons" style={{ marginTop: 'var(--space-xl)' }}>
-                <BriefingCTA variant="primary" kind="briefing" />
+                <BriefingCTA variant="primary" />
                 <Link to="/for-funders" className="btn btn-secondary"><T k="ff-back" /></Link>
               </div>
             </div>
@@ -197,7 +197,6 @@ export function FunderFitPage() {
                 >
                   {submitting ? '…' : t('ff-submit')}
                 </button>
-                <Link to="/for-funders" className="link-arrow"><T k="ff-back" /></Link>
               </div>
             </form>
           )}

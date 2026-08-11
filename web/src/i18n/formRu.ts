@@ -9,8 +9,8 @@ import type { FormField, FormStep } from '../lib/formSchema';
 
 const M: Record<string, string> = {
   // ── Consultation hero (ConsultationPage) ──────────────────────────────
-  'Regional Stakeholder Consultation · Discovery v1.0':
-    'Региональная консультация заинтересованных сторон · Discovery v1.0',
+  'Regional Stakeholder Insights':
+    'Мнения региональных заинтересованных сторон',
   'Your input will shape': 'Ваш вклад определит,',
   'what gets built first.': 'что будет создано в первую очередь.',
   'Across Eastern Europe and Central Asia, health systems are under pressure — from geopolitical disruption, funding transitions, displacement of populations, and strained supply chains. When treatment continuity breaks down, the consequences are clinical, political, and irreversible.':
@@ -20,8 +20,10 @@ const M: Record<string, string> = {
   '7–10 minutes': '7–10 минут',
   'No individual patient data collected': 'Индивидуальные данные пациентов не собираются',
   'All responses inform product decisions': 'Все ответы влияют на решения о продукте',
-  'Begin the Consultation': 'Начать консультацию',
-  'Learn about the Hub': 'Узнать о Хабе',
+  'Your perspective, not your budget': 'Ваше мнение, а не ваш бюджет',
+  'Learn more about the Hub': 'Узнать больше о Хабе',
+  'Your input will shape what gets built first.': 'Ваш вклад определит, что будет создано в первую очередь.',
+  'A 7–10 minute survey that helps us to understand your situation.': 'Опрос на 7–10 минут, который поможет нам понять вашу ситуацию.',
   'Privacy and consent:': 'Конфиденциальность и согласие:',
   'Your responses are collected for internal strategic planning and product design purposes only. No individual patient data is requested or collected at any point. Aggregated, anonymized findings may be shared with core project partners. By completing this form, you consent to this use. Contact details, if provided, are used only for follow-up related to this initiative.':
     'Ваши ответы собираются исключительно для внутреннего стратегического планирования и проектирования продукта. Индивидуальные данные пациентов не запрашиваются и не собираются. Агрегированные обезличенные результаты могут быть переданы ключевым партнёрам проекта. Заполняя эту форму, вы соглашаетесь с таким использованием. Контактные данные, если они указаны, используются только для последующей связи в рамках этой инициативы.',
@@ -553,8 +555,9 @@ const M: Record<string, string> = {
   'Invest in a working model of health sovereignty.': 'Инвестируйте в работающую модель суверенитета здравоохранения.',
   'See the results before scale — request the concept note.': 'Увидьте результаты до масштабирования — запросите концепт-ноту.',
   'Back to overview': 'Назад к обзору',
-  'Download the concept note': 'Скачать концепт-ноту',
+  'Read the Concept Note': 'Прочитать концепт-ноту',
   'Open the Concept Note': 'Открыть концепт-ноту',
+  'Ready to Participate': 'Готовы участвовать',
 
   'patients in scope': 'пациентов в фокусе',
   'national caucuses': 'национальных парламентских групп',
@@ -620,6 +623,53 @@ const M: Record<string, string> = {
   'How you engage': 'Как вы участвуете',
   'Three steps to a defined role.': 'Три шага к чётко определённой роли.',
 
+  // Civil society hero + body
+  'For civil society': 'Для гражданского общества',
+  'Your evidence, reaching the people who can act on it.': 'Ваши доказательства — доходят до тех, кто может по ним действовать.',
+  'The Hub creates a direct link between affected communities and political decision-makers — so community-generated evidence, recommendations and requests reach the politicians who have the mandate and resources to act.':
+    'Хаб создаёт прямую связь между пострадавшими сообществами и политическими лицами, принимающими решения — чтобы доказательства, рекомендации и запросы сообществ доходили до депутатов, обладающих полномочиями и ресурсами для действий.',
+  'A standing seat on the Civil Society Council — not a one-time submission.': 'Постоянное место в Совете гражданского общества — а не разовое обращение.',
+  'What this creates for you': 'Что это даёт вам',
+  'A direct channel from community evidence to the MPs who can act on it': 'Прямой канал от доказательств сообщества к депутатам, способным по ним действовать',
+  'Your priorities turned into legislative asks — not just recommendations': 'Ваши приоритеты становятся законодательными запросами — а не просто рекомендациями',
+  'A seat on the Civil Society Council — standing oversight, not a one-off submission': 'Место в Совете гражданского общества — постоянный надзор, а не разовое обращение',
+  'Aggregated, non-identifiable reporting — no individual patient data ever exposed': 'Агрегированная, обезличенная отчётность — индивидуальные данные пациентов никогда не раскрываются',
+  'Visible tracking of your input, from submission through to policy or budget outcome': 'Видимое отслеживание вашего обращения — от подачи до политического или бюджетного результата',
+  'Turn lived experience into legal and financial commitment.': 'Превратите личный опыт в юридические и финансовые обязательства.',
+  "Share what your community needs — we'll make sure it reaches decision-makers who can act on it.":
+    'Расскажите, что нужно вашему сообществу — мы позаботимся, чтобы это дошло до тех, кто может действовать.',
+  'The implementation gap': 'Разрыв во внедрении',
+  'Communities know what is needed. The system does not hear it.': 'Сообщества знают, что нужно. Система их не слышит.',
+  'Affected communities generate evidence, recommendations and requests — but too often that knowledge never reaches the politicians who have the mandate and resources to act on it: adopting or amending legislation, shaping policy, or allocating public budgets.':
+    'Пострадавшие сообщества собирают доказательства, формируют рекомендации и запросы — но слишком часто эти знания так и не доходят до политиков, обладающих полномочиями и ресурсами для действий: принятия или изменения законов, формирования политики или выделения бюджета.',
+  'What often happens': 'Что происходит обычно',
+  'Community evidence collected, but goes unheard': 'Доказательства сообщества собраны, но остаются неуслышанными',
+  'Recommendations shared informally, with no political owner': 'Рекомендации передаются неформально, без политического ответственного',
+  'Requests lost between advocacy and the legislative process': 'Запросы теряются между адвокацией и законодательным процессом',
+  'What the Hub ensures': 'Что обеспечивает Хаб',
+  'A direct link to the MPs with the mandate to act': 'Прямая связь с депутатами, обладающими полномочиями действовать',
+  'Evidence translated into legislative asks': 'Доказательства становятся законодательными запросами',
+  'Tracked from submission through to policy or budget outcome': 'Отслеживается от подачи до политического или бюджетного результата',
+  'The mechanism': 'Механизм',
+  'From lived experience to legal commitment.': 'От личного опыта до юридических обязательств.',
+  'Share': 'Подача',
+  'Community-generated evidence, recommendations and requests submitted through the Hub.': 'Доказательства, рекомендации и запросы сообщества, поданные через Хаб.',
+  'Reach': 'Доставка',
+  'Routed directly to the parliamentarians and caucuses with the mandate to act.': 'Направляются напрямую депутатам и парламентским группам, обладающим полномочиями действовать.',
+  'Commit': 'Обязательство',
+  'Translated into legislative asks — new laws, amendments or policy changes.': 'Превращаются в законодательные запросы — новые законы, поправки или изменения политики.',
+  'Fund': 'Финансирование',
+  'Backed by budget allocation and tracked through to delivered care.': 'Подкрепляется выделением бюджета и отслеживается вплоть до оказанной помощи.',
+  'Beyond a voice': 'Больше, чем просто голос',
+  'This is not consultation theatre — it is a mechanism that turns community priorities into political commitments, legal frameworks and concrete financial resources.':
+    'Это не имитация консультаций — это механизм, превращающий приоритеты сообщества в политические обязательства, правовые рамки и конкретные финансовые ресурсы.',
+  'Protected by design': 'Защита заложена в архитектуре',
+  'Aggregated, non-identifiable data only. No individual patient data is ever requested or exposed.':
+    'Только агрегированные, обезличенные данные. Индивидуальные данные пациентов никогда не запрашиваются и не раскрываются.',
+  'Structured oversight': 'Структурированный надзор',
+  'A seat on the Civil Society Council gives your organisation a standing role in governance — not just a one-time submission.':
+    'Место в Совете гражданского общества даёт вашей организации постоянную роль в управлении — а не просто разовое обращение.',
+
   // Donors body
   'Foundation': 'Фундамент',
   'Replication': 'Тиражирование',
@@ -649,12 +699,7 @@ const M: Record<string, string> = {
   "Let's talk.": 'Давайте поговорим.',
   "The fastest way to reach us is the consultation form — it routes your message to the right person on our team. Partner and funding discussions are handled in confidence.":
     'Самый быстрый способ связаться с нами — форма консультации: она направит ваше сообщение нужному человеку в команде. Обсуждения партнёрства и финансирования ведутся конфиденциально.',
-  'Choose the path that fits.': 'Выберите подходящий путь.',
   'Or email us directly:': 'Или напишите нам напрямую:',
-  'Policymakers': 'Политики',
-  'MPs, ministries and national caucuses.': 'Депутаты, министерства и национальные парламентские группы.',
-  'Partners': 'Партнёры',
-  'Organisations, technology and diagnostics.': 'Организации, технологии и диагностика.',
   'Donors': 'Доноры',
   'Funders and foundations.': 'Финансирующие организации и фонды.',
 };

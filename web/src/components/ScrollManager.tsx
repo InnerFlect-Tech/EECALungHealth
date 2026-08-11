@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { scrollForRoute } from '../lib/scrollToTarget';
 
@@ -6,11 +6,8 @@ import { scrollForRoute } from '../lib/scrollToTarget';
 export function ScrollManager() {
   const location = useLocation();
 
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => {
-      scrollForRoute(location.pathname, location.hash);
-    });
-    return () => cancelAnimationFrame(frame);
+  useLayoutEffect(() => {
+    scrollForRoute(location.pathname, location.hash);
   }, [location.pathname, location.hash, location.key]);
 
   return null;

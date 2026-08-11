@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { SiteLayout } from '../components/Layout';
 import { BriefingCTA } from '../components/BriefingCTA';
 import { UseOfFundsChart } from '../components/UseOfFundsChart';
@@ -32,6 +31,10 @@ export function ConceptNotePage() {
     <SiteLayout>
       <section className="page-hero concept-note-hero">
         <div className="page-hero-inner container">
+          <div className="concept-note-print-mark">
+            <img src="/assets/images/brand/logo-mark-color.png" alt="" />
+            <span>EECA Lung Health Sovereignty Hub</span>
+          </div>
           <p className="page-hero-eyebrow"><T k="concept-note-eyebrow" /></p>
           <h1><T k="concept-note-page-title" /></h1>
           <p className="page-hero-lead"><T k="concept-note-lead" /></p>
@@ -50,10 +53,7 @@ export function ConceptNotePage() {
             >
               <T k="concept-note-download" />
             </a>
-            <BriefingCTA variant="secondary" kind="briefing" />
-            <Link to="/for-funders" className="link-arrow">
-              <T k="concept-note-back" />
-            </Link>
+            <BriefingCTA variant="secondary" />
           </div>
         </div>
       </section>
@@ -66,7 +66,7 @@ export function ConceptNotePage() {
           {error ? (
             <p className="concept-note-error">
               <T k="concept-note-error" />{' '}
-              <BriefingCTA variant="inline" kind="briefing" labelKey="cta-briefing-primary" />
+              <BriefingCTA variant="inline" labelKey="cta-briefing-primary" />
             </p>
           ) : (
             <div
