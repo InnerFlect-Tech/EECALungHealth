@@ -174,6 +174,15 @@ img {
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-md) var(--space-xl);
 }
+/* While the mobile menu is open, body scroll is locked via overflow:hidden,
+   which breaks position:sticky's scroll-container math and lets the header
+   scroll away with the (frozen) page underneath. Pin it with fixed instead. */
+.header.nav-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 /* Frosted-glass background lives on a pseudo-element, not .header itself —
    backdrop-filter on .header would make it a containing block for its
    position:fixed descendants (the mobile nav), breaking their viewport-relative
@@ -339,7 +348,10 @@ img {
 .nav-drop a:hover { background: var(--teal-50); color: var(--color-primary); }
 
 @media (max-width: 1024px) {
-  .nav-drop {
+  /* Must match (or beat) .nav-has-drop .nav-drop's specificity (0,2,0) —
+     a bare .nav-drop selector here loses to that closed-state rule
+     regardless of media-query order, leaving the submenu invisible. */
+  .nav-has-drop .nav-drop {
     position: static;
     opacity: 1;
     visibility: visible;
@@ -350,9 +362,9 @@ img {
     margin: 0;
     padding: 0 0 0 var(--space-md);
   }
-  .nav-drop-btn { pointer-events: none; width: 100%; padding: var(--space-md) 0; }
+  .nav-drop-btn { pointer-events: none; width: 100%; padding: var(--space-md) 0; font-size: 1rem; }
   .nav-drop-btn svg { display: none; }
-  .nav-drop a { padding: var(--space-sm) 0; font-size: 1rem; }
+  .nav-drop a { padding: 0.35rem 0; font-size: 0.875rem; }
 }
 
 .nav-consultation-cta {
@@ -1256,40 +1268,15 @@ img {
   .who-arrow { display: none; }
 }
 
-.who-participate {
-  margin-top: var(--space-2xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-lg);
-}
-.who-participate-text {
-  flex: 1 1 28rem;
-  margin: 0;
-  color: var(--color-text-muted);
-  font-size: 1rem;
-  line-height: 1.6;
-}
-.who-participate-text strong {
-  color: var(--color-text);
-}
-@media (max-width: 720px) {
-  .who-participate { flex-direction: column; align-items: flex-start; }
-  .who-participate-text { flex-basis: auto; }
-}
-
 /* The System — trust line */
 .sol-trust {
-  text-align: center;
+  text-align: left;
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.4vw, 1.7rem);
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--color-primary-dark);
-  margin: var(--space-2xl) auto var(--space-xl);
+  margin: var(--space-2xl) 0 var(--space-xl);
   max-width: 36rem;
 }
 
@@ -1422,13 +1409,7 @@ img {
     gap: var(--space-lg);
   }
   .loop-flow::before {
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    right: auto;
-    width: 2px;
-    height: auto;
-    background: linear-gradient(180deg, var(--color-primary-light), var(--color-primary-light));
+    display: none;
   }
   .loop-pulse { display: none; }
   .loop-badge { box-shadow: 0 0 0 6px var(--color-surface); }
@@ -1656,6 +1637,13 @@ img {
   }
   .gov-row {
     grid-template-columns: 1fr 1fr;
+    /* The per-node connector ticks don't make sense once the row wraps to
+       two columns (which single line would a tick "belong" to?), so instead
+       give the whole row one shared top border — the stem above still lands
+       on it, so the hierarchy reads as "these four report to that one"
+       rather than a line dangling with nothing to connect to. */
+    padding-top: var(--space-lg);
+    border-top: 2px solid var(--color-border);
   }
   .gov-row::before {
     display: none;
@@ -3270,16 +3258,6 @@ section[id],
     padding-right: max(var(--space-lg), env(safe-area-inset-right));
   }
 
-  .hero-buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
-    text-align: center;
-  }
-
   .section {
     padding: var(--space-2xl) var(--space-lg);
     padding-left: max(var(--space-lg), env(safe-area-inset-left));
@@ -3750,7 +3728,13 @@ section[id],
 @media (max-width: 820px) {
   .sol-grid { grid-template-columns: 1fr; }
   .sol-std-grid { grid-template-columns: repeat(2, 1fr); }
-  .sol-shot { margin-top: var(--space-xl); }
+  .sol-shot {
+    margin-top: var(--space-xl);
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+    padding-left: max(var(--space-lg), env(safe-area-inset-left));
+    padding-right: max(var(--space-lg), env(safe-area-inset-right));
+  }
   .sol-show { grid-template-columns: 1fr; gap: var(--space-lg); }
   .sol-show.is-alt .sol-show-media,
   .sol-show.is-alt .sol-show-body { order: unset; }
@@ -4071,12 +4055,10 @@ section[id],
   .funders-impact-grid { grid-template-columns: 1fr; }
   .funders-uof-row { grid-template-columns: 1fr; gap: var(--space-xs); }
   .council-strip { grid-template-columns: 1fr; }
-  .funders-hero-cta,
   .concept-note-actions {
     flex-direction: column;
     align-items: stretch;
   }
-  .funders-hero-cta .btn,
   .concept-note-actions .btn {
     text-align: center;
   }
@@ -4140,7 +4122,7 @@ section[id],
   background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  padding: var(--space-lg) 0;
+  padding: var(--space-lg) var(--space-xl);
 }
 .trust-strip-inner {
   display: flex;
@@ -4174,7 +4156,11 @@ section[id],
   letter-spacing: 0.01em;
 }
 @media (max-width: 820px) {
-  .trust-strip { padding: var(--space-md) 0; }
+  .trust-strip {
+    padding: var(--space-md) var(--space-lg);
+    padding-left: max(var(--space-lg), env(safe-area-inset-left));
+    padding-right: max(var(--space-lg), env(safe-area-inset-right));
+  }
   .trust-strip-inner {
     justify-content: flex-start;
     gap: var(--space-sm) var(--space-md);
@@ -4651,7 +4637,14 @@ section[id],
   opacity: 0.5;
 }
 @media (max-width: 820px) {
-  .footer-governance { font-size: 0.75rem; }
+  .footer-governance {
+    font-size: 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  /* On its own line, the separator only pushes the link off the left edge */
+  .footer-governance-sep { display: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════════

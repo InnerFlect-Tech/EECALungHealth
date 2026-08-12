@@ -80,15 +80,15 @@ const urgencyOptions: FieldOption[] = [
 ];
 
 const riskOptions: FieldOption[] = [
-  opt('supply', 'Disruption of medicine supply or procurement'),
-  opt('displacement', 'Displacement of populations across or within borders'),
+  opt('supply', 'Disruptions to medicine supply chains or procurement'),
+  opt('displacement', 'Population displacement across or within borders'),
   opt('funding', 'Loss of donor funding or funding transition'),
-  opt('legislation', 'Weak or absent enabling legislation'),
-  opt('data', 'Fragmented health data and poor information systems'),
+  opt('legislation', 'Weak or inadequate enabling legislation'),
+  opt('data', 'Fragmented health data and weak health information systems'),
   opt('political', 'Political instability or government transitions'),
-  opt('workforce', 'Healthcare workforce shortages or displacement'),
-  opt('transit', 'Treatment interruption for patients in transit or displacement'),
-  opt('resistance', 'Drug resistance driven by inconsistent treatment'),
+  opt('workforce', 'Shortages of or displacement of the health workforce'),
+  opt('transit', 'Interruptions in treatment for patients affected by mobility or displacement'),
+  opt('resistance', 'Drug resistance resulting from interrupted or inconsistent treatment'),
   opt('crossborder', 'Lack of cross-border coordination mechanisms'),
   opt('engagement', 'Inadequate community or civil society engagement'),
   opt('other', 'Other (please specify)'),
@@ -175,7 +175,7 @@ function sharedSteps(): FormStep[] {
             {
               value: 'C',
               label: 'Institutional partner / donor / foundation / technical partner',
-              sub: 'UN agencies, donors, foundations, implementation partners',
+              sub: 'UN agencies, bilateral and multilateral donors, foundations, implementation partners',
             },
             {
               value: 'D',
@@ -208,7 +208,7 @@ function sharedSteps(): FormStep[] {
     {
       id: 'urgency',
       tag: 'Urgency',
-      title: 'How urgent is the need for a coordinated regional tool for lung health governance and continuity of care in your context?',
+      title: 'How urgent is the need for a coordinated regional mechanism to support lung health and continuity of care in your context?',
       fields: [
         { id: 'q3_urgency', type: 'radio', label: '', required: true, options: urgencyOptions },
       ],
@@ -216,7 +216,7 @@ function sharedSteps(): FormStep[] {
     {
       id: 'risks',
       tag: 'Risk landscape',
-      title: 'What are the three greatest risks to lung health system continuity in your context right now?',
+      title: 'What are the three greatest risks to the continuity of lung health services in your context at present?',
       hint: 'Select up to three risks that are most relevant to your context right now.',
       fields: [
         { id: 'q4_risks', type: 'checkbox', label: '', required: true, maxSelect: 3, options: riskOptions },
@@ -240,7 +240,7 @@ function sharedSteps(): FormStep[] {
     {
       id: 'migration',
       tag: 'Migration & continuity',
-      title: 'To what extent does population displacement or migration create gaps in access to lung health care in your context?',
+      title: 'To what extent do population displacement and migration disrupt access to and continuity of lung health care in your context?',
       fields: [
         {
           id: 'q6_migration',
@@ -250,9 +250,9 @@ function sharedSteps(): FormStep[] {
           options: [
             opt('major', 'Major issue', 'Significant numbers of displaced people are losing or interrupting treatment'),
             opt('emerging', 'Emerging issue', 'We are seeing early signs; it is not yet a crisis'),
-            opt('limited', 'Limited issue', 'Displacement exists but is managed reasonably well'),
+            opt('limited', 'Moderate issue', 'Displacement exists but is managed reasonably well'),
             opt('not', 'Not a significant issue in our context'),
-            opt('unknown', "I don't have enough visibility to answer"),
+            opt('unknown', "I don't have enough data/visibility to answer"),
           ],
         },
       ],
@@ -404,7 +404,7 @@ function branchASteps(): FormStep[] {
         {
           id: 'qa5_meds',
           type: 'radio',
-          label: 'Has your community experienced interruptions in access to TB or lung health medicines in the past 12 months?',
+          label: 'Are you aware if any affected community experienced interruptions in access to TB or lung health medicines in the past 12 months?',
           required: true,
           options: [
             opt('significant', 'Yes — significant interruptions'),
@@ -418,7 +418,7 @@ function branchASteps(): FormStep[] {
     {
       id: 'a-features',
       tag: 'Community · Features',
-      title: 'If this Hub were built, which functions would be most useful for communities like yours?',
+      title: 'If this Hub were built, which functions would be most useful for communities/organisations like yours?',
       hint: 'Rank in order of usefulness (1 = most useful).',
       showWhen: (_, b) => b === 'A',
       fields: [
@@ -458,7 +458,7 @@ function branchASteps(): FormStep[] {
       id: 'a-upload',
       tag: 'Community · Documents',
       title: 'Optional document upload',
-      hint: 'If you have reports, case documentation, or community assessments — no individual patient data, please. PDF, DOCX, XLSX. Max 10MB.',
+      hint: "If you have any reports, documented cases, or community assessments (excluding any personally identifiable patient information) that are relevant to this research or could support the rationale for the Hub's future work, please upload them here. PDF, DOCX, XLSX. Max 10MB.",
       showWhen: (_, b) => b === 'A',
       fields: [
         {
@@ -748,8 +748,8 @@ function branchCSteps(): FormStep[] {
     },
     {
       id: 'c-pilot',
-      tag: 'Partner · Pilot & MVP',
-      title: 'Pilot support and fundable MVP',
+      tag: 'Partner · Pilot & Development',
+      title: 'Support for pilot implementation and early product development',
       showWhen: (_, b) => b === 'C',
       fields: [
         {
@@ -863,8 +863,8 @@ function closingSteps(): FormStep[] {
     },
     {
       id: 'coordination',
-      tag: 'Closing · Coordination & MVP',
-      title: 'Cross-border coordination and MVP prioritization',
+      tag: 'Completion · Regional Collaboration & Pilot Priorities',
+      title: 'Regional Collaboration and Hub Pilot Priorities',
       fields: [
         {
           id: 'q11_crossborder',

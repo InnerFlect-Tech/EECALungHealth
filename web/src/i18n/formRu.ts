@@ -107,18 +107,18 @@ const M: Record<string, string> = {
   'Country and primary role': 'Страна и основная роль',
   'This helps us map responses geographically and by sector. Unlike the perspective you chose in step 1 (which tailors the questions), this is your specific professional role.':
     'Это помогает нам распределить ответы по странам и секторам. В отличие от позиции, выбранной на шаге 1 (которая настраивает вопросы), здесь указывается ваша конкретная профессиональная роль.',
-  'How urgent is the need for a coordinated regional tool for lung health governance and continuity of care in your context?':
-    'Насколько срочна потребность в скоординированном региональном инструменте для управления лёгочным здоровьем и непрерывности помощи в вашем контексте?',
-  'What are the three greatest risks to lung health system continuity in your context right now?':
-    'Каковы три главных риска для непрерывности системы лёгочного здоровья в вашем контексте сейчас?',
+  'How urgent is the need for a coordinated regional mechanism to support lung health and continuity of care in your context?':
+    'Насколько острой является потребность в скоординированном региональном механизме обеспечения здоровья лёгких и непрерывности оказания помощи в вашем контексте?',
+  'What are the three greatest risks to the continuity of lung health services in your context at present?':
+    'Каковы три основных риска для непрерывности оказания услуг в области здоровья лёгких в вашем контексте в настоящее время?',
   'Select up to three risks that are most relevant to your context right now.':
     'Выберите до трёх рисков, наиболее актуальных для вашего контекста сейчас.',
   'Please rank the three core Hub functions in order of priority for your context (1 = highest)':
     'Расположите три основные функции Хаба по приоритету для вашего контекста (1 = высший)',
   'Click each pillar in order of priority. Click an already-ranked item to remove its rank.':
     'Нажимайте на компоненты в порядке приоритета. Нажмите на уже ранжированный элемент, чтобы убрать ранг.',
-  'To what extent does population displacement or migration create gaps in access to lung health care in your context?':
-    'В какой степени перемещение населения или миграция создают пробелы в доступе к помощи при лёгочных заболеваниях в вашем контексте?',
+  'To what extent do population displacement and migration disrupt access to and continuity of lung health care in your context?':
+    'В какой степени перемещение населения и миграция создают препятствия для обеспечения непрерывного доступа к помощи в области здоровья лёгких в вашем контексте?',
   'Are you in a position to contribute any of the following to this initiative?':
     'Можете ли вы внести что-либо из перечисленного в эту инициативу?',
   'Select all that apply. This is not a commitment — it helps us understand what is available.':
@@ -131,12 +131,12 @@ const M: Record<string, string> = {
     'Где, по вашему опыту или в вашем сообществе, чаще всего нарушается доступ к помощи при лёгочных заболеваниях?',
   'Community signals and feedback channels': 'Сигналы сообщества и каналы обратной связи',
   'Migrant, refugee, and displaced community access to care': 'Доступ к помощи для мигрантов, беженцев и вынужденно перемещённых лиц',
-  'If this Hub were built, which functions would be most useful for communities like yours?':
-    'Если бы этот Хаб был создан, какие функции были бы наиболее полезны для сообществ, подобных вашему?',
+  'If this Hub were built, which functions would be most useful for communities/organisations like yours?':
+    'Если бы этот Хаб был создан, какие функции были бы наиболее полезны для сообществ/организаций, подобных вашему?',
   'Rank in order of usefulness (1 = most useful).': 'Расположите по полезности (1 = наиболее полезно).',
   'Optional document upload': 'Загрузка документов (необязательно)',
-  'If you have reports, case documentation, or community assessments — no individual patient data, please. PDF, DOCX, XLSX. Max 10MB.':
-    'Если у вас есть отчёты, документация по случаям или оценки сообществ — без индивидуальных данных пациентов. PDF, DOCX, XLSX. Макс. 10 МБ.',
+  "If you have any reports, documented cases, or community assessments (excluding any personally identifiable patient information) that are relevant to this research or could support the rationale for the Hub's future work, please upload them here. PDF, DOCX, XLSX. Max 10MB.":
+    'Если у вас имеются отчёты, документация по отдельным случаям или результаты оценки сообществ (без персональных данных пациентов), которые могут быть использованы в рамках исследования или послужить обоснованием для дальнейшей работы Хаба, пожалуйста, загрузите их здесь. PDF, DOCX, XLSX. Макс. 10 МБ.',
   'Which of the following currently block or delay health legislation in your parliament or ministry?':
     'Что из перечисленного сейчас блокирует или задерживает законодательство в области здравоохранения в вашем парламенте или министерстве?',
   'Comparative law database and AI-assisted policy tools':
@@ -174,8 +174,8 @@ const M: Record<string, string> = {
     'Доходит ли сейчас обратная связь от пациентов и сообществ до законодателей или лиц, принимающих решения в министерстве здравоохранения, надёжным образом?',
   'Are people from migrant or displaced communities in your area losing access to TB or lung health treatment as a result of their movement?':
     'Теряют ли люди из числа мигрантов или перемещённых сообществ в вашем регионе доступ к лечению туберкулёза или лёгочных заболеваний в результате перемещения?',
-  'Has your community experienced interruptions in access to TB or lung health medicines in the past 12 months?':
-    'Сталкивалось ли ваше сообщество с перебоями в доступе к лекарствам от туберкулёза или лёгочных заболеваний за последние 12 месяцев?',
+  'Are you aware if any affected community experienced interruptions in access to TB or lung health medicines in the past 12 months?':
+    'Известно ли вам о случаях, когда какое-либо затронутое сообщество сталкивалось с перебоями в доступе к лекарствам от туберкулёза или лёгочных заболеваний за последние 12 месяцев?',
   'What support would be most useful for civil society organizations to engage effectively?':
     'Какая поддержка была бы наиболее полезна организациям гражданского общества для эффективного участия?',
   'Upload documents (optional)': 'Загрузить документы (необязательно)',
@@ -258,8 +258,8 @@ const M: Record<string, string> = {
     'Депутаты, сотрудники аппарата, госслужащие, советники по политике',
   'Institutional partner / donor / foundation / technical partner':
     'Институциональный партнёр / донор / фонд / технический партнёр',
-  'UN agencies, donors, foundations, implementation partners':
-    'Агентства ООН, доноры, фонды, партнёры по реализации',
+  'UN agencies, bilateral and multilateral donors, foundations, implementation partners':
+    'Агентства ООН, доноры двухсторонней и многосторонней помощи, фонды, партнёры по реализации',
   'Other (please describe briefly)': 'Другое (кратко опишите)',
   'Media, researchers, or others with a relevant perspective':
     'СМИ, исследователи или другие лица с релевантной позицией',
@@ -278,15 +278,15 @@ const M: Record<string, string> = {
   'Current systems are functioning adequately': 'Текущие системы функционируют адекватно',
   "I don't have enough information to assess": 'У меня недостаточно информации для оценки',
 
-  'Disruption of medicine supply or procurement': 'Нарушение поставок или закупок лекарств',
-  'Displacement of populations across or within borders': 'Перемещение населения через границы или внутри страны',
+  'Disruptions to medicine supply chains or procurement': 'Нарушения в цепочках поставок или закупках лекарственных средств',
+  'Population displacement across or within borders': 'Перемещение населения через государственные границы или внутри страны',
   'Loss of donor funding or funding transition': 'Потеря донорского финансирования или его переходный период',
-  'Weak or absent enabling legislation': 'Слабое или отсутствующее благоприятствующее законодательство',
-  'Fragmented health data and poor information systems': 'Фрагментированные данные о здоровье и слабые информационные системы',
+  'Weak or inadequate enabling legislation': 'Недостаточная или отсутствующая нормативно-правовая база',
+  'Fragmented health data and weak health information systems': 'Фрагментированные данные о здоровье и слабые системы медицинской информации',
   'Political instability or government transitions': 'Политическая нестабильность или смена правительства',
-  'Healthcare workforce shortages or displacement': 'Нехватка или перемещение медицинских кадров',
-  'Treatment interruption for patients in transit or displacement': 'Перерывы в лечении пациентов в пути или при перемещении',
-  'Drug resistance driven by inconsistent treatment': 'Лекарственная устойчивость из-за непоследовательного лечения',
+  'Shortages of or displacement of the health workforce': 'Нехватка медицинских кадров или их перемещение',
+  'Interruptions in treatment for patients affected by mobility or displacement': 'Перебои в лечении пациентов в связи с миграцией или вынужденным перемещением',
+  'Drug resistance resulting from interrupted or inconsistent treatment': 'Лекарственная резистентность вследствие прерывания или непоследовательного лечения',
   'Lack of cross-border coordination mechanisms': 'Отсутствие механизмов трансграничной координации',
   'Inadequate community or civil society engagement': 'Недостаточное вовлечение сообществ или гражданского общества',
   'Other (please specify)': 'Другое (уточните)',
@@ -306,10 +306,10 @@ const M: Record<string, string> = {
     'Значительное число перемещённых людей теряют доступ к лечению или прерывают его',
   'Emerging issue': 'Назревающая проблема',
   'We are seeing early signs; it is not yet a crisis': 'Видны ранние признаки; это пока не кризис',
-  'Limited issue': 'Ограниченная проблема',
+  'Moderate issue': 'Умеренная проблема',
   'Displacement exists but is managed reasonably well': 'Перемещение есть, но управляется достаточно хорошо',
   'Not a significant issue in our context': 'В нашем контексте это не значимая проблема',
-  "I don't have enough visibility to answer": 'У меня недостаточно данных, чтобы ответить',
+  "I don't have enough data/visibility to answer": 'У меня нет достаточных данных, чтобы ответить',
 
   'Aggregated or de-identified health outcome data': 'Агрегированные или обезличенные данные о результатах лечения',
   'Legislative documents, amendments, or draft laws': 'Законодательные документы, поправки или проекты законов',

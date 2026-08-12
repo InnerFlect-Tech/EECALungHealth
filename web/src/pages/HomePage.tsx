@@ -119,10 +119,15 @@ export function HomePage() {
             ))}
           </div>
 
-          <div className="who-participate">
-            <Link to="/consultation" className="btn btn-primary"><T k="who-participate-cta" /></Link>
-            <p className="who-participate-text"><T k="who-participate-lead" html /></p>
-          </div>
+        </div>
+      </section>
+
+      <section className="section section-alt contact-participate-section">
+        <div className="container">
+          <p className="eyebrow"><T k="who-participate-eyebrow" /></p>
+          <h2><T k="who-participate-title" /></h2>
+          <p className="section-lead"><T k="who-participate-lead" /></p>
+          <p><Link to="/consultation" className="link-arrow"><T k="who-participate-cta" /></Link></p>
         </div>
       </section>
 
