@@ -96,19 +96,24 @@ const riskOptions: FieldOption[] = [
 
 const pillarOptions: FieldOption[] = [
   {
-    value: 'legislative',
-    label: 'Legislative Platform',
-    sub: 'A secure space for MPs to access, draft, compare, and exchange health legislation, amendments, and policy briefs across the region',
+    value: 'legislative-intel',
+    label: 'Legislative Intelligence Platform',
+    sub: 'A secure regional platform for accessing, comparing, and co-developing legislation, policy frameworks, and model legal provisions',
   },
   {
-    value: 'diplomacy',
-    label: 'AI-Driven Diplomacy',
-    sub: 'A system that identifies which countries should exchange experience based on budgets, legislation, health outcomes, and political readiness',
+    value: 'ai-policy',
+    label: 'AI-Powered Policy & Collaboration',
+    sub: 'A secure space for MPs to identify opportunities for policy exchange, technical collaboration, and shared learning based on legislation, financing, health system performance, and emerging priorities',
   },
   {
     value: 'continuity',
     label: 'Health Security & Continuity of Care',
-    sub: 'An intelligence layer that detects system-level risks during displacement, funding transitions, and supply disruptions — and alerts decision-makers before care is interrupted',
+    sub: 'An early warning and decision-support platform that monitors risks to continuity of care — including displacement, funding transitions, medicine shortages, and health system disruptions',
+  },
+  {
+    value: 'ai-app',
+    label: 'AI Lung Health App',
+    sub: 'An AI assistant that provides evidence-based guidance, supports policy and programme implementation, connects users with regional resources, and facilitates access to trusted lung health information',
   },
 ];
 
@@ -119,6 +124,7 @@ const mvpFeatureOptions: FieldOption[] = [
   opt('alerts', 'Continuity-of-care risk alerts for displaced populations'),
   opt('emergency', 'Emergency legal measure templates for cross-border health crises'),
   opt('feedback', 'Civil society feedback integration with legislative drafting'),
+  opt('monitoring', 'Real-time medicine supply disruption monitoring'),
 ];
 
 export function resolveBranch(answers: FormAnswers): RespondentType | null {
@@ -231,10 +237,10 @@ function sharedSteps(): FormStep[] {
     {
       id: 'priorities',
       tag: 'Priorities',
-      title: 'Please rank the three core Hub functions in order of priority for your context (1 = highest)',
+      title: 'Please rank the four core Hub functions in order of priority for your context (1 = highest)',
       hint: 'Click each pillar in order of priority. Click an already-ranked item to remove its rank.',
       fields: [
-        { id: 'q5_pillars', type: 'rank', label: '', required: true, rankCount: 3, options: pillarOptions },
+        { id: 'q5_pillars', type: 'rank', label: '', required: true, rankCount: 4, options: pillarOptions },
       ],
     },
     {
@@ -674,6 +680,7 @@ function branchCSteps(): FormStep[] {
             opt('regional', 'Regional health organization'),
             opt('academic', 'Academic or research institution with implementation role'),
             opt('implementer', 'Implementation partner / technical assistance provider'),
+            opt('civil-society', 'Civil society organisation/affected community'),
             opt('other', 'Other (please specify)'),
           ],
         },
@@ -823,7 +830,7 @@ function closingSteps(): FormStep[] {
     type: 'rank',
     label: 'If the Hub were launching with one core feature in the next 6 months, rank by priority (1 = highest)',
     required: true,
-    rankCount: 6,
+    rankCount: 7,
     options: mvpFeatureOptions,
   };
 

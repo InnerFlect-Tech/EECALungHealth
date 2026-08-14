@@ -97,7 +97,7 @@ const M: Record<string, string> = {
   'Partner · Pilot & MVP': 'Партнёр · Пилот и MVP',
   'Partner · Governance': 'Партнёр · Управление',
   'Closing · Health security': 'Завершение · Безопасность здоровья',
-  'Closing · Coordination & MVP': 'Завершение · Координация и MVP',
+  'Completion · Regional Collaboration & Pilot Priorities': 'Завершение · Региональное сотрудничество и приоритеты пилотного внедрения Хаба',
   'Closing · Open response': 'Завершение · Открытый ответ',
 
   // ── Step titles & hints ───────────────────────────────────────────────
@@ -113,8 +113,8 @@ const M: Record<string, string> = {
     'Каковы три основных риска для непрерывности оказания услуг в области здоровья лёгких в вашем контексте в настоящее время?',
   'Select up to three risks that are most relevant to your context right now.':
     'Выберите до трёх рисков, наиболее актуальных для вашего контекста сейчас.',
-  'Please rank the three core Hub functions in order of priority for your context (1 = highest)':
-    'Расположите три основные функции Хаба по приоритету для вашего контекста (1 = высший)',
+  'Please rank the four core Hub functions in order of priority for your context (1 = highest)':
+    'Расположите четыре основные функции Хаба по приоритету для вашего контекста (1 = высший)',
   'Click each pillar in order of priority. Click an already-ranked item to remove its rank.':
     'Нажимайте на компоненты в порядке приоритета. Нажмите на уже ранжированный элемент, чтобы убрать ранг.',
   'To what extent do population displacement and migration disrupt access to and continuity of lung health care in your context?':
@@ -150,7 +150,7 @@ const M: Record<string, string> = {
   'Pilot support and fundable MVP': 'Поддержка пилота и финансируемый MVP',
   'Governance, privacy and trust requirements': 'Требования к управлению, конфиденциальности и доверию',
   'Continuity-of-care intelligence and crisis readiness': 'Аналитика непрерывности помощи и готовность к кризисам',
-  'Cross-border coordination and MVP prioritization': 'Трансграничная координация и приоритизация MVP',
+  'Regional Collaboration and Hub Pilot Priorities': 'Региональное сотрудничество и приоритеты пилотного внедрения Хаба',
   'Is there anything critical we have not asked?': 'Есть ли что-то важное, о чём мы не спросили?',
   'Optional — max 100 words. Often the most valuable input.':
     'Необязательно — до 100 слов. Часто это самый ценный вклад.',
@@ -291,15 +291,18 @@ const M: Record<string, string> = {
   'Inadequate community or civil society engagement': 'Недостаточное вовлечение сообществ или гражданского общества',
   'Other (please specify)': 'Другое (уточните)',
 
-  'Legislative Platform': 'Законодательная платформа',
-  'A secure space for MPs to access, draft, compare, and exchange health legislation, amendments, and policy briefs across the region':
-    'Защищённое пространство, где депутаты могут получать доступ, разрабатывать, сравнивать и обмениваться законодательством, поправками и аналитическими записками по региону',
-  'AI-Driven Diplomacy': 'Дипломатия на основе ИИ',
-  'A system that identifies which countries should exchange experience based on budgets, legislation, health outcomes, and political readiness':
-    'Система, определяющая, каким странам следует обмениваться опытом, на основе бюджетов, законодательства, показателей здоровья и политической готовности',
+  'Legislative Intelligence Platform': 'Законодательная интеллектуальная платформа',
+  'A secure regional platform for accessing, comparing, and co-developing legislation, policy frameworks, and model legal provisions':
+    'Защищённая региональная платформа для доступа, сравнения и совместной разработки законодательства, политических рамок и типовых правовых норм',
+  'AI-Powered Policy & Collaboration': 'Политика и сотрудничество на основе ИИ',
+  'A secure space for MPs to identify opportunities for policy exchange, technical collaboration, and shared learning based on legislation, financing, health system performance, and emerging priorities':
+    'Защищённое пространство, где депутаты могут находить возможности для обмена политическим опытом, технического сотрудничества и совместного обучения на основе законодательства, финансирования, показателей систем здравоохранения и актуальных приоритетов',
   'Health Security & Continuity of Care': 'Безопасность здоровья и непрерывность помощи',
-  'An intelligence layer that detects system-level risks during displacement, funding transitions, and supply disruptions — and alerts decision-makers before care is interrupted':
-    'Аналитический уровень, выявляющий системные риски при перемещении, изменении финансирования и сбоях поставок — и предупреждающий лиц, принимающих решения, до прерывания помощи',
+  'An early warning and decision-support platform that monitors risks to continuity of care — including displacement, funding transitions, medicine shortages, and health system disruptions':
+    'Платформа раннего предупреждения и поддержки принятия решений, отслеживающая риски для непрерывности помощи — включая перемещение населения, изменения финансирования, дефицит лекарств и сбои в системе здравоохранения',
+  'AI Lung Health App': 'ИИ-приложение по здоровью лёгких',
+  'An AI assistant that provides evidence-based guidance, supports policy and programme implementation, connects users with regional resources, and facilitates access to trusted lung health information':
+    'ИИ-ассистент, предоставляющий научно обоснованные рекомендации, поддерживающий реализацию политики и программ, соединяющий пользователей с региональными ресурсами и облегчающий доступ к достоверной информации о здоровье лёгких',
 
   'Major issue': 'Серьёзная проблема',
   'Significant numbers of displaced people are losing or interrupting treatment':
@@ -429,6 +432,7 @@ const M: Record<string, string> = {
   'Regional health organization': 'Региональная организация здравоохранения',
   'Academic or research institution with implementation role': 'Академическое или исследовательское учреждение с ролью в реализации',
   'Implementation partner / technical assistance provider': 'Партнёр по реализации / поставщик технической помощи',
+  'Civil society organisation/affected community': 'Организация гражданского общества / затронутое сообщество',
   'Aggregated TB incidence, treatment, or outcome data': 'Агрегированные данные о заболеваемости ТБ, лечении или результатах',
   'Health financing or budget allocation data': 'Данные о финансировании здравоохранения или распределении бюджета',
   'Migration and displacement population data': 'Данные о миграции и перемещении населения',
@@ -502,6 +506,7 @@ const M: Record<string, string> = {
   'Continuity-of-care risk alerts for displaced populations': 'Оповещения о рисках непрерывности помощи для перемещённых групп',
   'Emergency legal measure templates for cross-border health crises': 'Шаблоны экстренных правовых мер для трансграничных кризисов здоровья',
   'Civil society feedback integration with legislative drafting': 'Интеграция обратной связи гражданского общества в разработку законов',
+  'Real-time medicine supply disruption monitoring': 'Мониторинг перебоев в наличии и поставках лекарственных препаратов в режиме реального времени',
 
   // ── Audience pages (AudiencePage.tsx) ─────────────────────────────────
   'For policymakers': 'Для политиков',
