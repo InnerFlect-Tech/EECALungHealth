@@ -56,7 +56,7 @@ export function SolutionPage() {
         </div>
       </section>
 
-      {/* Product hero shot — a real country view inside the platform */}
+      {/* Product hero shot – a real country view inside the platform */}
       <div className="container sol-shot">
         <BrowserFrame
           src="/assets/images/platform/ukraine-country-dashboard.png"
@@ -123,7 +123,7 @@ export function SolutionPage() {
             ))}
           </div>
 
-          {/* In use — the platform in serious rooms */}
+          {/* In use – the platform in serious rooms */}
           <div className="sol-inuse">
             <p className="eyebrow"><T k="inuse-eyebrow" /></p>
             <h3 className="sol-inuse-title"><T k="inuse-title" /></h3>

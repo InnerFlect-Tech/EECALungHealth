@@ -5,15 +5,15 @@ import { T, useI18n } from '../i18n/I18nProvider';
 
 const svg = { viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true };
 const SOL_ICONS = {
-  // Engine — legislative platform (chip / processor)
+  // Engine – legislative platform (chip / processor)
   eng: (
     <svg {...svg}><rect x="6.5" y="6.5" width="11" height="11" rx="2" /><path d="M9.5 2.5v3M14.5 2.5v3M9.5 18.5v3M14.5 18.5v3M2.5 9.5h3M2.5 14.5h3M18.5 9.5h3M18.5 14.5h3" /><path d="M10.5 10.5h3v3h-3z" /></svg>
   ),
-  // Bridge — political coordination (arch bridge)
+  // Bridge – political coordination (arch bridge)
   bri: (
     <svg {...svg}><path d="M3 17v-2a9 9 0 0 1 18 0v2" /><path d="M2.5 17h19" /><path d="M7.5 17v-3.5M16.5 17v-3.5M12 17v-5" /></svg>
   ),
-  // Shield — crisis & continuity
+  // Shield – crisis & continuity
   shi: (
     <svg {...svg}><path d="M12 2.75l7 2.75v5.25c0 4.4-3 7.4-7 8.9-4-1.5-7-4.5-7-8.9V5.5l7-2.75z" /><path d="M9 11.5l2 2 4-4" /></svg>
   ),
@@ -69,14 +69,18 @@ export function HomePage() {
             <p className="eyebrow home-council-eyebrow"><T k="council-title" /></p>
             <div className="council-strip">
               <div className="council-card">
-                <img src="/assets/images/team/team-gayane.png" alt="" loading="lazy" style={{ objectPosition: 'center 30%' }} />
+                <span className="council-photo-zoom">
+                  <img src="/assets/images/team/team-gayane.png" alt="" loading="lazy" style={{ width: '4.4rem', height: '100%', maxWidth: 'none', objectPosition: 'center 15%', transform: 'translateX(-3px)' }} />
+                </span>
                 <div className="council-meta">
                   <strong><T k="council-a-name" /></strong>
                   <span><T k="council-a-role" /></span>
                 </div>
               </div>
               <div className="council-card">
-                <img src="/assets/images/team/team-alesia.png" alt="" loading="lazy" />
+                <span className="council-photo-zoom">
+                  <img src="/assets/images/team/team-alesia.png" alt="" loading="lazy" style={{ width: '3.74rem', height: '100%', maxWidth: 'none', objectPosition: 'center 10%' }} />
+                </span>
                 <div className="council-meta">
                   <strong><T k="council-b-name" /></strong>
                   <span><T k="council-b-role" /></span>
@@ -95,7 +99,7 @@ export function HomePage() {
           </div>
 
           <div className="home-funder-actions">
-            <Link to="/team" className="link-arrow"><T k="home-team-cta" /></Link>
+            <Link to="/team" className="btn btn-secondary-onLight"><T k="home-team-cta" /></Link>
           </div>
         </div>
       </section>
@@ -127,7 +131,7 @@ export function HomePage() {
           <p className="eyebrow"><T k="who-participate-eyebrow" /></p>
           <h2><T k="who-participate-title" /></h2>
           <p className="section-lead"><T k="who-participate-lead" /></p>
-          <p><Link to="/consultation" className="link-arrow"><T k="who-participate-cta" /></Link></p>
+          <p><Link to="/consultation" className="btn btn-secondary-onLight"><T k="who-participate-cta" /></Link></p>
         </div>
       </section>
 
@@ -152,7 +156,7 @@ export function HomePage() {
           </ul>
         </div>
         <div className="container">
-          <p><Link className="link-arrow" to="/concept-note"><T k="whatis-concept-note-cta" /></Link></p>
+          <p><Link className="btn btn-secondary-onLight" to="/concept-note"><T k="whatis-concept-note-cta" /></Link></p>
         </div>
       </section>
 
@@ -229,7 +233,7 @@ export function HomePage() {
 
           <p className="sol-engine-note"><T k="sol-engine-note" /></p>
           <p className="sol-trust"><T k="sol-trust" /></p>
-          <p><Link className="link-arrow" to="/solution"><T k="solp-explore-link" /></Link></p>
+          <p><Link className="btn btn-secondary-onLight" to="/solution"><T k="solp-explore-link" /></Link></p>
         </div>
       </section>
 

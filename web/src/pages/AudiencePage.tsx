@@ -13,18 +13,18 @@ type Audience = 'policymakers' | 'partners' | 'civil-society';
 const HERO: Record<Audience, { eyebrow: string; title: string; lead: string; cta: string; proof: string; img: string }> = {
   policymakers: {
     eyebrow: 'For policymakers', title: 'Act with certainty. See it delivered.',
-    lead: 'Move from commitment to enacted, financed policy in weeks — with governed, human-reviewed tools and the backing of a proven regional parliamentary network.',
-    cta: 'Book a consultation', proof: 'Backed by nine national caucuses — active since 2014.', img: '/assets/images/policymakers.webp',
+    lead: 'Move from commitment to enacted, financed policy in weeks – with governed, human-reviewed tools and the backing of a proven regional parliamentary network.',
+    cta: 'Book a consultation', proof: 'Backed by nine national caucuses – active since 2014.', img: '/assets/images/policymakers.webp',
   },
   partners: {
     eyebrow: 'For partners', title: 'A governed platform to build on.',
-    lead: 'Bring your technology, diagnostics, capital or funding into a proven, standards-based regional health system — with a clearly defined role and measurable impact.',
+    lead: 'Bring your technology, diagnostics, capital or funding into a proven, standards-based regional health system – with a clearly defined role and measurable impact.',
     cta: 'Explore a partnership', proof: 'Standards-based, human-reviewed, sovereign by design.', img: '/assets/images/diagnostics.webp',
   },
   'civil-society': {
     eyebrow: 'For civil society', title: 'Your evidence, reaching the people who can act on it.',
-    lead: 'The Hub creates a direct link between affected communities and political decision-makers — so community-generated evidence, recommendations and requests reach the politicians who have the mandate and resources to act.',
-    cta: 'Share your community’s evidence', proof: 'A standing seat on the Civil Society Council — not a one-time submission.', img: '/assets/images/donors.webp',
+    lead: 'The Hub creates a direct link between affected communities and political decision-makers – so community-generated evidence, recommendations and requests reach the politicians who have the mandate and resources to act.',
+    cta: 'Share your community’s evidence', proof: 'A standing seat on the Civil Society Council – not a one-time submission.', img: '/assets/images/donors.webp',
   },
 };
 
@@ -38,24 +38,24 @@ const GET: Record<Audience, { title: string; items: string[] }> = {
   partners: { title: 'What partnership includes', items: [
     'Defined integration points across the Engine, Bridge and Shield',
     'Co-financing and partnership frameworks',
-    'A live, working solution in a first country — the proof unit',
+    'A live, working solution in a first country – the proof unit',
     'Transparent governance, reporting and independent oversight',
     'Association with a trusted parliamentary network',
-    'Full budget and terms — available on request',
+    'Full budget and terms – available on request',
   ] },
   'civil-society': { title: 'What this creates for you', items: [
     'A direct channel from community evidence to the MPs who can act on it',
-    'Your priorities turned into legislative asks — not just recommendations',
-    'A seat on the Civil Society Council — standing oversight, not a one-off submission',
-    'Aggregated, non-identifiable reporting — no individual patient data ever exposed',
+    'Your priorities turned into legislative asks – not just recommendations',
+    'A seat on the Civil Society Council – standing oversight, not a one-off submission',
+    'Aggregated, non-identifiable reporting – no individual patient data ever exposed',
     'Visible tracking of your input, from submission through to policy or budget outcome',
   ] },
 };
 
 const CLOSE: Record<Audience, { title: string; lead: string }> = {
   policymakers: { title: 'Turn your decision into delivered care.', lead: 'Start a confidential conversation about your country.' },
-  partners: { title: 'Build with a proven regional platform.', lead: "Let's discuss where your organisation fits — from technology to funding." },
-  'civil-society': { title: 'Turn lived experience into legal and financial commitment.', lead: "Share what your community needs — we'll make sure it reaches decision-makers who can act on it." },
+  partners: { title: 'Build with a proven regional platform.', lead: "Let's discuss where your organisation fits – from technology to funding." },
+  'civil-society': { title: 'Turn lived experience into legal and financial commitment.', lead: "Share what your community needs – we'll make sure it reaches decision-makers who can act on it." },
 };
 
 const PROOF = [
@@ -66,17 +66,17 @@ const PROOF = [
 
 const cssw = (w: string) => ({ '--w': w } as React.CSSProperties);
 
-/* ---------------- POLICYMAKERS — a process ---------------- */
+/* ---------------- POLICYMAKERS – a process ---------------- */
 function Policymakers() {
   const { lang } = useI18n();
   const flow = [
     { t: 'Draft', d: 'AI-assisted, human-reviewed drafting in a secure MP portal.' },
     { t: 'Coordinate', d: 'Evidence, comparative law and stakeholders aligned.' },
-    { t: 'Enact', d: 'Tabled, debated and passed — tracked in the app.' },
+    { t: 'Enact', d: 'Tabled, debated and passed – tracked in the app.' },
     { t: 'Deliver', d: 'Turned into financed, operational care.' },
   ];
   const why = [
-    { t: 'Certainty', d: 'Draft, compare and table legislation faster — AI assistance that is transparent and human-reviewed at every step.' },
+    { t: 'Certainty', d: 'Draft, compare and table legislation faster – AI assistance that is transparent and human-reviewed at every step.' },
     { t: 'Sovereignty', d: 'Own your national health agenda as external funding recedes, on sovereign, in-region infrastructure.' },
     { t: 'Low risk', d: 'People decide, not machines. Full audit trail, no personal exposure, no unproven "AI breakthroughs".' },
   ];
@@ -87,7 +87,7 @@ function Policymakers() {
           <Reveal>
             <p className="eyebrow">{tr('The lag', lang)}</p>
             <h2>{tr('You have the will. The system has the lag.', lang)}</h2>
-            <p className="section-lead">{tr('An average parliamentarian faces a deluge of legislation, and complex health policy stalls between commitment and action — for months, sometimes years. Donors withdraw, systems fragment, patients wait. The Hub closes that gap.', lang)}</p>
+            <p className="section-lead">{tr('An average parliamentarian faces a deluge of legislation, and complex health policy stalls between commitment and action – for months, sometimes years. Donors withdraw, systems fragment, patients wait. The Hub closes that gap.', lang)}</p>
           </Reveal>
           <Reveal className="sig">
             <div className="sig-bar-row"><span className="sig-bar-lab">{tr('Conventional path', lang)}</span><div className="sig-bar-track"><div className="sig-bar barfill sig-slow" style={cssw('100%')}>{tr('Months–years', lang)}</div></div></div>
@@ -113,7 +113,7 @@ function Policymakers() {
         </div>
       </section>
 
-      {/* Why — as rows (not cards) */}
+      {/* Why – as rows (not cards) */}
       <section className="section section-alt">
         <div className="container">
           <Reveal><p className="eyebrow">{tr('Why it matters to you', lang)}</p></Reveal>
@@ -132,7 +132,7 @@ function Policymakers() {
   );
 }
 
-/* ---------------- PARTNERS — an exchange ---------------- */
+/* ---------------- PARTNERS – an exchange ---------------- */
 function Partners() {
   const { lang } = useI18n();
   const bring = ['Technology, diagnostics or capital', 'Innovation, R&D and know-how', 'Distribution and supply-chain reach'];
@@ -149,8 +149,8 @@ function Partners() {
         <div className="container aud-tension-grid">
           <Reveal>
             <p className="eyebrow">{tr('The opportunity', lang)}</p>
-            <h2>{tr('A region rebuilding its health systems — and it needs you.', lang)}</h2>
-            <p className="section-lead">{tr('As external funding recedes, Eastern Europe & Central Asia is building self-reliant health infrastructure. Technology, diagnostics and capital with a governed home can lead here — this is shared value, not charity.', lang)}</p>
+            <h2>{tr('A region rebuilding its health systems – and it needs you.', lang)}</h2>
+            <p className="section-lead">{tr('As external funding recedes, Eastern Europe & Central Asia is building self-reliant health infrastructure. Technology, diagnostics and capital with a governed home can lead here – this is shared value, not charity.', lang)}</p>
           </Reveal>
           <Reveal className="sig sig-bringgain">
             <div className="sig-col"><p className="sig-col-h">{tr('What you bring', lang)}</p><ul>{bring.map((x) => <li key={x}>{tr(x, lang)}</li>)}</ul></div>
@@ -203,13 +203,13 @@ function Partners() {
   );
 }
 
-/* ---------------- CIVIL SOCIETY — evidence to commitment (kept lean) ---------------- */
+/* ---------------- CIVIL SOCIETY – evidence to commitment (kept lean) ---------------- */
 function CivilSociety() {
   const { lang } = useI18n();
   const flow = [
     { t: 'Share', d: 'Community-generated evidence, recommendations and requests submitted through the Hub.' },
     { t: 'Reach', d: 'Routed directly to the parliamentarians and caucuses with the mandate to act.' },
-    { t: 'Commit', d: 'Translated into legislative asks — new laws, amendments or policy changes.' },
+    { t: 'Commit', d: 'Translated into legislative asks – new laws, amendments or policy changes.' },
     { t: 'Fund', d: 'Backed by budget allocation and tracked through to delivered care.' },
   ];
   return (
@@ -217,7 +217,7 @@ function CivilSociety() {
       <div className="container">
         <Reveal><p className="eyebrow eyebrow-onDark">{tr('The mechanism', lang)}</p></Reveal>
         <Reveal><h2>{tr('From lived experience to legal commitment.', lang)}</h2></Reveal>
-        <Reveal><p className="section-lead">{tr('This is not consultation theatre — it is a mechanism that turns community priorities into political commitments, legal frameworks and concrete financial resources.', lang)}</p></Reveal>
+        <Reveal><p className="section-lead">{tr('This is not consultation theatre – it is a mechanism that turns community priorities into political commitments, legal frameworks and concrete financial resources.', lang)}</p></Reveal>
         <ol className="path">
           {flow.map((s, i) => (
             <Reveal as="li" className="path-step" delay={i * 90} key={s.t}>

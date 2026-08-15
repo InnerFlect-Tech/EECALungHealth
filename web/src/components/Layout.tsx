@@ -66,7 +66,7 @@ export function Header({ current }: HeaderProps) {
                   e.stopPropagation();
                   // A mouse click focuses the button, which keeps the dropdown
                   // open via :focus-within even after the pointer leaves. Blur
-                  // it so a click behaves like hover — closes on mouseleave —
+                  // it so a click behaves like hover – closes on mouseleave –
                   // while :focus-within still opens it for keyboard/Tab users.
                   e.currentTarget.blur();
                 }}
@@ -144,7 +144,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="partner-logo"
-                aria-label="Global TB Caucus — opens in new tab"
+                aria-label="Global TB Caucus – opens in new tab"
               >
                 <img src="/assets/images/logos/01_GTBC_logotype_main_CMJN.jpg" alt="Global TB Caucus" />
               </a>
@@ -153,7 +153,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="partner-logo partner-logo--lockup"
-                aria-label="Innerflect — opens in new tab"
+                aria-label="Innerflect – opens in new tab"
               >
                 <img src="/assets/images/logos/innerflect-mark.svg" alt="" aria-hidden="true" />
                 <span className="partner-lockup-name">Innerflect</span>

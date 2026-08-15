@@ -8,8 +8,8 @@ const CC = 'hello@innerflect.tech';
 function buildMailto(lang: 'en' | 'ru'): string {
   const subject =
     lang === 'ru'
-      ? 'Запрос консультации — EECA Lung Health Sovereignty Hub'
-      : 'Consultation request — EECA Lung Health Sovereignty Hub';
+      ? 'Запрос консультации – EECA Lung Health Sovereignty Hub'
+      : 'Consultation request – EECA Lung Health Sovereignty Hub';
 
   const body =
     lang === 'ru'

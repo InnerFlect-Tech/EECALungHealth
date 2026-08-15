@@ -18,7 +18,7 @@ function Swatch({ token, dark }: { token: string; dark?: boolean }) {
     <div className="ds-swatch">
       <div className={`ds-chip${dark ? ' ds-chip-dark' : ''}`} style={{ background: `var(${token})` }} />
       <code>{token}</code>
-      <span className="ds-hex">{val || '—'}</span>
+      <span className="ds-hex">{val || '–'}</span>
     </div>
   );
 }
@@ -49,7 +49,7 @@ export function DesignSystemPage() {
           <div>
             <p className="ds-eyebrow">EECA Hub</p>
             <h1 className="ds-h1">Design System</h1>
-            <p className="ds-lead">The single source of truth for tokens and components. We review and accept design changes here — everything on the site reads from these values.</p>
+            <p className="ds-lead">The single source of truth for tokens and components. We review and accept design changes here – everything on the site reads from these values.</p>
           </div>
           <Link to="/" className="ds-back">← Back to site</Link>
         </div>
@@ -75,9 +75,9 @@ export function DesignSystemPage() {
         <Section id="typography" title="Typography">
           <div className="ds-type-row"><span className="ds-type-meta">Display / Space Grotesk 700</span><p className="ds-type-sample" style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 700, lineHeight: 1.05, letterSpacing: '-0.02em' }}>Big decisions, real delivery.</p></div>
           <div className="ds-type-row"><span className="ds-type-meta">H2 / Space Grotesk 2.25rem</span><p className="ds-type-sample" style={{ fontFamily: 'var(--font-display)', fontSize: '2.25rem', fontWeight: 600, letterSpacing: '-0.01em', color: 'var(--color-text)' }}>The Solution: One Integrated System</p></div>
-          <div className="ds-type-row"><span className="ds-type-meta">H3 / Space Grotesk 1.25rem</span><p className="ds-type-sample" style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 600, letterSpacing: '-0.01em', color: 'var(--color-text)' }}>The Engine — Sovereignty App</p></div>
+          <div className="ds-type-row"><span className="ds-type-meta">H3 / Space Grotesk 1.25rem</span><p className="ds-type-sample" style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 600, letterSpacing: '-0.01em', color: 'var(--color-text)' }}>The Engine – Sovereignty App</p></div>
           <div className="ds-type-row"><span className="ds-type-meta">Lead / Inter 1.1875rem</span><p className="ds-type-sample" style={{ fontSize: '1.1875rem', color: 'var(--color-text-muted)', maxWidth: '48rem' }}>A multi-year regional programme, entered through a 6-month Foundation Phase in Kazakhstan that delivers a working solution before any further funding is asked. Full budget available on request.</p></div>
-          <div className="ds-type-row"><span className="ds-type-meta">Body / Inter 1rem</span><p className="ds-type-sample" style={{ maxWidth: '48rem' }}>The Hub turns political will into lung-health action — a fast, governed platform built on the Global TB Caucus network across nine countries in Eastern Europe & Central Asia. AI is an enabling tool with human review at every step, never the decision-maker.</p></div>
+          <div className="ds-type-row"><span className="ds-type-meta">Body / Inter 1rem</span><p className="ds-type-sample" style={{ maxWidth: '48rem' }}>The Hub turns political will into lung-health action – a fast, governed platform built on the Global TB Caucus network across nine countries in Eastern Europe & Central Asia. AI is an enabling tool with human review at every step, never the decision-maker.</p></div>
           <div className="ds-type-row"><span className="ds-type-meta">Eyebrow / caps</span><p className="ds-type-sample" style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-primary)' }}>Regional stakeholder consultation</p></div>
         </Section>
 
@@ -142,7 +142,7 @@ export function DesignSystemPage() {
           <div className="ds-row-dark">
             <aside className="hero-statcard" style={{ maxWidth: '26rem' }}>
               <p className="statcard-eyebrow">The opportunity</p>
-              <p className="statcard-text">A multi-year regional programme, entered at a 6-month Foundation Phase — full budget on request.</p>
+              <p className="statcard-text">A multi-year regional programme, entered at a 6-month Foundation Phase – full budget on request.</p>
               <ul className="statgrid">
                 <li><strong>300K+</strong><span>vulnerable patients</span></li>
                 <li><strong>9</strong><span>national caucuses</span></li>

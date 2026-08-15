@@ -35,9 +35,9 @@ function PrivacyBody() {
       </p>
       <h2>What we collect</h2>
       <ul>
-        <li><strong>Consultation submissions</strong> — the information you choose to provide in the consultation form (such as name, email, organisation or role, country, your responses, and any files you attach).</li>
-        <li><strong>Technical data</strong> — standard server logs (e.g. IP address, browser type) generated when you visit, used only for security and reliability.</li>
-        <li><strong>Essential cookies</strong> — a single session cookie is used only for the private administration area. The public site sets no marketing or tracking cookies.</li>
+        <li><strong>Consultation submissions</strong> – the information you choose to provide in the consultation form (such as name, email, organisation or role, country, your responses, and any files you attach).</li>
+        <li><strong>Technical data</strong> – standard server logs (e.g. IP address, browser type) generated when you visit, used only for security and reliability.</li>
+        <li><strong>Essential cookies</strong> – a single session cookie is used only for the private administration area. The public site sets no marketing or tracking cookies.</li>
       </ul>
       <h2>Why we use it</h2>
       <p>

@@ -5,13 +5,13 @@ import { BriefingCTA } from '../components/BriefingCTA';
 import { UseOfFundsChart } from '../components/UseOfFundsChart';
 import { T, useI18n } from '../i18n/I18nProvider';
 
-/* The delivery phases, with the timeframe each one runs on — mirrors the
+/* The delivery phases, with the timeframe each one runs on – mirrors the
    Investment Thesis timeline, shown here alongside the funding ask. */
 const ROADMAP = [
   { n: '1', when: 'tier-founding-when' },
   { n: '2', when: 'tier-regional-when' },
-  { n: '3', when: 'tier-platform-when' },
-  { n: '4', when: null },
+  { n: '3', when: 'fund-road-p3-when' },
+  { n: '4', when: 'fund-road-p4-when' },
 ] as const;
 
 export function ForFundersPage() {

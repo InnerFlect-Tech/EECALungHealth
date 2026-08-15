@@ -78,7 +78,7 @@ export function FieldRenderer({ field, value, answers, onChange, entryCards }: P
                 {opt.dot && <span className={`u-dot ${opt.dot === 'cr' ? 'cr' : opt.dot === 'hi' ? 'hi' : opt.dot === 'mo' ? 'mo' : opt.dot === 'lo' ? 'lo' : 'un'}`} />}
                 <span className="u-text">
                   <strong>{opt.label}</strong>
-                  {opt.sub && <> — {opt.sub}</>}
+                  {opt.sub && <> – {opt.sub}</>}
                 </span>
               </label>
             ))}
@@ -164,7 +164,7 @@ export function FieldRenderer({ field, value, answers, onChange, entryCards }: P
           value={str(value)}
           onChange={(e) => onChange(field.id, e.target.value)}
         >
-          <option value="">{tr('— Select —', lang)}</option>
+          <option value="">{tr('– Select –', lang)}</option>
           {(field.options ?? []).map((opt: FieldOption) => (
             <option key={opt.value} value={opt.value}>
               {opt.label}
@@ -210,7 +210,7 @@ export function FieldRenderer({ field, value, answers, onChange, entryCards }: P
                   }
                 }}
               >
-                <span className="rank-badge">{rank > 0 ? rank : '—'}</span>
+                <span className="rank-badge">{rank > 0 ? rank : '–'}</span>
                 <div className="rank-body">
                   <strong>{opt.label}</strong>
                   {opt.sub && <span>{opt.sub}</span>}

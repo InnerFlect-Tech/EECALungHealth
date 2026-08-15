@@ -20,13 +20,13 @@ function ConsultHero() {
         </h1>
         <p className="consult-hero-sub">
           {tr(
-            'Across Eastern Europe and Central Asia, health systems are under pressure — from geopolitical disruption, funding transitions, displacement of populations, and strained supply chains. When treatment continuity breaks down, the consequences are clinical, political, and irreversible.',
+            'Across Eastern Europe and Central Asia, health systems are under pressure – from geopolitical disruption, funding transitions, displacement of populations, and strained supply chains. When treatment continuity breaks down, the consequences are clinical, political, and irreversible.',
             lang,
           )}
         </p>
         <p className="consult-hero-sub">
           {tr(
-            'The EECA Lung Health Sovereignty Hub is a proposed regional platform designed to help parliamentarians, community organizations, and partners coordinate faster, legislate smarter, and protect care continuity — especially for the most vulnerable populations.',
+            'The EECA Lung Health Sovereignty Hub is a proposed regional platform designed to help parliamentarians, community organizations, and partners coordinate faster, legislate smarter, and protect care continuity – especially for the most vulnerable populations.',
             lang,
           )}
         </p>

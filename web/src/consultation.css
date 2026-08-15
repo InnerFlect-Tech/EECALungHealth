@@ -753,17 +753,6 @@
     grid-template-columns: 1fr;
   }
 
-  .consult-cta-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .consult-hero .btn-primary,
-  .consult-hero .btn-secondary {
-    width: 100%;
-    justify-content: center;
-  }
-
   .step-nav {
     flex-direction: column-reverse;
     align-items: stretch;

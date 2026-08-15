@@ -2,7 +2,7 @@
 // Keeps formSchema.ts as the English source of truth; this maps each English
 // UI string -> Russian. Strings not present here fall back to English.
 //
-// ⚠️ Draft translation — needs native-speaker review (Alesia) before public use.
+// ⚠️ Draft translation – needs native-speaker review (Alesia) before public use.
 
 import type { Lang } from './I18nProvider';
 import type { FormField, FormStep } from '../lib/formSchema';
@@ -13,10 +13,10 @@ const M: Record<string, string> = {
     'Мнения региональных заинтересованных сторон',
   'Your input will shape': 'Ваш вклад определит,',
   'what gets built first.': 'что будет создано в первую очередь.',
-  'Across Eastern Europe and Central Asia, health systems are under pressure — from geopolitical disruption, funding transitions, displacement of populations, and strained supply chains. When treatment continuity breaks down, the consequences are clinical, political, and irreversible.':
-    'В Восточной Европе и Центральной Азии системы здравоохранения испытывают давление — из-за геополитических потрясений, изменений в финансировании, перемещения населения и нарушений в цепочках поставок. Когда непрерывность лечения нарушается, последствия являются клиническими, политическими и необратимыми.',
-  'The EECA Lung Health Sovereignty Hub is a proposed regional platform designed to help parliamentarians, community organizations, and partners coordinate faster, legislate smarter, and protect care continuity — especially for the most vulnerable populations.':
-    'Хаб суверенитета лёгочного здоровья ВЕЦА — это предлагаемая региональная платформа, призванная помочь парламентариям, общественным организациям и партнёрам быстрее координировать действия, принимать более продуманные законы и защищать непрерывность медицинской помощи — особенно для наиболее уязвимых групп населения.',
+  'Across Eastern Europe and Central Asia, health systems are under pressure – from geopolitical disruption, funding transitions, displacement of populations, and strained supply chains. When treatment continuity breaks down, the consequences are clinical, political, and irreversible.':
+    'В Восточной Европе и Центральной Азии системы здравоохранения испытывают давление – из-за геополитических потрясений, изменений в финансировании, перемещения населения и нарушений в цепочках поставок. Когда непрерывность лечения нарушается, последствия являются клиническими, политическими и необратимыми.',
+  'The EECA Lung Health Sovereignty Hub is a proposed regional platform designed to help parliamentarians, community organizations, and partners coordinate faster, legislate smarter, and protect care continuity – especially for the most vulnerable populations.':
+    'Хаб суверенитета лёгочного здоровья ВЕЦА – это предлагаемая региональная платформа, призванная помочь парламентариям, общественным организациям и партнёрам быстрее координировать действия, принимать более продуманные законы и защищать непрерывность медицинской помощи – особенно для наиболее уязвимых групп населения.',
   '7–10 minutes': '7–10 минут',
   'No individual patient data collected': 'Индивидуальные данные пациентов не собираются',
   'All responses inform product decisions': 'Все ответы влияют на решения о продукте',
@@ -45,7 +45,7 @@ const M: Record<string, string> = {
 
   // ── FieldRenderer literals ────────────────────────────────────────────
   'Optional': 'Необязательно',
-  '— Select —': '— Выберите —',
+  '– Select –': '– Выберите –',
   'Click to rank. Click again to remove.': 'Нажмите, чтобы присвоить ранг. Нажмите ещё раз, чтобы убрать.',
 
   // ── STEP_LABELS (progress bar) ────────────────────────────────────────
@@ -68,7 +68,7 @@ const M: Record<string, string> = {
   'Migration intelligence': 'Миграционная аналитика',
   'Design priorities': 'Приоритеты дизайна',
   'Org profile': 'Профиль организации',
-  'Data & funding': 'Данные и финансирование',
+  'Funding transition': 'Изменение финансирования',
   'Evidence & systems': 'Доказательства и системы',
   'Pilot & funding': 'Пилот и финансирование',
   'Governance standards': 'Стандарты управления',
@@ -92,9 +92,9 @@ const M: Record<string, string> = {
   'Parliamentary · Migration intelligence': 'Парламент · Миграционная аналитика',
   'Parliamentary · Design priorities': 'Парламент · Приоритеты дизайна',
   'Partner · Organization': 'Партнёр · Организация',
-  'Partner · Data & funding': 'Партнёр · Данные и финансирование',
+  'Partner · Funding transition': 'Партнёр · Изменение финансирования',
   'Partner · Evidence & systems': 'Партнёр · Доказательства и системы',
-  'Partner · Pilot & MVP': 'Партнёр · Пилот и MVP',
+  'Partner · Pilot & Development': 'Партнёр · Пилот и разработка',
   'Partner · Governance': 'Партнёр · Управление',
   'Closing · Health security': 'Завершение · Безопасность здоровья',
   'Completion · Regional Collaboration & Pilot Priorities': 'Завершение · Региональное сотрудничество и приоритеты пилотного внедрения Хаба',
@@ -121,8 +121,8 @@ const M: Record<string, string> = {
     'В какой степени перемещение населения и миграция создают препятствия для обеспечения непрерывного доступа к помощи в области здоровья лёгких в вашем контексте?',
   'Are you in a position to contribute any of the following to this initiative?':
     'Можете ли вы внести что-либо из перечисленного в эту инициативу?',
-  'Select all that apply. This is not a commitment — it helps us understand what is available.':
-    'Отметьте все подходящие варианты. Это не обязательство — это помогает понять, что доступно.',
+  'Select all that apply. This is not a commitment – it helps us understand what is available.':
+    'Отметьте все подходящие варианты. Это не обязательство – это помогает понять, что доступно.',
   'Would you be willing to be contacted for a follow-up conversation of up to 30 minutes?':
     'Согласны ли вы на последующий разговор продолжительностью до 30 минут?',
   'Your contact details will be used only for follow-up related to this initiative, with your explicit permission.':
@@ -147,13 +147,13 @@ const M: Record<string, string> = {
   'Organization type': 'Тип организации',
   'Funding transition risks': 'Риски при изменении финансирования',
   'Evidence requirements and existing platforms': 'Требования к доказательствам и существующие платформы',
-  'Pilot support and fundable MVP': 'Поддержка пилота и финансируемый MVP',
+  'Support for pilot implementation and early product development': 'Поддержка в реализации пилота и ранней разработке продукта',
   'Governance, privacy and trust requirements': 'Требования к управлению, конфиденциальности и доверию',
   'Continuity-of-care intelligence and crisis readiness': 'Аналитика непрерывности помощи и готовность к кризисам',
   'Regional Collaboration and Hub Pilot Priorities': 'Региональное сотрудничество и приоритеты пилотного внедрения Хаба',
   'Is there anything critical we have not asked?': 'Есть ли что-то важное, о чём мы не спросили?',
-  'Optional — max 100 words. Often the most valuable input.':
-    'Необязательно — до 100 слов. Часто это самый ценный вклад.',
+  'Optional – max 100 words. Often the most valuable input.':
+    'Необязательно – до 100 слов. Часто это самый ценный вклад.',
 
   // ── Field labels & placeholders ───────────────────────────────────────
   'Which country or region are you responding from?': 'Из какой страны или региона вы отвечаете?',
@@ -190,10 +190,10 @@ const M: Record<string, string> = {
     'Использовали бы вы защищённый цифровой портал по приглашению, созданный специально для парламентариев?',
   'Are there upcoming legislative windows, budget cycles, or political deadlines in the next 12 months?':
     'Есть ли в ближайшие 12 месяцев предстоящие законодательные окна, бюджетные циклы или политические сроки?',
-  'How useful would access to a regional early warning system — one that helps identify risks of disruptions in the availability and supply of TB and lung health medicines, as well as other threats to continuity of treatment — be for your work?':
+  'How useful would access to a regional early warning system – one that helps identify risks of disruptions in the availability and supply of TB and lung health medicines, as well as other threats to continuity of treatment – be for your work?':
     'Насколько полезным для вашей работы был бы доступ к региональной системе раннего предупреждения, которая помогает выявлять риски перебоев в поставках лекарственных препаратов для лечения ТБ и заболеваний лёгких и другие угрозы непрерывности лечения?',
-  'What single thing would make this platform genuinely useful to you — something you would actually open and rely on? (max 100 words)':
-    'Что одно сделало бы эту платформу действительно полезной для вас — чем вы бы реально пользовались и на что полагались? (до 100 слов)',
+  'What single thing would make this platform genuinely useful to you – something you would actually open and rely on? (max 100 words)':
+    'Что одно сделало бы эту платформу действительно полезной для вас – чем вы бы реально пользовались и на что полагались? (до 100 слов)',
   'Share your honest perspective…': 'Поделитесь вашим искренним мнением…',
   'Upload draft legislation, policy briefs, or committee reports (optional). PDF, DOCX. Max 10MB.':
     'Загрузите проекты законов, аналитические записки или отчёты комитетов (необязательно). PDF, DOCX. Макс. 10 МБ.',
@@ -213,7 +213,7 @@ const M: Record<string, string> = {
     'С точки зрения финансирования, какой компонент Хаба было бы проще всего поддержать в ближайшие 12–18 месяцев?',
   'What rules, safeguards, or trust standards would the Hub need to meet before your organization could engage or support it?':
     'Каким правилам, гарантиям или стандартам доверия должен соответствовать Хаб, прежде чем ваша организация сможет участвовать или поддержать его?',
-  'How useful would a regional early warning system be — one that helps identify risks of patients losing access to treatment and alerts decision-makers early?':
+  'How useful would a regional early warning system be – one that helps identify risks of patients losing access to treatment and alerts decision-makers early?':
     'Насколько полезной для вашей работы была бы региональная система раннего предупреждения, которая помогает выявлять риски потери доступа пациентов к лечению и своевременно информирует лиц, принимающих решения?',
   'How prepared is the health system in your country or region to maintain TB and lung health services during a major crisis?':
     'Насколько система здравоохранения в вашей стране или регионе готова поддерживать услуги по туберкулёзу и лёгочному здоровью во время крупного кризиса?',
@@ -298,8 +298,8 @@ const M: Record<string, string> = {
   'A secure space for MPs to identify opportunities for policy exchange, technical collaboration, and shared learning based on legislation, financing, health system performance, and emerging priorities':
     'Защищённое пространство, где депутаты могут находить возможности для обмена политическим опытом, технического сотрудничества и совместного обучения на основе законодательства, финансирования, показателей систем здравоохранения и актуальных приоритетов',
   'Health Security & Continuity of Care': 'Безопасность здоровья и непрерывность помощи',
-  'An early warning and decision-support platform that monitors risks to continuity of care — including displacement, funding transitions, medicine shortages, and health system disruptions':
-    'Платформа раннего предупреждения и поддержки принятия решений, отслеживающая риски для непрерывности помощи — включая перемещение населения, изменения финансирования, дефицит лекарств и сбои в системе здравоохранения',
+  'An early warning and decision-support platform that monitors risks to continuity of care – including displacement, funding transitions, medicine shortages, and health system disruptions':
+    'Платформа раннего предупреждения и поддержки принятия решений, отслеживающая риски для непрерывности помощи – включая перемещение населения, изменения финансирования, дефицит лекарств и сбои в системе здравоохранения',
   'AI Lung Health App': 'ИИ-приложение по здоровью лёгких',
   'An AI assistant that provides evidence-based guidance, supports policy and programme implementation, connects users with regional resources, and facilitates access to trusted lung health information':
     'ИИ-ассистент, предоставляющий научно обоснованные рекомендации, поддерживающий реализацию политики и программ, соединяющий пользователей с региональными ресурсами и облегчающий доступ к достоверной информации о здоровье лёгких',
@@ -324,9 +324,9 @@ const M: Record<string, string> = {
   'None of the above at this stage': 'Ничего из перечисленного на данном этапе',
   'I need more information before committing': 'Мне нужно больше информации, прежде чем брать обязательства',
 
-  'Yes — please contact me': 'Да — пожалуйста, свяжитесь со мной',
-  'Maybe — I would like to know more first': 'Возможно — сначала я хотел бы узнать больше',
-  'No — I prefer to remain anonymous': 'Нет — предпочитаю остаться анонимным',
+  'Yes – please contact me': 'Да – пожалуйста, свяжитесь со мной',
+  'Maybe – I would like to know more first': 'Возможно – сначала я хотел бы узнать больше',
+  'No – I prefer to remain anonymous': 'Нет – предпочитаю остаться анонимным',
 
   'When people move between cities or regions within a country': 'Когда люди перемещаются между городами или регионами внутри страны',
   'When people cross international borders': 'Когда люди пересекают международные границы',
@@ -338,24 +338,24 @@ const M: Record<string, string> = {
   'When treatment protocols differ between locations': 'Когда протоколы лечения различаются между регионами',
   "When health records don't transfer between facilities": 'Когда медицинские записи не передаются между учреждениями',
 
-  'Yes — Communities are the first to recognize emerging issues': 'Да — сообщества первыми замечают возникающие проблемы',
-  'Sometimes — it depends on the issue': 'Иногда — зависит от проблемы',
-  'No — official systems usually detect problems first': 'Нет — обычно проблемы первыми выявляют официальные системы',
+  'Yes – Communities are the first to recognize emerging issues': 'Да – сообщества первыми замечают возникающие проблемы',
+  'Sometimes – it depends on the issue': 'Иногда – зависит от проблемы',
+  'No – official systems usually detect problems first': 'Нет – обычно проблемы первыми выявляют официальные системы',
   "We don't have a reliable way to know either way": 'У нас нет надёжного способа это определить',
-  'Yes — there are formal and functioning channels': 'Да — есть формальные и работающие каналы',
-  'Partially — some channels exist but they are slow or inconsistent': 'Частично — некоторые каналы есть, но они медленные или непоследовательные',
-  'Rarely — feedback reaches decision-makers informally at best': 'Редко — обратная связь в лучшем случае доходит неформально',
-  'No — there is no effective channel we are aware of': 'Нет — нам неизвестно об эффективном канале',
+  'Yes – there are formal and functioning channels': 'Да – есть формальные и работающие каналы',
+  'Partially – some channels exist but they are slow or inconsistent': 'Частично – некоторые каналы есть, но они медленные или непоследовательные',
+  'Rarely – feedback reaches decision-makers informally at best': 'Редко – обратная связь в лучшем случае доходит неформально',
+  'No – there is no effective channel we are aware of': 'Нет – нам неизвестно об эффективном канале',
   "I don't know": 'Не знаю',
 
-  'Yes — this is happening on a regular basis': 'Да — это происходит регулярно',
+  'Yes – this is happening on a regular basis': 'Да – это происходит регулярно',
   'There are specific cases we are aware of': 'Нам известны отдельные случаи',
-  'Possibly — we suspect it but have no confirmed data': 'Возможно — мы подозреваем, но подтверждённых данных нет',
+  'Possibly – we suspect it but have no confirmed data': 'Возможно – мы подозреваем, но подтверждённых данных нет',
   'Not that we have observed': 'Мы такого не наблюдали',
   'This is not applicable in our context': 'В нашем контексте это неприменимо',
-  'Yes — significant interruptions': 'Да — значительные перебои',
-  'Yes — minor or temporary interruptions': 'Да — незначительные или временные перебои',
-  'No — supply has been consistent': 'Нет — поставки были стабильными',
+  'Yes – significant interruptions': 'Да – значительные перебои',
+  'Yes – minor or temporary interruptions': 'Да – незначительные или временные перебои',
+  'No – supply has been consistent': 'Нет – поставки были стабильными',
   "I don't have reliable information on this": 'У меня нет надёжной информации по этому вопросу',
 
   'A channel to report access problems directly to decision-makers': 'Канал для сообщения о проблемах доступа напрямую лицам, принимающим решения',
@@ -370,7 +370,7 @@ const M: Record<string, string> = {
   'Guidance on how to engage with parliamentary processes': 'Рекомендации по участию в парламентских процессах',
   'Translation and language support': 'Перевод и языковая поддержка',
   'Technical support for using the platform': 'Техническая поддержка при использовании платформы',
-  'None — we have sufficient capacity': 'Ничего — у нас достаточно возможностей',
+  'None – we have sufficient capacity': 'Ничего – у нас достаточно возможностей',
 
   'Insufficient technical evidence or comparative data': 'Недостаточно технических доказательств или сравнительных данных',
   'Lack of comparative examples from other EECA countries': 'Отсутствие сравнительных примеров из других стран ВЕЦА',
@@ -382,9 +382,9 @@ const M: Record<string, string> = {
   'Unclear legal compatibility with regional frameworks': 'Неясная правовая совместимость с региональными рамками',
   'No dedicated health committee capacity': 'Отсутствие профильного комитета по здравоохранению',
 
-  'Very useful — I would use it regularly': 'Очень полезно — я бы пользовался этим регулярно',
-  'Somewhat useful — I would use it for specific situations': 'Отчасти полезно — я бы использовал в отдельных случаях',
-  "Uncertain — it depends on how it's designed": 'Не уверен — зависит от того, как это сделано',
+  'Very useful – I would use it regularly': 'Очень полезно – я бы пользовался этим регулярно',
+  'Somewhat useful – I would use it for specific situations': 'Отчасти полезно – я бы использовал в отдельных случаях',
+  "Uncertain – it depends on how it's designed": 'Не уверен – зависит от того, как это сделано',
   'Unlikely to be useful in my context': 'Вряд ли будет полезно в моём контексте',
   'I would not use it personally but colleagues might': 'Сам бы не использовал, но коллеги могли бы',
   'General health legislation': 'Общее законодательство в сфере здравоохранения',
@@ -394,10 +394,10 @@ const M: Record<string, string> = {
   'Public health and prevention policies': 'Политика общественного здоровья и профилактики',
   'Pharmaceutical regulation and access to medicines': 'Регулирование фармацевтики и доступ к лекарствам',
   'Health workforce and service delivery': 'Медицинские кадры и оказание услуг',
-  'Yes — this would be genuinely useful': 'Да — это было бы действительно полезно',
-  'Possibly — with the right governance and transparency conditions': 'Возможно — при правильных условиях управления и прозрачности',
-  "Uncertain — I'd need to see it in practice": 'Не уверен — нужно увидеть это на практике',
-  'Unlikely — I prefer human analysis': 'Маловероятно — предпочитаю анализ человеком',
+  'Yes – this would be genuinely useful': 'Да – это было бы действительно полезно',
+  'Possibly – with the right governance and transparency conditions': 'Возможно – при правильных условиях управления и прозрачности',
+  "Uncertain – I'd need to see it in practice": 'Не уверен – нужно увидеть это на практике',
+  'Unlikely – I prefer human analysis': 'Маловероятно – предпочитаю анализ человеком',
   'No': 'Нет',
   'Transparency about data sources used': 'Прозрачность используемых источников данных',
   'Human review before any output is relied upon': 'Проверка человеком, прежде чем полагаться на результат',
@@ -407,10 +407,10 @@ const M: Record<string, string> = {
   'User training and onboarding': 'Обучение и адаптация пользователей',
   'A clear audit trail for all outputs': 'Чёткий аудиторский след для всех результатов',
 
-  'Yes — I would use it actively': 'Да — я бы активно пользовался',
-  'Possibly — if the security and governance conditions were right': 'Возможно — при подходящих условиях безопасности и управления',
-  "I'm uncertain — I'd need more information": 'Я не уверен — нужно больше информации',
-  "No — I wouldn't use it": 'Нет — я бы не пользовался',
+  'Yes – I would use it actively': 'Да – я бы активно пользовался',
+  'Possibly – if the security and governance conditions were right': 'Возможно – при подходящих условиях безопасности и управления',
+  "I'm uncertain – I'd need more information": 'Я не уверен – нужно больше информации',
+  "No – I wouldn't use it": 'Нет – я бы не пользовался',
   'Budget allocation or supplementary budget process': 'Распределение бюджета или процесс дополнительного бюджета',
   'Health law revision or new national health strategy': 'Пересмотр закона о здравоохранении или новая национальная стратегия здоровья',
   'TB or infectious disease program renewal': 'Обновление программы по ТБ или инфекционным заболеваниям',
@@ -419,10 +419,10 @@ const M: Record<string, string> = {
   'Global Fund transition planning': 'Планирование перехода Глобального фонда',
   'No clear window in the near term': 'Чёткого окна в ближайшей перспективе нет',
   "I'm not sure": 'Я не уверен',
-  'Very useful — it would directly support timely decision-making': 'Очень полезно — это напрямую поддержит своевременные решения',
-  'Somewhat useful — helpful in specific crisis situations': 'Отчасти полезно — помогает в отдельных кризисных ситуациях',
-  'Uncertain — depends on how the system is designed and delivered': 'Не уверен — зависит от того, как система устроена и предоставляется',
-  'Not very useful — limited relevance to my role or context': 'Не очень полезно — мало релевантно для моей роли или контекста',
+  'Very useful – it would directly support timely decision-making': 'Очень полезно – это напрямую поддержит своевременные решения',
+  'Somewhat useful – helpful in specific crisis situations': 'Отчасти полезно – помогает в отдельных кризисных ситуациях',
+  'Uncertain – depends on how the system is designed and delivered': 'Не уверен – зависит от того, как система устроена и предоставляется',
+  'Not very useful – limited relevance to my role or context': 'Не очень полезно – мало релевантно для моей роли или контекста',
   'Not useful at all': 'Совсем не полезно',
 
   'UN agency or affiliated body (WHO, IOM, UNAIDS, etc.)': 'Агентство ООН или аффилированный орган (ВОЗ, МОМ, ЮНЭЙДС и др.)',
@@ -433,27 +433,11 @@ const M: Record<string, string> = {
   'Academic or research institution with implementation role': 'Академическое или исследовательское учреждение с ролью в реализации',
   'Implementation partner / technical assistance provider': 'Партнёр по реализации / поставщик технической помощи',
   'Civil society organisation/affected community': 'Организация гражданского общества / затронутое сообщество',
-  'Aggregated TB incidence, treatment, or outcome data': 'Агрегированные данные о заболеваемости ТБ, лечении или результатах',
-  'Health financing or budget allocation data': 'Данные о финансировании здравоохранения или распределении бюджета',
-  'Migration and displacement population data': 'Данные о миграции и перемещении населения',
-  'Medicine procurement or supply chain data': 'Данные о закупках лекарств или цепочках поставок',
-  'Legislative or policy tracking databases': 'Базы данных отслеживания законодательства или политики',
-  'Health system performance indicators': 'Показатели эффективности системы здравоохранения',
-  'Donor disbursement and funding flow data': 'Данные о выплатах доноров и потоках финансирования',
   'None of the above': 'Ничего из перечисленного',
-  "I'm not sure what is available": 'Я не уверен, что доступно',
-  'Data use agreement with defined governance': 'Соглашение об использовании данных с чёткими правилами управления',
-  'Technical integration with existing systems': 'Техническая интеграция с существующими системами',
-  'Privacy impact assessment': 'Оценка воздействия на конфиденциальность',
-  'Third-party or independent audit': 'Сторонний или независимый аудит',
-  'Alignment with WHO or UN data standards': 'Соответствие стандартам данных ВОЗ или ООН',
-  'Government sign-off in relevant countries': 'Одобрение правительств соответствующих стран',
-  'No conditions — we could share openly': 'Без условий — мы могли бы делиться открыто',
-  'We are unlikely to share data regardless of conditions': 'Мы вряд ли будем делиться данными независимо от условий',
-  'Very serious — urgent action is needed': 'Очень серьёзно — нужны срочные действия',
-  'Serious — action will be needed soon': 'Серьёзно — действия понадобятся скоро',
-  'Moderate — should be monitored': 'Умеренно — следует отслеживать',
-  'Low — not a priority issue': 'Низко — не приоритетный вопрос',
+  'Very serious – urgent action is needed': 'Очень серьёзно – нужны срочные действия',
+  'Serious – action will be needed soon': 'Серьёзно – действия понадобятся скоро',
+  'Moderate – should be monitored': 'Умеренно – следует отслеживать',
+  'Low – not a priority issue': 'Низко – не приоритетный вопрос',
   'Not relevant in my context': 'Не релевантно в моём контексте',
   'Proof-of-concept pilot in at least one country': 'Пилот-доказательство концепции хотя бы в одной стране',
   'Letters of intent or endorsement from national governments': 'Письма о намерениях или одобрении от национальных правительств',
@@ -464,13 +448,13 @@ const M: Record<string, string> = {
   'Cost-effectiveness or value-for-money analysis': 'Анализ экономической эффективности или соотношения цены и качества',
   'Alignment with existing regional or global frameworks': 'Соответствие существующим региональным или глобальным рамкам',
   'We would support based on current information': 'Мы бы поддержали на основе текущей информации',
-  'Yes — and we would be open to integration or interoperability': 'Да — и мы открыты к интеграции или совместимости',
-  'Yes — but they are proprietary or restricted': 'Да — но они проприетарные или с ограниченным доступом',
+  'Yes – and we would be open to integration or interoperability': 'Да – и мы открыты к интеграции или совместимости',
+  'Yes – but they are proprietary or restricted': 'Да – но они проприетарные или с ограниченным доступом',
   'We use basic tools but nothing purpose-built for this region': 'Мы используем базовые инструменты, но ничего специально для этого региона',
-  'No — we rely on manual reporting': 'Нет — мы полагаемся на ручную отчётность',
-  'Yes — we are actively looking for initiatives to support': 'Да — мы активно ищем инициативы для поддержки',
-  'Possibly — subject to governance and feasibility review': 'Возможно — при условии анализа управления и осуществимости',
-  'Maybe — we would need to see a detailed proposal': 'Возможно — нам нужно было бы увидеть детальное предложение',
+  'No – we rely on manual reporting': 'Нет – мы полагаемся на ручную отчётность',
+  'Yes – we are actively looking for initiatives to support': 'Да – мы активно ищем инициативы для поддержки',
+  'Possibly – subject to governance and feasibility review': 'Возможно – при условии анализа управления и осуществимости',
+  'Maybe – we would need to see a detailed proposal': 'Возможно – нам нужно было бы увидеть детальное предложение',
   'Unlikely at this stage': 'Маловероятно на данном этапе',
   'Legislative platform / MP Sovereignty Portal': 'Законодательная платформа / Суверенный портал для депутатов',
   'AI-driven bilateral diplomacy and country matching system': 'Двусторонняя дипломатия на основе ИИ и система сопоставления стран',
@@ -485,20 +469,20 @@ const M: Record<string, string> = {
   'Annual third-party audit': 'Ежегодный сторонний аудит',
   'Sovereign data hosting in-country or in-region': 'Суверенное размещение данных в стране или регионе',
   'Open-source or auditable codebase': 'Открытый или поддающийся аудиту исходный код',
-  'Other — please specify': 'Другое — уточните',
+  'Other – please specify': 'Другое – уточните',
 
-  'Very useful — this is a critical gap': 'Очень полезно — это критический пробел',
-  'Useful — this would complement existing systems': 'Полезно — это дополнило бы существующие системы',
-  'Uncertain — it depends on how the data is collected and governed': 'Не уверен — зависит от того, как данные собираются и управляются',
+  'Very useful – this is a critical gap': 'Очень полезно – это критический пробел',
+  'Useful – this would complement existing systems': 'Полезно – это дополнило бы существующие системы',
+  'Uncertain – it depends on how the data is collected and governed': 'Не уверен – зависит от того, как данные собираются и управляются',
   'Of limited use in my context': 'Ограниченно полезно в моём контексте',
-  'Well prepared — systems and protocols are in place': 'Хорошо подготовлена — системы и протоколы существуют',
-  'Partially prepared — some systems exist but gaps remain': 'Частично подготовлена — некоторые системы есть, но пробелы остаются',
-  'Poorly prepared — we would struggle in a major crisis': 'Плохо подготовлена — в крупном кризисе нам было бы трудно',
-  'Not prepared — there are no meaningful contingency mechanisms': 'Не подготовлена — значимых механизмов на случай ЧС нет',
-  'Yes — formal agreements are in place and functioning': 'Да — формальные соглашения существуют и работают',
-  'Partial — informal coordination exists in some cases': 'Частично — в некоторых случаях есть неформальная координация',
-  'Very limited — coordination is ad hoc at best': 'Очень ограниченно — координация в лучшем случае разовая',
-  'No — no meaningful cross-border mechanism exists': 'Нет — значимого трансграничного механизма не существует',
+  'Well prepared – systems and protocols are in place': 'Хорошо подготовлена – системы и протоколы существуют',
+  'Partially prepared – some systems exist but gaps remain': 'Частично подготовлена – некоторые системы есть, но пробелы остаются',
+  'Poorly prepared – we would struggle in a major crisis': 'Плохо подготовлена – в крупном кризисе нам было бы трудно',
+  'Not prepared – there are no meaningful contingency mechanisms': 'Не подготовлена – значимых механизмов на случай ЧС нет',
+  'Yes – formal agreements are in place and functioning': 'Да – формальные соглашения существуют и работают',
+  'Partial – informal coordination exists in some cases': 'Частично – в некоторых случаях есть неформальная координация',
+  'Very limited – coordination is ad hoc at best': 'Очень ограниченно – координация в лучшем случае разовая',
+  'No – no meaningful cross-border mechanism exists': 'Нет – значимого трансграничного механизма не существует',
 
   'Comparative EECA health legislation database (searchable, multi-country)': 'Сравнительная база законодательства ВЕЦА в сфере здравоохранения (поисковая, многострановая)',
   'AI-assisted amendment drafting and analysis tool for MPs': 'Инструмент с ИИ для разработки и анализа поправок для депутатов',
@@ -515,16 +499,16 @@ const M: Record<string, string> = {
   'Act with certainty. See it delivered.': 'Действуйте с уверенностью. Увидьте результат.',
   'A governed platform to build on.': 'Управляемая платформа для развития.',
   'Fund proof, not promises.': 'Финансируйте доказанное, а не обещания.',
-  'Move from commitment to enacted, financed policy in weeks — with governed, human-reviewed tools and the backing of a proven regional parliamentary network.':
-    'От намерения до принятой и профинансированной политики — за недели, с управляемыми, проверяемыми людьми инструментами и поддержкой проверенной региональной парламентской сети.',
-  'Bring your technology, diagnostics, or capital into a proven, standards-based regional health system — with a clearly defined role and measurable impact.':
-    'Внедрите свои технологии, диагностику или капитал в проверенную, стандартизированную региональную систему здравоохранения — с чётко определённой ролью и измеримым результатом.',
-  'Back a de-risked, phased model that delivers a working result in one country before scaling to nine — with transparent governance and measurable outcomes.':
-    'Поддержите поэтапную модель со сниженным риском, которая даёт работающий результат в одной стране, прежде чем масштабироваться на девять — с прозрачным управлением и измеримыми результатами.',
+  'Move from commitment to enacted, financed policy in weeks – with governed, human-reviewed tools and the backing of a proven regional parliamentary network.':
+    'От намерения до принятой и профинансированной политики – за недели, с управляемыми, проверяемыми людьми инструментами и поддержкой проверенной региональной парламентской сети.',
+  'Bring your technology, diagnostics, or capital into a proven, standards-based regional health system – with a clearly defined role and measurable impact.':
+    'Внедрите свои технологии, диагностику или капитал в проверенную, стандартизированную региональную систему здравоохранения – с чётко определённой ролью и измеримым результатом.',
+  'Back a de-risked, phased model that delivers a working result in one country before scaling to nine – with transparent governance and measurable outcomes.':
+    'Поддержите поэтапную модель со сниженным риском, которая даёт работающий результат в одной стране, прежде чем масштабироваться на девять – с прозрачным управлением и измеримыми результатами.',
   'Book a consultation': 'Записаться на консультацию',
   'Explore a partnership': 'Обсудить партнёрство',
   'Request the concept note': 'Запросить концепт-ноту',
-  'Backed by nine national caucuses — active since 2014.': 'Поддержано девятью национальными парламентскими группами — действуют с 2014 года.',
+  'Backed by nine national caucuses – active since 2014.': 'Поддержано девятью национальными парламентскими группами – действуют с 2014 года.',
   'Standards-based, human-reviewed, sovereign by design.': 'Стандартизировано, проверяется людьми, суверенно по своей архитектуре.',
   'Each phase proven before the next is funded.': 'Каждый этап доказан прежде, чем финансируется следующий.',
 
@@ -538,19 +522,19 @@ const M: Record<string, string> = {
   'Decision briefs and budget-impact notes, ready for committee':
     'Аналитические записки и оценки бюджетного эффекта, готовые для комитета',
   'A peer network of nine national caucuses and former-MP advisors':
-    'Сеть из девяти национальных парламентских групп и советников — бывших депутатов',
+    'Сеть из девяти национальных парламентских групп и советников – бывших депутатов',
   'Defined integration points across the Engine, Bridge and Shield':
     'Чётко определённые точки интеграции в Engine, Bridge и Shield',
   'Co-financing and partnership frameworks': 'Механизмы совместного финансирования и партнёрства',
   'A live pilot pathway from proof to regional scale': 'Живой пилотный путь от доказательства к региональному масштабу',
   'Association with a trusted parliamentary network': 'Ассоциация с надёжной парламентской сетью',
-  'A live, working solution in a first country — the proof unit':
-    'Работающее решение в первой стране — единица доказательства',
+  'A live, working solution in a first country – the proof unit':
+    'Работающее решение в первой стране – единица доказательства',
   'Transparent governance, reporting and independent oversight':
     'Прозрачное управление, отчётность и независимый надзор',
   'A replicable, scalable model for regional health sovereignty':
     'Тиражируемая, масштабируемая модель регионального суверенитета здравоохранения',
-  'Full budget and terms — available on request': 'Полный бюджет и условия — предоставляются по запросу',
+  'Full budget and terms – available on request': 'Полный бюджет и условия – предоставляются по запросу',
   'Built around what you need.': 'Создано вокруг ваших потребностей.',
 
   'Turn your decision into delivered care.': 'Превратите своё решение в оказанную помощь.',
@@ -558,7 +542,7 @@ const M: Record<string, string> = {
   'Build with a proven regional platform.': 'Стройте на основе проверенной региональной платформы.',
   "Let's discuss where your organisation fits.": 'Обсудим, где найдётся место вашей организации.',
   'Invest in a working model of health sovereignty.': 'Инвестируйте в работающую модель суверенитета здравоохранения.',
-  'See the results before scale — request the concept note.': 'Увидьте результаты до масштабирования — запросите концепт-ноту.',
+  'See the results before scale – request the concept note.': 'Увидьте результаты до масштабирования – запросите концепт-ноту.',
   'Back to overview': 'Назад к обзору',
   'Read the Concept Note': 'Прочитать концепт-ноту',
   'Open the Concept Note': 'Открыть концепт-ноту',
@@ -575,21 +559,21 @@ const M: Record<string, string> = {
   'Deliver': 'Реализация',
   'AI-assisted, human-reviewed drafting in a secure MP portal.': 'Разработка с ИИ и проверкой человеком в защищённом портале депутата.',
   'Evidence, comparative law and stakeholders aligned.': 'Согласованы доказательная база, сравнительное право и заинтересованные стороны.',
-  'Tabled, debated and passed — tracked in the app.': 'Внесено, обсуждено и принято — с отслеживанием в приложении.',
+  'Tabled, debated and passed – tracked in the app.': 'Внесено, обсуждено и принято – с отслеживанием в приложении.',
   'Turned into financed, operational care.': 'Превращено в финансируемую, работающую помощь.',
   'Certainty': 'Уверенность',
   'Sovereignty': 'Суверенитет',
   'Low risk': 'Низкий риск',
-  'Draft, compare and table legislation faster — AI assistance that is transparent and human-reviewed at every step.':
-    'Разрабатывайте, сравнивайте и вносите законопроекты быстрее — ИИ-помощь, прозрачная и проверяемая человеком на каждом шаге.',
+  'Draft, compare and table legislation faster – AI assistance that is transparent and human-reviewed at every step.':
+    'Разрабатывайте, сравнивайте и вносите законопроекты быстрее – ИИ-помощь, прозрачная и проверяемая человеком на каждом шаге.',
   'Own your national health agenda as external funding recedes, on sovereign, in-region infrastructure.':
-    'Владейте своей национальной повесткой здравоохранения по мере сокращения внешнего финансирования — на суверенной, региональной инфраструктуре.',
+    'Владейте своей национальной повесткой здравоохранения по мере сокращения внешнего финансирования – на суверенной, региональной инфраструктуре.',
   'People decide, not machines. Full audit trail, no personal exposure, no unproven "AI breakthroughs".':
     'Решают люди, а не машины. Полный аудиторский след, отсутствие персональных рисков, никаких недоказанных «прорывов ИИ».',
   'The lag': 'Разрыв во времени',
-  'You have the will. The system has the lag.': 'У вас есть воля. У системы — разрыв во времени.',
-  'An average parliamentarian faces a deluge of legislation, and complex health policy stalls between commitment and action — for months, sometimes years. Donors withdraw, systems fragment, patients wait. The Hub closes that gap.':
-    'Средний парламентарий сталкивается с потоком законодательных инициатив, и сложная политика здравоохранения застревает между намерением и действием — на месяцы, а иногда и годы. Доноры уходят, системы фрагментируются, пациенты ждут. Хаб закрывает этот разрыв.',
+  'You have the will. The system has the lag.': 'У вас есть воля. У системы – разрыв во времени.',
+  'An average parliamentarian faces a deluge of legislation, and complex health policy stalls between commitment and action – for months, sometimes years. Donors withdraw, systems fragment, patients wait. The Hub closes that gap.':
+    'Средний парламентарий сталкивается с потоком законодательных инициатив, и сложная политика здравоохранения застревает между намерением и действием – на месяцы, а иногда и годы. Доноры уходят, системы фрагментируются, пациенты ждут. Хаб закрывает этот разрыв.',
   'Conventional path': 'Обычный путь',
   'Months–years': 'Месяцы–годы',
   'With the Hub': 'С Хабом',
@@ -618,9 +602,9 @@ const M: Record<string, string> = {
     'Подключайтесь в рамках управляемых, стандартизированных механизмов с человеческим надзором.',
   'Move from a proven pilot to nine-country regional reach.': 'Перейдите от проверенного пилота к региональному охвату девяти стран.',
   'The opportunity': 'Возможность',
-  'A region rebuilding its health systems — and it needs you.': 'Регион перестраивает свои системы здравоохранения — и ему нужны вы.',
-  'As external funding recedes, Eastern Europe & Central Asia is building self-reliant health infrastructure. Technology, diagnostics and capital with a governed home can lead here — this is shared value, not charity.':
-    'По мере сокращения внешнего финансирования Восточная Европа и Центральная Азия строит самодостаточную инфраструктуру здравоохранения. Технологии, диагностика и капитал с управляемым «домом» могут здесь лидировать — это общая ценность, а не благотворительность.',
+  'A region rebuilding its health systems – and it needs you.': 'Регион перестраивает свои системы здравоохранения – и ему нужны вы.',
+  'As external funding recedes, Eastern Europe & Central Asia is building self-reliant health infrastructure. Technology, diagnostics and capital with a governed home can lead here – this is shared value, not charity.':
+    'По мере сокращения внешнего финансирования Восточная Европа и Центральная Азия строит самодостаточную инфраструктуру здравоохранения. Технологии, диагностика и капитал с управляемым «домом» могут здесь лидировать – это общая ценность, а не благотворительность.',
   'What you bring': 'Что вы приносите',
   'What you gain': 'Что вы получаете',
   'Governed by design': 'Управляемость заложена в архитектуре',
@@ -630,23 +614,23 @@ const M: Record<string, string> = {
 
   // Civil society hero + body
   'For civil society': 'Для гражданского общества',
-  'Your evidence, reaching the people who can act on it.': 'Ваши доказательства — доходят до тех, кто может по ним действовать.',
-  'The Hub creates a direct link between affected communities and political decision-makers — so community-generated evidence, recommendations and requests reach the politicians who have the mandate and resources to act.':
-    'Хаб создаёт прямую связь между пострадавшими сообществами и политическими лицами, принимающими решения — чтобы доказательства, рекомендации и запросы сообществ доходили до депутатов, обладающих полномочиями и ресурсами для действий.',
-  'A standing seat on the Civil Society Council — not a one-time submission.': 'Постоянное место в Совете гражданского общества — а не разовое обращение.',
+  'Your evidence, reaching the people who can act on it.': 'Ваши доказательства – доходят до тех, кто может по ним действовать.',
+  'The Hub creates a direct link between affected communities and political decision-makers – so community-generated evidence, recommendations and requests reach the politicians who have the mandate and resources to act.':
+    'Хаб создаёт прямую связь между пострадавшими сообществами и политическими лицами, принимающими решения – чтобы доказательства, рекомендации и запросы сообществ доходили до депутатов, обладающих полномочиями и ресурсами для действий.',
+  'A standing seat on the Civil Society Council – not a one-time submission.': 'Постоянное место в Совете гражданского общества – а не разовое обращение.',
   'What this creates for you': 'Что это даёт вам',
   'A direct channel from community evidence to the MPs who can act on it': 'Прямой канал от доказательств сообщества к депутатам, способным по ним действовать',
-  'Your priorities turned into legislative asks — not just recommendations': 'Ваши приоритеты становятся законодательными запросами — а не просто рекомендациями',
-  'A seat on the Civil Society Council — standing oversight, not a one-off submission': 'Место в Совете гражданского общества — постоянный надзор, а не разовое обращение',
-  'Aggregated, non-identifiable reporting — no individual patient data ever exposed': 'Агрегированная, обезличенная отчётность — индивидуальные данные пациентов никогда не раскрываются',
-  'Visible tracking of your input, from submission through to policy or budget outcome': 'Видимое отслеживание вашего обращения — от подачи до политического или бюджетного результата',
+  'Your priorities turned into legislative asks – not just recommendations': 'Ваши приоритеты становятся законодательными запросами – а не просто рекомендациями',
+  'A seat on the Civil Society Council – standing oversight, not a one-off submission': 'Место в Совете гражданского общества – постоянный надзор, а не разовое обращение',
+  'Aggregated, non-identifiable reporting – no individual patient data ever exposed': 'Агрегированная, обезличенная отчётность – индивидуальные данные пациентов никогда не раскрываются',
+  'Visible tracking of your input, from submission through to policy or budget outcome': 'Видимое отслеживание вашего обращения – от подачи до политического или бюджетного результата',
   'Turn lived experience into legal and financial commitment.': 'Превратите личный опыт в юридические и финансовые обязательства.',
-  "Share what your community needs — we'll make sure it reaches decision-makers who can act on it.":
-    'Расскажите, что нужно вашему сообществу — мы позаботимся, чтобы это дошло до тех, кто может действовать.',
+  "Share what your community needs – we'll make sure it reaches decision-makers who can act on it.":
+    'Расскажите, что нужно вашему сообществу – мы позаботимся, чтобы это дошло до тех, кто может действовать.',
   'The implementation gap': 'Разрыв во внедрении',
   'Communities know what is needed. The system does not hear it.': 'Сообщества знают, что нужно. Система их не слышит.',
-  'Affected communities generate evidence, recommendations and requests — but too often that knowledge never reaches the politicians who have the mandate and resources to act on it: adopting or amending legislation, shaping policy, or allocating public budgets.':
-    'Пострадавшие сообщества собирают доказательства, формируют рекомендации и запросы — но слишком часто эти знания так и не доходят до политиков, обладающих полномочиями и ресурсами для действий: принятия или изменения законов, формирования политики или выделения бюджета.',
+  'Affected communities generate evidence, recommendations and requests – but too often that knowledge never reaches the politicians who have the mandate and resources to act on it: adopting or amending legislation, shaping policy, or allocating public budgets.':
+    'Пострадавшие сообщества собирают доказательства, формируют рекомендации и запросы – но слишком часто эти знания так и не доходят до политиков, обладающих полномочиями и ресурсами для действий: принятия или изменения законов, формирования политики или выделения бюджета.',
   'What often happens': 'Что происходит обычно',
   'Community evidence collected, but goes unheard': 'Доказательства сообщества собраны, но остаются неуслышанными',
   'Recommendations shared informally, with no political owner': 'Рекомендации передаются неформально, без политического ответственного',
@@ -662,25 +646,25 @@ const M: Record<string, string> = {
   'Reach': 'Доставка',
   'Routed directly to the parliamentarians and caucuses with the mandate to act.': 'Направляются напрямую депутатам и парламентским группам, обладающим полномочиями действовать.',
   'Commit': 'Обязательство',
-  'Translated into legislative asks — new laws, amendments or policy changes.': 'Превращаются в законодательные запросы — новые законы, поправки или изменения политики.',
+  'Translated into legislative asks – new laws, amendments or policy changes.': 'Превращаются в законодательные запросы – новые законы, поправки или изменения политики.',
   'Fund': 'Финансирование',
   'Backed by budget allocation and tracked through to delivered care.': 'Подкрепляется выделением бюджета и отслеживается вплоть до оказанной помощи.',
   'Beyond a voice': 'Больше, чем просто голос',
-  'This is not consultation theatre — it is a mechanism that turns community priorities into political commitments, legal frameworks and concrete financial resources.':
-    'Это не имитация консультаций — это механизм, превращающий приоритеты сообщества в политические обязательства, правовые рамки и конкретные финансовые ресурсы.',
+  'This is not consultation theatre – it is a mechanism that turns community priorities into political commitments, legal frameworks and concrete financial resources.':
+    'Это не имитация консультаций – это механизм, превращающий приоритеты сообщества в политические обязательства, правовые рамки и конкретные финансовые ресурсы.',
   'Protected by design': 'Защита заложена в архитектуре',
   'Aggregated, non-identifiable data only. No individual patient data is ever requested or exposed.':
     'Только агрегированные, обезличенные данные. Индивидуальные данные пациентов никогда не запрашиваются и не раскрываются.',
   'Structured oversight': 'Структурированный надзор',
-  'A seat on the Civil Society Council gives your organisation a standing role in governance — not just a one-time submission.':
-    'Место в Совете гражданского общества даёт вашей организации постоянную роль в управлении — а не просто разовое обращение.',
+  'A seat on the Civil Society Council gives your organisation a standing role in governance – not just a one-time submission.':
+    'Место в Совете гражданского общества даёт вашей организации постоянную роль в управлении – а не просто разовое обращение.',
 
   // Donors body
   'Foundation': 'Фундамент',
   'Replication': 'Тиражирование',
   'Regional platform': 'Региональная платформа',
   'Scale & integration': 'Масштаб и интеграция',
-  'A working solution, live in one country — the proof unit.': 'Работающее решение, запущенное в одной стране — единица доказательства.',
+  'A working solution, live in one country – the proof unit.': 'Работающее решение, запущенное в одной стране – единица доказательства.',
   'The proven playbook, stamped country by country.': 'Проверенный план действий, тиражируемый по странам.',
   'The full application across the region.': 'Полноценное применение по всему региону.',
   'Nine-country coverage, sustainability, hand-off.': 'Охват девяти стран, устойчивость, передача управления.',
@@ -689,21 +673,21 @@ const M: Record<string, string> = {
   'human-reviewed, governed decisions': 'решений, проверяемых людьми и управляемых',
   'The moment': 'Момент',
   'Proof matters more than promises.': 'Доказательства важнее обещаний.',
-  'Global donors are stepping back just as the need peaks — and funders now reward evidence, not pilots that never scale. The Hub delivers a working result in a single country first, so your capital backs a proven unit, then replicates it.':
-    'Глобальные доноры отступают именно тогда, когда потребность достигает пика — и финансирующие организации теперь вознаграждают доказательства, а не пилоты, которые никогда не масштабируются. Хаб сначала даёт работающий результат в одной стране, поэтому ваш капитал поддерживает проверенную единицу, а затем тиражирует её.',
+  'Global donors are stepping back just as the need peaks – and funders now reward evidence, not pilots that never scale. The Hub delivers a working result in a single country first, so your capital backs a proven unit, then replicates it.':
+    'Глобальные доноры отступают именно тогда, когда потребность достигает пика – и финансирующие организации теперь вознаграждают доказательства, а не пилоты, которые никогда не масштабируются. Хаб сначала даёт работающий результат в одной стране, поэтому ваш капитал поддерживает проверенную единицу, а затем тиражирует её.',
   'Needed 2026–28': 'Требуется на 2026–28',
   'Pledged so far': 'Обещано на сегодня',
   'The de-risked ladder': 'Лестница со сниженным риском',
   'Each rung proven before the next is funded.': 'Каждая ступень доказана прежде, чем финансируется следующая.',
-  'A donor never funds a promise — only a repeat of something already working.':
-    'Донор никогда не финансирует обещание — только повторение того, что уже работает.',
+  'A donor never funds a promise – only a repeat of something already working.':
+    'Донор никогда не финансирует обещание – только повторение того, что уже работает.',
   'Measured impact': 'Измеренное воздействие',
 
   // ── Contact page (ContactPage.tsx) ────────────────────────────────────
   'Contact': 'Контакты',
   "Let's talk.": 'Давайте поговорим.',
-  "The fastest way to reach us is the consultation form — it routes your message to the right person on our team. Partner and funding discussions are handled in confidence.":
-    'Самый быстрый способ связаться с нами — форма консультации: она направит ваше сообщение нужному человеку в команде. Обсуждения партнёрства и финансирования ведутся конфиденциально.',
+  "The fastest way to reach us is the consultation form – it routes your message to the right person on our team. Partner and funding discussions are handled in confidence.":
+    'Самый быстрый способ связаться с нами – форма консультации: она направит ваше сообщение нужному человеку в команде. Обсуждения партнёрства и финансирования ведутся конфиденциально.',
   'Or email us directly:': 'Или напишите нам напрямую:',
   'Donors': 'Доноры',
   'Funders and foundations.': 'Финансирующие организации и фонды.',

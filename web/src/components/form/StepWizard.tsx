@@ -25,8 +25,19 @@ export function StepWizard({ hero }: Props) {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  // Only re-resolve the branch (and thus the step count/progress bar) when the
+  // user actually advances – otherwise merely clicking a track radio on step 1
+  // (before Continue) jumps the "X of Y" total out from under them mid-step.
+  const [committedAnswers, setCommittedAnswers] = useState<FormAnswers>({});
 
-  const steps = useMemo(() => buildStepSequence(answers), [answers]);
+  const steps = useMemo(() => buildStepSequence(committedAnswers), [committedAnswers]);
+  // Every track resolves to the same total step count, so before one is picked,
+  // show that eventual total instead of the shared-steps-only placeholder –
+  // otherwise the "X of Y" jumps the moment the user advances past step 1.
+  const displayTotal = useMemo(() => {
+    if (resolveBranch(committedAnswers)) return steps.length;
+    return buildStepSequence({ ...committedAnswers, q0_type: 'A' }).length;
+  }, [committedAnswers, steps.length]);
 
   useEffect(() => {
     if (stepIndex >= steps.length && steps.length > 0) {
@@ -36,7 +47,7 @@ export function StepWizard({ hero }: Props) {
 
   const current = steps[stepIndex];
   const view = current ? localizeStep(current, lang) : null;
-  const progress = steps.length > 1 ? Math.round((stepIndex / (steps.length - 1)) * 97) + 3 : 3;
+  const progress = displayTotal > 1 ? Math.round((stepIndex / (displayTotal - 1)) * 97) + 3 : 3;
 
   const onChange = useCallback((id: string, value: unknown) => {
     setAnswers((prev) => {
@@ -74,6 +85,7 @@ export function StepWizard({ hero }: Props) {
       return;
     }
 
+    setCommittedAnswers(answers);
     setStepIndex((i) => i + 1);
     scrollToElement('consultation-form', true);
   };
@@ -122,7 +134,7 @@ export function StepWizard({ hero }: Props) {
             <div className="prog-top">
               <span className="prog-label">{tr(STEP_LABELS[current?.id ?? ''] ?? 'Consultation', lang)}</span>
               <span className="prog-count">
-                {stepIndex + 1} {tr('of', lang)} {steps.length}
+                {stepIndex + 1} {tr('of', lang)} {displayTotal}
               </span>
             </div>
             <div className="prog-track">
@@ -194,8 +206,8 @@ export function StepWizard({ hero }: Props) {
           {resolveBranch(answers) && (
             <p className="max-note" style={{ marginTop: 16 }}>
               {lang === 'ru'
-                ? `Направление: ${resolveBranch(answers)} — профильные вопросы следуют за общим разделом.`
-                : `Track: ${resolveBranch(answers)} — branch-specific questions follow shared section.`}
+                ? `Направление: ${resolveBranch(answers)} – профильные вопросы следуют за общим разделом.`
+                : `Track: ${resolveBranch(answers)} – branch-specific questions follow shared section.`}
             </p>
           )}
         </div>

@@ -858,6 +858,27 @@ img {
   transform: translateY(-2px);
 }
 
+/* Same "secondary" button family, translated for light/tinted section
+   backgrounds — a ghost/outline button in brand teal instead of white,
+   since white-on-white has no legibility here. Thin border by design. */
+.btn-secondary-onLight {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-light);
+}
+.btn-secondary-onLight::after {
+  content: '→';
+  transition: transform var(--transition);
+}
+.btn-secondary-onLight:hover {
+  background: var(--teal-50);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+.btn-secondary-onLight:hover::after {
+  transform: translateX(2px);
+}
+
 /* Sections */
 .section {
   padding: var(--space-3xl) var(--space-xl);
@@ -2505,10 +2526,10 @@ section[id],
   height: 26px;
 }
 .partner-lockup-name {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.125rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
   color: var(--ink-900);
   line-height: 1;
 }
@@ -2588,7 +2609,7 @@ section[id],
 }
 
 .platform-highlights li::before {
-  content: '—';
+  content: '–';
   position: absolute;
   left: 0;
   color: var(--color-accent);
@@ -3264,15 +3285,6 @@ section[id],
     padding-right: max(var(--space-lg), env(safe-area-inset-right));
   }
 
-  .cta-buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .cta-buttons .btn {
-    width: 100%;
-    text-align: center;
-  }
 
   .hub-architecture .pod {
     flex: 1 1 100%;
@@ -4055,13 +4067,6 @@ section[id],
   .funders-impact-grid { grid-template-columns: 1fr; }
   .funders-uof-row { grid-template-columns: 1fr; gap: var(--space-xs); }
   .council-strip { grid-template-columns: 1fr; }
-  .concept-note-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .concept-note-actions .btn {
-    text-align: center;
-  }
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -4110,9 +4115,6 @@ section[id],
 }
 @media (max-width: 820px) {
   .home-funder-title { font-size: 1.75rem; }
-  .home-funder-actions { flex-direction: column; align-items: stretch; }
-  .home-funder-actions .btn,
-  .home-funder-actions .link-arrow { text-align: center; }
 }
 
 /* ═══════════════════════════════════════════════════════════════

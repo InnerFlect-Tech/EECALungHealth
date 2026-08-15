@@ -64,7 +64,7 @@ export function FunderFitPage() {
       const answers: FormAnswers = {
         q0_type: 'C',
         q1_country: 'Multi-country / Regional',
-        q2_role: `Funder fit — ${ff.orgType}`,
+        q2_role: `Funder fit – ${ff.orgType}`,
         q8_consent: 'yes',
         q8a_org: ff.org,
         ff_org_type: ff.orgType,

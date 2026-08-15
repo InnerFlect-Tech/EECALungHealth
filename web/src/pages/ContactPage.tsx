@@ -21,7 +21,7 @@ export function ContactPage() {
           <p className="page-hero-eyebrow">{tr('Contact', lang)}</p>
           <h1>{tr("Let's talk.", lang)}</h1>
           <p className="page-hero-lead">
-            {tr('The fastest way to reach us is the consultation form — it routes your message to the right person on our team. Partner and funding discussions are handled in confidence.', lang)}
+            {tr('The fastest way to reach us is the consultation form – it routes your message to the right person on our team. Partner and funding discussions are handled in confidence.', lang)}
           </p>
           <div className="aud-hero-cta">
             <BriefingCTA variant="primary" />
@@ -38,7 +38,7 @@ export function ContactPage() {
           <p className="eyebrow">{tr('Regional Stakeholder Insights', lang)}</p>
           <h2>{tr('Your input will shape what gets built first.', lang)}</h2>
           <p className="section-lead">{tr('A 7–10 minute survey that helps us to understand your situation.', lang)}</p>
-          <p><Link to="/consultation" className="link-arrow">{tr('Ready to Participate', lang)}</Link></p>
+          <p><Link to="/consultation" className="btn btn-secondary-onLight">{tr('Ready to Participate', lang)}</Link></p>
         </div>
       </section>
     </SiteLayout>
