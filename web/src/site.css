@@ -4684,8 +4684,16 @@ section[id],
   height: 220px;
   flex-shrink: 0;
 }
-.uof-pie circle {
-  transition: stroke-dasharray 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+.uof-pie path {
+  transition: d 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.uof-pie-pct {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  fill: #fff;
+  text-anchor: middle;
+  dominant-baseline: middle;
 }
 .uof-legend {
   display: flex;
@@ -4714,12 +4722,6 @@ section[id],
   color: var(--color-text);
   flex: 1;
 }
-.uof-legend-pct {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--color-text);
-}
 .uof-chart-caveat {
   margin-top: var(--space-lg);
   font-size: 0.85rem;
@@ -4729,11 +4731,6 @@ section[id],
 .uof-chart.is-compact .uof-chart-title { font-size: 1.5rem; }
 .uof-chart.is-compact .uof-chart-lead { font-size: 0.92rem; }
 .uof-chart.is-compact .uof-pie { width: 160px; height: 160px; }
-.concept-note-uof {
-  margin-bottom: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
-  border-bottom: 1px solid var(--color-border);
-}
 @media (max-width: 820px) {
   .uof-chart-body { flex-direction: column; align-items: flex-start; gap: var(--space-lg); }
   .uof-chart-title { font-size: 1.6rem; }
@@ -4757,8 +4754,7 @@ section[id],
   .footer,
   .trust-strip,
   .nav-backdrop,
-  .concept-note-actions,
-  .concept-note-uof {
+  .concept-note-actions {
     display: none !important;
   }
   .concept-note-hero {

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { SiteLayout } from '../components/Layout';
 import { BriefingCTA } from '../components/BriefingCTA';
-import { UseOfFundsChart } from '../components/UseOfFundsChart';
 import { T, useI18n } from '../i18n/I18nProvider';
 
 export function ConceptNotePage() {
@@ -60,9 +59,6 @@ export function ConceptNotePage() {
 
       <section className="section concept-note-body-section">
         <div className="container concept-note-container">
-          <div className="concept-note-uof">
-            <UseOfFundsChart compact />
-          </div>
           {error ? (
             <p className="concept-note-error">
               <T k="concept-note-error" />{' '}
