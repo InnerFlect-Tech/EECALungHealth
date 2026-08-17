@@ -11,7 +11,7 @@ export function ConceptNotePage() {
 
   useEffect(() => {
     const prev = document.title;
-    document.title = `${t('concept-note-page-title')} • EECA Lung Health Sovereignty Hub`;
+    document.title = `${t('concept-note-page-title')} • EECA Lung Health Hub`;
     return () => {
       document.title = prev;
     };
@@ -33,7 +33,7 @@ export function ConceptNotePage() {
         <div className="page-hero-inner container">
           <div className="concept-note-print-mark">
             <img src="/assets/images/brand/logo-mark-color.png" alt="" />
-            <span>EECA Lung Health Sovereignty Hub</span>
+            <span>EECA Lung Health Hub</span>
           </div>
           <p className="page-hero-eyebrow"><T k="concept-note-eyebrow" /></p>
           <h1><T k="concept-note-page-title" /></h1>

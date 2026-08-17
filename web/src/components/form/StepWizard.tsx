@@ -107,7 +107,7 @@ export function StepWizard({ hero }: Props) {
               <h2>{tr('Thank you.', lang)}</h2>
               <p>
                 {tr(
-                  'Your input goes directly to the team designing the EECA Lung Health Sovereignty Hub. No response will be shared publicly without your consent. If you indicated willingness to be contacted, you will hear from us within two weeks.',
+                  'Your input goes directly to the team designing the EECA Lung Health Hub. No response will be shared publicly without your consent. If you indicated willingness to be contacted, you will hear from us within two weeks.',
                   lang,
                 )}
               </p>

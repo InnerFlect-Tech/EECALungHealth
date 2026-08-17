@@ -47,7 +47,7 @@ export function FunderFitPage() {
 
   useEffect(() => {
     const prev = document.title;
-    document.title = `${t('ff-title')} • EECA Lung Health Sovereignty Hub`;
+    document.title = `${t('ff-title')} • EECA Lung Health Hub`;
     return () => {
       document.title = prev;
     };

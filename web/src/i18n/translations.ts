@@ -2,12 +2,12 @@
 export const translations = {
   en: {
     // Page titles
-    'title-index': 'EECA Lung Health Sovereignty Hub • Strategic Investment Proposal',
-    'title-team': 'Team • EECA Lung Health Sovereignty Hub',
+    'title-index': 'EECA Lung Health Hub • Strategic Investment Proposal',
+    'title-team': 'Team • EECA Lung Health Hub',
 
     // Common / Header
     'skip-link': 'Skip to main content',
-    'logo-text': 'EECA Lung Health Sovereignty Hub',
+    'logo-text': 'EECA Lung Health Hub',
     'nav-overview': 'Overview',
     'nav-why-now': 'Why now',
     'nav-approach': 'Approach',
@@ -36,13 +36,13 @@ export const translations = {
     'nav-governance': 'Governance',
 
     // Index - Hero
-    'hero-title': 'EECA Lung Health Sovereignty Hub',
+    'hero-title': 'EECA Lung Health Hub',
     'hero-subtitle': 'Catalyzing resilient health systems and regional security through intelligent investments',
     'hero-tagline': 'A strategic investment platform designed to strengthen Eastern Europe and Central Asia\'s health resilience, data sovereignty, and regional stability.',
     'hero-cta': 'Discover the Hub',
     'hero-consultation': 'Stakeholder Consultation',
     'hero-see-ask': 'Help Make This Possible',
-    'hero-eyebrow': 'EECA Lung Health Sovereignty Hub',
+    'hero-eyebrow': 'EECA Lung Health Hub',
     'hero-headline': 'Decisions<br><span class="hero-accent">delivered as care.</span>',
     'hero-lead': 'A regional platform closing the lung-health delivery gap across nine EECA countries. Seeking Phase 1 partners to launch the Foundation Phase in Kazakhstan – one working national pilot before further funding is asked.',
     'statcard-eyebrow': 'At a glance',
@@ -50,10 +50,10 @@ export const translations = {
     'stat1v': '300K+', 'stat1l': 'patients in scope',
     'stat2v': 'Weeks', 'stat2l': 'from policy to action',
     'stat3v': '9', 'stat3l': 'national caucuses',
-    'stat4v': '$60K', 'stat4l': 'Phase 1 ask',
+    'stat4v': '$70K', 'stat4l': 'Phase 1 ask',
 
     // Index - What Is
-    'what-is-title': 'What is the EECA Lung Health Sovereignty Hub?',
+    'what-is-title': 'What is the EECA Lung Health Hub?',
     'what-is-p1': 'The Hub builds on the established Global TB Caucus network – active in EECA since 2014, with nine national caucuses. It is a <strong>governed regional platform</strong> that turns lung-health policy into delivered care: a working model of health sovereignty as global funding recedes.',
     'what-is-p2': 'It runs as one governed platform with three components – the <strong>Engine</strong> (AI-powered legislative platform), the <strong>Bridge</strong> (data-driven diplomacy and financing alignment), and the <strong>Shield</strong> (health security and continuity of care) – over a shared, governed data layer, to build resilient, self-reliant lung health systems across Eastern Europe and Central Asia.',
     'what-is-link': 'Why is this urgent?',
@@ -252,7 +252,7 @@ export const translations = {
     'modal-close': 'Close concept note',
 
     // Footer
-    'footer-brand': 'EECA Lung Health Sovereignty Hub',
+    'footer-brand': 'EECA Lung Health Hub',
     'footer-tagline': 'Political will, delivered as care – across Eastern Europe & Central Asia.',
     'footer-partner': 'Foundational partners',
     'nav-impact': 'Impact', 'nav-participate': 'Contributors',
@@ -262,11 +262,11 @@ export const translations = {
     'footer-terms': 'Terms of Use',
     'footer-disclaimer': 'Disclaimer',
     'footer-disclaimer-text': 'This site is informational only. It is not an offer, solicitation, or recommendation of any investment or security, nor medical advice. Figures and plans are indicative and shared with partners in confidence.',
-    'footer-rights': '© 2026 EECA Lung Health Sovereignty Hub. All rights reserved.',
+    'footer-rights': '© 2026 EECA Lung Health Hub. All rights reserved.',
 
     // Team page
     'team-title': 'Core Team',
-    'team-lead': 'The EECA Lung Health Sovereignty Hub is led by a multidisciplinary team combining health systems expertise, policy design, and advanced data and AI system development.',
+    'team-lead': 'The EECA Lung Health Hub is led by a multidisciplinary team combining health systems expertise, policy design, and advanced data and AI system development.',
     'team-gayane-name': 'Gayané Arustamyan',
     'team-gayane-role': 'Civil Society & Strategic Partnerships Lead',
     'team-gayane-bio1': 'Gayané Arustamyan is a global health and human rights specialist with more than 15 years of experience designing and managing health programmes, strengthening civil society engagement, and supporting health system reforms across Eastern Europe, Central Asia, Africa, and Southeast Asia.',
@@ -298,7 +298,7 @@ export const translations = {
     'funders-impact-a-desc': 'Vulnerable lung-health patients in scope across EECA.',
     'funders-impact-b-val': '6 months',
     'funders-impact-b-desc': 'Foundation Phase – one working national pilot in Kazakhstan.',
-    'funders-impact-c-val': '$60K',
+    'funders-impact-c-val': '$70K',
     'funders-impact-c-desc': 'The full cost of proving the model – before Phase 2 starts raising funds.',
 
     // Funders roadmap – build phases merged with the funding role each one opens
@@ -334,12 +334,12 @@ export const translations = {
     'funders-cta-lead': 'Meet the team behind the Foundation Phase. We share the phased budget, the governance package and the working alpha in one call.',
     'concept-note-eyebrow': 'Detailed Investment Proposal',
     'concept-note-page-title': 'Concept Note',
-    'concept-note-lead': 'The full case for the EECA Lung Health Sovereignty Hub – a phased, evidence-based investment across nine countries in Eastern Europe & Central Asia.',
+    'concept-note-lead': 'The full case for the EECA Lung Health Hub – a phased, evidence-based investment across nine countries in Eastern Europe & Central Asia.',
     'concept-note-download': 'Download the PDF',
     'concept-note-error': 'The concept note could not be loaded.',
     'gov-financials-eyebrow': 'Governance & Financials',
     'gov-financials-title': 'Financials & filings',
-    'gov-financials-lead': 'Transparency posture, governance structure and audit roadmap for the EECA Lung Health Sovereignty Hub.',
+    'gov-financials-lead': 'Transparency posture, governance structure and audit roadmap for the EECA Lung Health Hub.',
     'gov-financials-roadmap-title': 'Audit roadmap',
     'gov-financials-roadmap-body': 'An independent audit is scheduled for Q3 2027, aligned with completion of the Phase 1 Foundation deliverables. Interim reporting is provided to partners at the end of each 90-day milestone.',
     'gov-financials-fiscal-title': 'Fiscal host & governance',
@@ -396,8 +396,8 @@ export const translations = {
     'ff-q2-e': 'Family office / individual',
     'ff-q2-f': 'Other',
     'ff-q3-label': 'Indicative budget for a first partnership',
-    'ff-q3-a': 'Up to $60K (Foundation Phase)',
-    'ff-q3-b': '$60K–$250K (regional partner)',
+    'ff-q3-a': 'Up to $70K (Foundation Phase)',
+    'ff-q3-b': '$70K–$250K (regional partner)',
     'ff-q3-c': '$250K–$1M (multi-country)',
     'ff-q3-d': '$1M+ (platform underwriter)',
     'ff-q3-e': 'Not yet decided',
@@ -436,7 +436,7 @@ export const translations = {
     'home-funder-lead': 'A self-contained six-month Foundation Phase in Kazakhstan – the proof unit that unlocks Phase 2. Every rung proven before the next is funded.',
     'home-fi-a-val': '6 months',
     'home-fi-a-lab': 'Foundation Phase – one working national pilot in Kazakhstan.',
-    'home-fi-b-val': '$60K',
+    'home-fi-b-val': '$70K',
     'home-fi-b-lab': 'The full cost of proving the model – before Phase 2 starts raising funds.',
     'home-fi-c-val': '300K+',
     'home-fi-c-lab': 'Vulnerable lung-health patients in scope across the region.',
@@ -444,12 +444,12 @@ export const translations = {
 
   ru: {
     // Page titles
-    'title-index': 'EECA Хаб суверенитета в области здоровья лёгких • Стратегическое инвестиционное предложение',
-    'title-team': 'Команда • EECA Хаб суверенитета в области здоровья лёгких',
+    'title-index': 'EECA Хаб здоровья лёгких • Стратегическое инвестиционное предложение',
+    'title-team': 'Команда • EECA Хаб здоровья лёгких',
 
     // Common / Header
     'skip-link': 'Перейти к основному содержанию',
-    'logo-text': 'ЕЕСА Хаб суверенитета в области здоровья лёгких',
+    'logo-text': 'ЕЕСА Хаб здоровья лёгких',
     'nav-overview': 'Обзор',
     'nav-why-now': 'Почему сейчас',
     'nav-approach': 'Подход',
@@ -478,13 +478,13 @@ export const translations = {
     'nav-governance': 'Управление',
 
     // Index - Hero
-    'hero-title': 'EECA Хаб суверенитета в области здоровья лёгких',
+    'hero-title': 'EECA Хаб здоровья лёгких',
     'hero-subtitle': 'Создание устойчивых систем здравоохранения и региональной безопасности через интеллектуальные инвестиции',
     'hero-tagline': 'Стратегическая инвестиционная платформа для укрепления устойчивости систем здравоохранения, суверенитета данных и региональной стабильности в Восточной Европе и Центральной Азии.',
     'hero-cta': 'Узнать о Хабе',
     'hero-consultation': 'Консультация заинтересованных сторон',
     'hero-see-ask': 'Помогите сделать это возможным',
-    'hero-eyebrow': 'EECA Хаб суверенитета в области здоровья лёгких',
+    'hero-eyebrow': 'EECA Хаб здоровья лёгких',
     'hero-headline': 'Решения<br><span class="hero-accent">воплощённые в помощь.</span>',
     'hero-lead': 'Региональная платформа, закрывающая разрыв в лечении заболеваний лёгких в девяти странах ВЕЦА. Ищем партнёров Фазы 1 для запуска Фундаментальной фазы в Казахстане – один работающий национальный пилот до запроса дальнейшего финансирования.',
     'statcard-eyebrow': 'Кратко',
@@ -492,10 +492,10 @@ export const translations = {
     'stat1v': '300K+', 'stat1l': 'пациентов в охвате',
     'stat2v': 'Недели', 'stat2l': 'от политики к действию',
     'stat3v': '9', 'stat3l': 'национальных кокусов',
-    'stat4v': '$60 000', 'stat4l': 'запрос по Фазе 1',
+    'stat4v': '$70 000', 'stat4l': 'запрос по Фазе 1',
 
     // Index - What Is
-    'what-is-title': 'Что такое EECA Хаб суверенитета в области здоровья лёгких?',
+    'what-is-title': 'Что такое EECA Хаб здоровья лёгких?',
     'what-is-p1': 'Хаб строится на основе сети Глобального парламентского кокуса по ТБ – активной в регионе ВЕЦА с 2014 года, с девятью национальными кокусами. Это <strong>управляемая региональная платформа</strong>, которая превращает политику в области здоровья лёгких в оказанную помощь: рабочая модель суверенитета здравоохранения по мере сокращения глобального финансирования.',
     'what-is-p2': 'Он работает как единая управляемая платформа с тремя компонентами – <strong>«Двигатель»</strong> (законодательная платформа на базе ИИ), <strong>«Мост»</strong> (дипломатия на основе данных и согласование финансирования) и <strong>«Щит»</strong> (безопасность здоровья и непрерывность помощи) – на общем управляемом слое данных, для создания устойчивых, самодостаточных систем здоровья лёгких в Восточной Европе и Центральной Азии.',
     'what-is-link': 'Почему это срочно?',
@@ -694,7 +694,7 @@ export const translations = {
     'modal-close': 'Закрыть концепцию',
 
     // Footer
-    'footer-brand': 'EECA Хаб суверенитета в области здоровья лёгких',
+    'footer-brand': 'EECA Хаб здоровья лёгких',
     'footer-tagline': 'Политическая воля, воплощённая в помощь – по всей Восточной Европе и Центральной Азии.',
     'footer-partner': 'Основные партнёры',
     'nav-impact': 'Влияние', 'nav-participate': 'Участники',
@@ -704,11 +704,11 @@ export const translations = {
     'footer-terms': 'Условия использования',
     'footer-disclaimer': 'Оговорка',
     'footer-disclaimer-text': 'Сайт носит исключительно информационный характер. Он не является предложением, приглашением или рекомендацией какой-либо инвестиции или ценной бумаги, а также медицинской консультацией. Цифры и планы являются ориентировочными и предоставляются партнёрам конфиденциально.',
-    'footer-rights': '© 2026 EECA Хаб суверенитета в области здоровья лёгких. Все права защищены.',
+    'footer-rights': '© 2026 EECA Хаб здоровья лёгких. Все права защищены.',
 
     // Team page
     'team-title': 'Основная команда',
-    'team-lead': 'EECA Хаб суверенитета в области здоровья лёгких возглавляет междисциплинарная команда, объединяющая экспертизу в области систем здравоохранения, разработки политики и современных данных и систем на базе ИИ.',
+    'team-lead': 'EECA Хаб здоровья лёгких возглавляет междисциплинарная команда, объединяющая экспертизу в области систем здравоохранения, разработки политики и современных данных и систем на базе ИИ.',
     'team-gayane-name': 'Гаяне Арустамян',
     'team-gayane-role': 'Руководитель по гражданскому обществу и стратегическим партнёрствам',
     'team-gayane-bio1': 'Гаяне Арустамян – специалист в области глобального здравоохранения и прав человека с более чем 15-летним опытом разработки и управления программами здравоохранения, укрепления взаимодействия с гражданским обществом и поддержки реформ систем здравоохранения в Восточной Европе, Центральной Азии, Африке и Юго-Восточной Азии.',
@@ -740,7 +740,7 @@ export const translations = {
     'funders-impact-a-desc': 'Уязвимых пациентов с заболеваниями лёгких в поле охвата в ВЕЦА.',
     'funders-impact-b-val': '6 месяцев',
     'funders-impact-b-desc': 'Фундаментальная фаза – один работающий национальный пилот в Казахстане.',
-    'funders-impact-c-val': '$60 000',
+    'funders-impact-c-val': '$70 000',
     'funders-impact-c-desc': 'Полная стоимость доказательства модели – до начала привлечения финансирования Фазы 2.',
 
     // Дорожная карта для инвесторов – фазы и открываемые ими роли финансирования
@@ -776,12 +776,12 @@ export const translations = {
     'funders-cta-lead': 'Встреча с командой Фундаментальной фазы. Поэтапный бюджет, пакет управления и работающая альфа-версия – в одном разговоре.',
     'concept-note-eyebrow': 'Детальное инвестиционное предложение',
     'concept-note-page-title': 'Концепт-нота',
-    'concept-note-lead': 'Полное обоснование EECA Lung Health Sovereignty Hub – поэтапная инвестиция, основанная на доказательствах, в девяти странах Восточной Европы и Центральной Азии.',
+    'concept-note-lead': 'Полное обоснование EECA Lung Health Hub – поэтапная инвестиция, основанная на доказательствах, в девяти странах Восточной Европы и Центральной Азии.',
     'concept-note-download': 'Скачать PDF',
     'concept-note-error': 'Не удалось загрузить концепт-ноту.',
     'gov-financials-eyebrow': 'Управление и финансы',
     'gov-financials-title': 'Финансы и отчётность',
-    'gov-financials-lead': 'Принципы прозрачности, структура управления и план аудита EECA Lung Health Sovereignty Hub.',
+    'gov-financials-lead': 'Принципы прозрачности, структура управления и план аудита EECA Lung Health Hub.',
     'gov-financials-roadmap-title': 'План аудита',
     'gov-financials-roadmap-body': 'Независимый аудит запланирован на Q3 2027, синхронно с завершением результатов Фазы 1. Промежуточная отчётность предоставляется партнёрам по итогам каждого 90-дневного этапа.',
     'gov-financials-fiscal-title': 'Фискальный хост и управление',
@@ -838,8 +838,8 @@ export const translations = {
     'ff-q2-e': 'Семейный офис / частное лицо',
     'ff-q2-f': 'Другое',
     'ff-q3-label': 'Ориентировочный бюджет для первого партнёрства',
-    'ff-q3-a': 'До $60 000 (Фундаментальная фаза)',
-    'ff-q3-b': '$60 000–$250 000 (региональный партнёр)',
+    'ff-q3-a': 'До $70 000 (Фундаментальная фаза)',
+    'ff-q3-b': '$70 000–$250 000 (региональный партнёр)',
     'ff-q3-c': '$250 000–$1 000 000 (мультистрановой)',
     'ff-q3-d': 'от $1 000 000 (опора платформы)',
     'ff-q3-e': 'Пока не решено',
@@ -878,7 +878,7 @@ export const translations = {
     'home-funder-lead': 'Самодостаточная шестимесячная Фундаментальная фаза в Казахстане – доказательство, открывающее Фазу 2. Каждая ступень доказана перед финансированием следующей.',
     'home-fi-a-val': '6 месяцев',
     'home-fi-a-lab': 'Фундаментальная фаза – один работающий национальный пилот в Казахстане.',
-    'home-fi-b-val': '$60 000',
+    'home-fi-b-val': '$70 000',
     'home-fi-b-lab': 'Полная стоимость доказательства модели – до начала привлечения финансирования Фазы 2.',
     'home-fi-c-val': '300 000+',
     'home-fi-c-lab': 'Уязвимых пациентов с заболеваниями лёгких в поле охвата в регионе.',

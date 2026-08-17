@@ -241,7 +241,7 @@ export function AudiencePage({ audience }: { audience: Audience }) {
   const Body = BODY[audience];
   useEffect(() => {
     const prev = document.title;
-    document.title = `${tr(h.eyebrow, lang)} • EECA Lung Health Sovereignty Hub`;
+    document.title = `${tr(h.eyebrow, lang)} • EECA Lung Health Hub`;
     return () => { document.title = prev; };
   }, [h.eyebrow, lang]);
 

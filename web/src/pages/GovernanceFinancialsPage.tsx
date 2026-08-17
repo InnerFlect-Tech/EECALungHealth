@@ -8,7 +8,7 @@ export function GovernanceFinancialsPage() {
   // Fully filled in W6; stub content works for the route to exist and pass checks.
   const title = t('gov-financials-title');
   if (typeof document !== 'undefined') {
-    document.title = `${title} • EECA Lung Health Sovereignty Hub`;
+    document.title = `${title} • EECA Lung Health Hub`;
   }
 
   return (

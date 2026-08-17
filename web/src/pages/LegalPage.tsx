@@ -11,7 +11,7 @@ const META: Record<Doc, { eyebrow: string; title: string; lead: string }> = {
   privacy: {
     eyebrow: 'Legal',
     title: 'Privacy Policy',
-    lead: 'How the EECA Lung Health Sovereignty Hub collects, uses, and protects personal data.',
+    lead: 'How the EECA Lung Health Hub collects, uses, and protects personal data.',
   },
   terms: {
     eyebrow: 'Legal',
@@ -29,7 +29,7 @@ function PrivacyBody() {
   return (
     <>
       <p>
-        The EECA Lung Health Sovereignty Hub ("the Hub", "we") respects your privacy. This policy
+        The EECA Lung Health Hub ("the Hub", "we") respects your privacy. This policy
         explains what personal data we collect through this website, why we collect it, and the
         rights you have over it. We follow GDPR-equivalent principles across the region.
       </p>
@@ -73,7 +73,7 @@ function TermsBody() {
     <>
       <p>By accessing this website you agree to these terms. If you do not agree, please do not use the site.</p>
       <h2>Purpose</h2>
-      <p>This site is provided for general information about the EECA Lung Health Sovereignty Hub. Content may change without notice.</p>
+      <p>This site is provided for general information about the EECA Lung Health Hub. Content may change without notice.</p>
       <h2>No warranty</h2>
       <p>The site and its content are provided "as is", without warranties of any kind. We do not guarantee accuracy, completeness, or availability.</p>
       <h2>Intellectual property</h2>
@@ -120,7 +120,7 @@ export function LegalPage({ doc }: { doc: Doc }) {
   const meta = META[doc];
   useEffect(() => {
     const prev = document.title;
-    document.title = `${meta.title} • EECA Lung Health Sovereignty Hub`;
+    document.title = `${meta.title} • EECA Lung Health Hub`;
     return () => {
       document.title = prev;
     };

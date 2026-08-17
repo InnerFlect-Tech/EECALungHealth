@@ -10,7 +10,7 @@ export function ContactPage() {
   const { lang } = useI18n();
   useEffect(() => {
     const prev = document.title;
-    document.title = `${tr('Contact', lang)} • EECA Lung Health Sovereignty Hub`;
+    document.title = `${tr('Contact', lang)} • EECA Lung Health Hub`;
     return () => { document.title = prev; };
   }, [lang]);
 

@@ -30,7 +30,7 @@ export function Header({ current }: HeaderProps) {
     <header className={`header${menuOpen ? ' nav-open' : ''}`}>
       <div className="header-inner">
         <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
-          <img className="logo-mark" src="/assets/images/brand/logo-mark-color.png" alt="EECA Lung Health Sovereignty Hub" />
+          <img className="logo-mark" src="/assets/images/brand/logo-mark-color.png" alt="EECA Lung Health Hub" />
           <span className="logo-text">{t('logo-text')}</span>
         </Link>
         <Link
@@ -132,7 +132,7 @@ export function Footer() {
       <div className="footer-inner">
         <div className="footer-brand">
           <Link to="/" className="footer-logo">
-            <img className="logo-mark" src="/assets/images/brand/logo-mark-white.png" alt="EECA Lung Health Sovereignty Hub" />
+            <img className="logo-mark" src="/assets/images/brand/logo-mark-white.png" alt="EECA Lung Health Hub" />
             <strong>{t('footer-brand')}</strong>
           </Link>
           <p>{t('footer-tagline')}</p>

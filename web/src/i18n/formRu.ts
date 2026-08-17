@@ -15,8 +15,8 @@ const M: Record<string, string> = {
   'what gets built first.': 'что будет создано в первую очередь.',
   'Across Eastern Europe and Central Asia, health systems are under pressure – from geopolitical disruption, funding transitions, displacement of populations, and strained supply chains. When treatment continuity breaks down, the consequences are clinical, political, and irreversible.':
     'В Восточной Европе и Центральной Азии системы здравоохранения испытывают давление – из-за геополитических потрясений, изменений в финансировании, перемещения населения и нарушений в цепочках поставок. Когда непрерывность лечения нарушается, последствия являются клиническими, политическими и необратимыми.',
-  'The EECA Lung Health Sovereignty Hub is a proposed regional platform designed to help parliamentarians, community organizations, and partners coordinate faster, legislate smarter, and protect care continuity – especially for the most vulnerable populations.':
-    'Хаб суверенитета лёгочного здоровья ВЕЦА – это предлагаемая региональная платформа, призванная помочь парламентариям, общественным организациям и партнёрам быстрее координировать действия, принимать более продуманные законы и защищать непрерывность медицинской помощи – особенно для наиболее уязвимых групп населения.',
+  'The EECA Lung Health Hub is a proposed regional platform designed to help parliamentarians, community organizations, and partners coordinate faster, legislate smarter, and protect care continuity – especially for the most vulnerable populations.':
+    'Хаб лёгочного здоровья ВЕЦА – это предлагаемая региональная платформа, призванная помочь парламентариям, общественным организациям и партнёрам быстрее координировать действия, принимать более продуманные законы и защищать непрерывность медицинской помощи – особенно для наиболее уязвимых групп населения.',
   '7–10 minutes': '7–10 минут',
   'No individual patient data collected': 'Индивидуальные данные пациентов не собираются',
   'All responses inform product decisions': 'Все ответы влияют на решения о продукте',
@@ -39,8 +39,8 @@ const M: Record<string, string> = {
   'Some questions refer to the Hub’s concept and its three core functions. You can open the full Concept Note at any point:':
     'Некоторые вопросы касаются концепции Хаба и его трёх основных функций. Вы можете открыть полную концепцию в любой момент:',
   'Thank you.': 'Спасибо.',
-  'Your input goes directly to the team designing the EECA Lung Health Sovereignty Hub. No response will be shared publicly without your consent. If you indicated willingness to be contacted, you will hear from us within two weeks.':
-    'Ваш ответ направляется напрямую команде, разрабатывающей Хаб суверенитета лёгочного здоровья ВЕЦА. Ни один ответ не будет опубликован без вашего согласия. Если вы выразили готовность к контакту, мы свяжемся с вами в течение двух недель.',
+  'Your input goes directly to the team designing the EECA Lung Health Hub. No response will be shared publicly without your consent. If you indicated willingness to be contacted, you will hear from us within two weeks.':
+    'Ваш ответ направляется напрямую команде, разрабатывающей Хаб лёгочного здоровья ВЕЦА. Ни один ответ не будет опубликован без вашего согласия. Если вы выразили готовность к контакту, мы свяжемся с вами в течение двух недель.',
   'Questions or direct contact:': 'Вопросы или прямой контакт:',
 
   // ── FieldRenderer literals ────────────────────────────────────────────

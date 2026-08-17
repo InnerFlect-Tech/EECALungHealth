@@ -18,7 +18,7 @@ export function ForFundersPage() {
   const { t } = useI18n();
   useEffect(() => {
     const prev = document.title;
-    document.title = `${t('funders-hero-title')} • EECA Lung Health Sovereignty Hub`;
+    document.title = `${t('funders-hero-title')} • EECA Lung Health Hub`;
     return () => {
       document.title = prev;
     };

@@ -26,7 +26,7 @@ function ConsultHero() {
         </p>
         <p className="consult-hero-sub">
           {tr(
-            'The EECA Lung Health Sovereignty Hub is a proposed regional platform designed to help parliamentarians, community organizations, and partners coordinate faster, legislate smarter, and protect care continuity – especially for the most vulnerable populations.',
+            'The EECA Lung Health Hub is a proposed regional platform designed to help parliamentarians, community organizations, and partners coordinate faster, legislate smarter, and protect care continuity – especially for the most vulnerable populations.',
             lang,
           )}
         </p>
