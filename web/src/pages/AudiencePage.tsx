@@ -254,7 +254,7 @@ export function AudiencePage({ audience }: { audience: Audience }) {
           <h1>{tr(h.title, lang)}</h1>
           <p className="page-hero-lead">{tr(h.lead, lang)}</p>
           <div className="aud-hero-cta">
-            <Link to="/consultation" className="btn btn-primary">{tr('Ready to Participate', lang)}</Link>
+            <Link to="/consultation" className="btn btn-primary">{tr('Take the Survey', lang)}</Link>
             <Link to="/concept-note" className="btn btn-secondary">{tr('Read the Concept Note', lang)}</Link>
           </div>
           <p className="aud-proof">
@@ -297,7 +297,7 @@ export function AudiencePage({ audience }: { audience: Audience }) {
           <p className="cta-lead">{tr(close.lead, lang)}</p>
           <div className="cta-buttons">
             <BriefingCTA variant="primary" />
-            <Link to="/consultation" className="btn btn-secondary">{tr('Ready to Participate', lang)}</Link>
+            <Link to="/consultation" className="btn btn-secondary">{tr('Take the Survey', lang)}</Link>
           </div>
         </div>
       </section>

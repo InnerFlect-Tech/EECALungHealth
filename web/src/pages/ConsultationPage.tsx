@@ -45,7 +45,7 @@ function ConsultHero() {
               scrollToElement('consultation-form', true);
             }}
           >
-            {tr('Ready to Participate', lang)}
+            {tr('Take the Survey', lang)}
           </a>
           <Link to="/" className="btn btn-secondary">{tr('Learn more about the Hub', lang)}</Link>
         </div>

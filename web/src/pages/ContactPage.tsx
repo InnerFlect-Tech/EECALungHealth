@@ -38,7 +38,7 @@ export function ContactPage() {
           <p className="eyebrow">{tr('Regional Stakeholder Insights', lang)}</p>
           <h2>{tr('Your input will shape what gets built first.', lang)}</h2>
           <p className="section-lead">{tr('A 7–10 minute survey that helps us to understand your situation.', lang)}</p>
-          <p><Link to="/consultation" className="btn btn-secondary-onLight">{tr('Ready to Participate', lang)}</Link></p>
+          <p><Link to="/consultation" className="btn btn-secondary-onLight">{tr('Take the Survey', lang)}</Link></p>
         </div>
       </section>
     </SiteLayout>

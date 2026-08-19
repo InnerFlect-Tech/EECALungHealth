@@ -546,7 +546,7 @@ const M: Record<string, string> = {
   'Back to overview': 'Назад к обзору',
   'Read the Concept Note': 'Прочитать концепт-ноту',
   'Open the Concept Note': 'Открыть концепт-ноту',
-  'Ready to Participate': 'Готовы участвовать',
+  'Take the Survey': 'Пройти опрос',
 
   'patients in scope': 'пациентов в фокусе',
   'national caucuses': 'национальных парламентских групп',
