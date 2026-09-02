@@ -292,8 +292,8 @@ export const translations = {
     'funders-hero-lead': 'A phased regional platform closing the TB and lung-health delivery gap across nine EECA countries. Foundation Phase in one EECA country delivers a live, working solution in six months – before any further funding is asked.',
     'working-pilot-proof': 'Alpha launching with the Global TB Caucus regional network · September 2026',
     'funders-impact-eyebrow': "Phase 1 · What we're asking for",
-    'funders-impact-title': 'One working national pilot. Then Phase 2.',
-    'funders-impact-lead': 'A self-contained six-month Foundation Phase in one EECA country – the proof unit that unlocks Phase 2. Every rung proven before the next is funded.',
+    'funders-impact-title': 'Validate in one country (Phase 1). Scale across the region (Phase 2).',
+    'funders-impact-lead': 'Start with one country. Prove the model in six months. Scale what works in Phase 2 – with each stage funded through demonstrated results.',
     'funders-impact-a-val': '300K+',
     'funders-impact-a-desc': 'Vulnerable lung-health patients in scope across EECA.',
     'funders-impact-b-val': '6 months',
@@ -432,8 +432,8 @@ export const translations = {
 
     // ── W2 – Home funder-impact block ──
     'home-funder-eyebrow': 'Phase 1 · What We\'re Asking For',
-    'home-funder-title': 'One working national pilot. Then Phase 2.',
-    'home-funder-lead': 'A self-contained six-month Foundation Phase in one EECA country – the proof unit that unlocks Phase 2. Every rung proven before the next is funded.',
+    'home-funder-title': 'Validate in one country (Phase 1). Scale across the region (Phase 2).',
+    'home-funder-lead': 'Start with one country. Prove the model in six months. Scale what works in Phase 2 – with each stage funded through demonstrated results.',
     'home-fi-a-val': '6 months',
     'home-fi-a-lab': 'Foundation Phase – a working national pilot in one EECA country.',
     'home-fi-b-val': '$100K',
@@ -734,8 +734,8 @@ export const translations = {
     'funders-hero-lead': 'Поэтапная региональная платформа, закрывающая разрыв в лечении туберкулёза и болезней лёгких в девяти странах ВЕЦА. Фундаментальная фаза в одной стране ВЕЦА предоставляет работающее решение за шесть месяцев – до запроса дальнейшего финансирования.',
     'working-pilot-proof': 'Альфа-версия запускается с региональной сетью Глобального парламентского кокуса по ТБ · сентябрь 2026',
     'funders-impact-eyebrow': 'Фаза 1 · Что мы просим',
-    'funders-impact-title': 'Один работающий национальный пилот. Затем Фаза 2.',
-    'funders-impact-lead': 'Самодостаточная шестимесячная Фундаментальная фаза в одной стране ВЕЦА – доказательство, открывающее Фазу 2. Каждая ступень доказана перед финансированием следующей.',
+    'funders-impact-title': 'Проверьте модель в одной стране (Фаза 1). Масштабируйте на весь регион (Фаза 2).',
+    'funders-impact-lead': 'Начните с одной страны. Проверьте модель за шесть месяцев. Масштабируйте то, что сработало, в Фазе 2 – каждый этап финансируется по мере подтверждённых результатов.',
     'funders-impact-a-val': '300 000+',
     'funders-impact-a-desc': 'Уязвимых пациентов с заболеваниями лёгких в поле охвата в ВЕЦА.',
     'funders-impact-b-val': '6 месяцев',
@@ -874,8 +874,8 @@ export const translations = {
 
     // ── W2 – Home funder-impact block ──
     'home-funder-eyebrow': 'Фаза 1 · Что мы просим',
-    'home-funder-title': 'Один работающий национальный пилот. Затем Фаза 2.',
-    'home-funder-lead': 'Самодостаточная шестимесячная Фундаментальная фаза в одной стране ВЕЦА – доказательство, открывающее Фазу 2. Каждая ступень доказана перед финансированием следующей.',
+    'home-funder-title': 'Проверьте модель в одной стране (Фаза 1). Масштабируйте на весь регион (Фаза 2).',
+    'home-funder-lead': 'Начните с одной страны. Проверьте модель за шесть месяцев. Масштабируйте то, что сработало, в Фазе 2 – каждый этап финансируется по мере подтверждённых результатов.',
     'home-fi-a-val': '6 месяцев',
     'home-fi-a-lab': 'Фундаментальная фаза – работающий национальный пилот в одной стране ВЕЦА.',
     'home-fi-b-val': '$100 000',

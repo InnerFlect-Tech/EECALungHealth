@@ -11,12 +11,12 @@ const M: Record<string, string> = {
   // ── Consultation hero (ConsultationPage) ──────────────────────────────
   'Regional Stakeholder Insights':
     'Мнения региональных заинтересованных сторон',
-  'Your input will shape': 'Ваш вклад определит,',
+  'Your input will shape': 'Ваш вклад поможет определить,',
   'what gets built first.': 'что будет создано в первую очередь.',
   'Across Eastern Europe and Central Asia, health systems are under pressure – from geopolitical disruption, funding transitions, displacement of populations, and strained supply chains. When treatment continuity breaks down, the consequences are clinical, political, and irreversible.':
-    'В Восточной Европе и Центральной Азии системы здравоохранения испытывают давление – из-за геополитических потрясений, изменений в финансировании, перемещения населения и нарушений в цепочках поставок. Когда непрерывность лечения нарушается, последствия являются клиническими, политическими и необратимыми.',
+    'Системы здравоохранения стран Восточной Европы и Центральной Азии сталкиваются с растущим давлением, вызванным геополитической нестабильностью, изменениями в финансировании, перемещением населения и перебоями в цепочках поставок. Нарушение непрерывности лечения может иметь серьёзные и порой необратимые последствия — как для здоровья людей, так и для устойчивости систем здравоохранения.',
   'The EECA Lung Health Hub is a proposed regional platform designed to help parliamentarians, community organizations, and partners coordinate faster, legislate smarter, and protect care continuity – especially for the most vulnerable populations.':
-    'Хаб лёгочного здоровья ВЕЦА – это предлагаемая региональная платформа, призванная помочь парламентариям, общественным организациям и партнёрам быстрее координировать действия, принимать более продуманные законы и защищать непрерывность медицинской помощи – особенно для наиболее уязвимых групп населения.',
+    'Хаб лёгочного здоровья ВЕЦА — это предлагаемая региональная платформа, которая призвана помочь парламентариям, организациям гражданского общества и другим партнёрам эффективнее координировать усилия, совершенствовать законодательство и обеспечивать непрерывность медицинской помощи, особенно для наиболее уязвимых групп населения.',
   '7–10 minutes': '7–10 минут',
   'No individual patient data collected': 'Индивидуальные данные пациентов не собираются',
   'All responses inform product decisions': 'Все ответы влияют на решения о продукте',
@@ -253,11 +253,11 @@ const M: Record<string, string> = {
   'Community health workers, patient advocates, NGOs, advocacy organizations':
     'Общественные медработники, защитники прав пациентов, НКО, правозащитные организации',
   'Member of Parliament / parliamentary staff / policy-maker':
-    'Депутат / сотрудник аппарата / разработчик политики',
+    'Депутат / сотрудник аппарата/специалист по вопросам государственной политики',
   'MPs, parliamentary staff, government officials, policy advisors':
     'Депутаты, сотрудники аппарата, госслужащие, советники по политике',
   'Institutional partner / donor / foundation / technical partner':
-    'Институциональный партнёр / донор / фонд / технический партнёр',
+    'Международная организация / донор / фонд / технический партнёр',
   'UN agencies, bilateral and multilateral donors, foundations, implementation partners':
     'Агентства ООН, доноры двухсторонней и многосторонней помощи, фонды, партнёры по реализации',
   'Other (please describe briefly)': 'Другое (кратко опишите)',
@@ -291,10 +291,10 @@ const M: Record<string, string> = {
   'Inadequate community or civil society engagement': 'Недостаточное вовлечение сообществ или гражданского общества',
   'Other (please specify)': 'Другое (уточните)',
 
-  'Legislative Intelligence Platform': 'Законодательная интеллектуальная платформа',
+  'Legislative Intelligence Platform': 'Платформа законодательной и правовой аналитики',
   'A secure regional platform for accessing, comparing, and co-developing legislation, policy frameworks, and model legal provisions':
-    'Защищённая региональная платформа для доступа, сравнения и совместной разработки законодательства, политических рамок и типовых правовых норм',
-  'AI-Powered Policy & Collaboration': 'Политика и сотрудничество на основе ИИ',
+    'Защищённая региональная платформа для доступа к законодательству и стратегическим документам, их сравнительного анализа, а также совместной разработки нормативно-правовых подходов и типовых правовых положений.',
+  'AI-Powered Policy & Collaboration': 'ИИ-инструменты для разработки политики и сотрудничества',
   'A secure space for MPs to identify opportunities for policy exchange, technical collaboration, and shared learning based on legislation, financing, health system performance, and emerging priorities':
     'Защищённое пространство, где депутаты могут находить возможности для обмена политическим опытом, технического сотрудничества и совместного обучения на основе законодательства, финансирования, показателей систем здравоохранения и актуальных приоритетов',
   'Health Security & Continuity of Care': 'Безопасность здоровья и непрерывность помощи',
@@ -311,7 +311,7 @@ const M: Record<string, string> = {
   'We are seeing early signs; it is not yet a crisis': 'Видны ранние признаки; это пока не кризис',
   'Moderate issue': 'Умеренная проблема',
   'Displacement exists but is managed reasonably well': 'Перемещение есть, но управляется достаточно хорошо',
-  'Not a significant issue in our context': 'В нашем контексте это не значимая проблема',
+  'Not a significant issue in our context': 'В нашем контексте это незначимая проблема',
   "I don't have enough data/visibility to answer": 'У меня нет достаточных данных, чтобы ответить',
 
   'Aggregated or de-identified health outcome data': 'Агрегированные или обезличенные данные о результатах лечения',

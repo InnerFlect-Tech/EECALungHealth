@@ -1528,6 +1528,43 @@ img {
   margin-top: var(--space-xl);
   margin-bottom: var(--space-xs);
 }
+.whatis-icons {
+  display: flex;
+  gap: var(--space-xl);
+  list-style: none;
+  margin: var(--space-lg) 0 0;
+  padding: 0;
+}
+.whatis-icons li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.whatis-icons-badge {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-full);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--color-primary);
+  background: radial-gradient(120% 120% at 30% 20%, var(--teal-100), var(--teal-50));
+  border: 1px solid var(--teal-200);
+}
+.whatis-icons-badge svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+@media (max-width: 640px) {
+  .whatis-icons {
+    flex-wrap: wrap;
+    gap: var(--space-md) var(--space-lg);
+  }
+}
 .credstrip {
   margin-top: var(--space-2xl);
   padding-top: var(--space-xl);

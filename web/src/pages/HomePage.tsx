@@ -145,6 +145,14 @@ export function HomePage() {
             <p><T k="what-is-p1" html /></p>
             <p className="whatis-urgent-lead"><strong><T k="what-is-link" /></strong></p>
             <p><T k="what-is-p2" html /></p>
+            <ul className="whatis-icons" aria-hidden="true">
+              {(['eng', 'bri', 'shi'] as const).map((k) => (
+                <li key={k}>
+                  <span className="whatis-icons-badge">{SOL_ICONS[k]}</span>
+                  <T k={`loop-${k}`} />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
         <div className="container credstrip">
