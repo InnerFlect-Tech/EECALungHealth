@@ -1,12 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { SiteLayout } from '../components/Layout';
 import { BriefingCTA } from '../components/BriefingCTA';
+import { UseOfFundsChart } from '../components/UseOfFundsChart';
 import { T, useI18n } from '../i18n/I18nProvider';
+
+// The budget chart is a real React component, but the concept note body is
+// fetched as a static HTML string — split it at the Budget Structure heading
+// so the chart can render inline, right where the section actually discusses
+// budget, rather than bolted onto the top or bottom of the document.
+const BUDGET_SECTION_MARKER = '<h4>5. BUDGET STRUCTURE';
 
 export function ConceptNotePage() {
   const { t } = useI18n();
   const [html, setHtml] = useState('');
   const [error, setError] = useState(false);
+
+  const htmlParts = useMemo(() => {
+    const splitAt = html.indexOf(BUDGET_SECTION_MARKER);
+    if (splitAt === -1) return [html, ''];
+    return [html.slice(0, splitAt), html.slice(splitAt)];
+  }, [html]);
 
   useEffect(() => {
     const prev = document.title;
@@ -65,10 +78,13 @@ export function ConceptNotePage() {
               <BriefingCTA variant="inline" labelKey="cta-briefing-primary" />
             </p>
           ) : (
-            <div
-              className="concept-note-content"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+            <div className="concept-note-content">
+              <div dangerouslySetInnerHTML={{ __html: htmlParts[0] }} />
+              <div className="cn-uof">
+                <UseOfFundsChart compact />
+              </div>
+              <div dangerouslySetInnerHTML={{ __html: htmlParts[1] }} />
+            </div>
           )}
         </div>
       </section>

@@ -4068,6 +4068,196 @@ section[id],
   overflow-x: auto;
   margin: var(--space-lg) 0;
 }
+
+/* Concept Note — document meta line under the title */
+.cn-doc-meta {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+  margin-top: var(--space-md) !important;
+}
+
+/* Concept Note — big-number stat row (e.g. TB burden) */
+.cn-stats-row {
+  display: flex;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  margin: var(--space-lg) 0 var(--space-xl);
+}
+.cn-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.cn-stat strong {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  line-height: 1;
+}
+.cn-stat span {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* Concept Note — Engine/Bridge/Shield icon cards */
+.cn-icon-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0 var(--space-xl);
+}
+.cn-icon-card {
+  padding: var(--space-lg);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.cn-icon-badge {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  color: var(--color-primary);
+  background: radial-gradient(120% 120% at 30% 20%, var(--teal-100), var(--teal-50));
+  border: 1px solid var(--teal-200);
+  margin-bottom: var(--space-sm);
+}
+.cn-icon-badge svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+.cn-icon-card h5 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--space-xs);
+}
+.cn-icon-card p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0 !important;
+}
+
+/* Concept Note — governance card grid */
+.cn-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin: var(--space-md) 0 var(--space-xl);
+}
+.cn-card {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+.cn-card h5 {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 var(--space-xs);
+}
+.cn-card p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0 !important;
+}
+
+/* Concept Note — decision-to-delivery loop strip */
+.cn-loop {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+}
+.cn-loop-end {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+.cn-loop-node {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.9rem;
+  white-space: nowrap;
+}
+.cn-loop-arrow {
+  color: var(--teal-200);
+  font-weight: 700;
+}
+
+/* Concept Note — phased roadmap timeline */
+.cn-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin: var(--space-lg) 0 var(--space-xl);
+}
+.cn-timeline-phase {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: var(--space-md);
+  padding-top: var(--space-lg);
+  background: var(--color-bg-alt);
+  border-top: 3px solid var(--color-primary);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+.cn-timeline-when {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+.cn-timeline-phase strong {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+.cn-timeline-phase span:last-child {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* Concept Note — reused Use-of-Funds pie chart, scoped to fit the flowing content */
+.cn-uof {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.cn-uof .uof-chart-title {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 720px) {
+  .cn-icon-cards,
+  .cn-timeline {
+    grid-template-columns: 1fr;
+  }
+  .cn-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .concept-note-error {
   padding: var(--space-xl);
   background: var(--teal-50);
@@ -4843,7 +5033,15 @@ section[id],
     break-after: avoid;
   }
   .concept-note-content table,
-  .concept-note-content tr {
+  .concept-note-content tr,
+  .cn-icon-cards,
+  .cn-icon-card,
+  .cn-card-grid,
+  .cn-card,
+  .cn-loop,
+  .cn-timeline,
+  .cn-stats-row,
+  .cn-uof {
     page-break-inside: avoid;
     break-inside: avoid;
   }
