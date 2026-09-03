@@ -5028,7 +5028,7 @@ section[id],
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-3xl);
   }
   .concept-note-print-mark img {
     width: 1.75rem;
@@ -5080,6 +5080,10 @@ section[id],
   .cn-section {
     page-break-inside: avoid;
     break-inside: avoid;
+  }
+  .cn-references {
+    page-break-before: always;
+    break-before: page;
   }
   /* Print's layout width doesn't reliably match the mobile breakpoints below —
      always use the desktop grid so cards sit side by side, not stacked. */
