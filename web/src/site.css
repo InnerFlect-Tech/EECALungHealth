@@ -4082,6 +4082,7 @@ section[id],
 /* Concept Note — big-number stat row (e.g. TB burden) */
 .cn-stats-row {
   display: flex;
+  justify-content: space-between;
   gap: var(--space-xl);
   flex-wrap: wrap;
   margin: var(--space-lg) 0 var(--space-xl);
@@ -5082,7 +5083,8 @@ section[id],
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  .cn-references {
+  .cn-references,
+  .cn-page-break {
     page-break-before: always;
     break-before: page;
   }
