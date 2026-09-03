@@ -38,13 +38,6 @@ for _ in $(seq 1 30); do
 done
 
 echo "Printing /concept-note to $OUT …"
-"$CHROME" \
-  --headless=new \
-  --disable-gpu \
-  --no-pdf-header-footer \
-  --print-to-pdf-no-header \
-  --virtual-time-budget=15000 \
-  --print-to-pdf="$OUT" \
-  "http://localhost:$PORT/concept-note"
+node "$ROOT/scripts/print-pdf.mjs" "$PORT" "$OUT"
 
 echo "Wrote $(wc -c < "$OUT" | awk '{print int($1/1024)}') KB → $OUT"

@@ -4247,6 +4247,36 @@ section[id],
 .cn-uof .uof-chart-title {
   font-size: 1.25rem;
 }
+.cn-uof .uof-chart-lead {
+  font-size: 0.9rem;
+}
+.cn-uof .uof-chart-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-xl);
+}
+.cn-uof .uof-pie {
+  width: 150px;
+  height: 150px;
+}
+.cn-uof .uof-legend {
+  gap: 0.55rem;
+}
+.cn-uof .uof-legend-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.cn-uof .uof-legend-swatch {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+@media (max-width: 480px) {
+  .cn-uof .uof-chart-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 
 @media (max-width: 720px) {
   .cn-icon-cards,
@@ -5028,11 +5058,16 @@ section[id],
     min-width: 0;
   }
   .concept-note-content h3,
-  .concept-note-content h4 {
+  .concept-note-content h4,
+  .concept-note-content h5 {
     page-break-after: avoid;
     break-after: avoid;
   }
-  .concept-note-content table,
+  .concept-note-content p,
+  .concept-note-content li {
+    orphans: 3;
+    widows: 3;
+  }
   .concept-note-content tr,
   .cn-icon-cards,
   .cn-icon-card,
@@ -5041,8 +5076,20 @@ section[id],
   .cn-loop,
   .cn-timeline,
   .cn-stats-row,
-  .cn-uof {
+  .cn-uof,
+  .cn-section {
     page-break-inside: avoid;
     break-inside: avoid;
+  }
+  /* Print's layout width doesn't reliably match the mobile breakpoints below —
+     always use the desktop grid so cards sit side by side, not stacked. */
+  .cn-icon-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cn-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cn-timeline {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
