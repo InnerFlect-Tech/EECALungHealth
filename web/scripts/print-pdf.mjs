@@ -1,13 +1,15 @@
 // Prints /concept-note to a PDF with a page-number footer, via puppeteer-core
 // driving the system's own Chrome (no bundled Chromium download).
 //
-// Usage: node scripts/print-pdf.mjs <port> <outFile>
+// Usage: node scripts/print-pdf.mjs <port> <outFile> [path]
+//   path defaults to /concept-note?lang=en — pass e.g. '/concept-note?doc=ru&lang=ru'
+//   to print another edition of the note.
 
 import puppeteer from 'puppeteer-core';
 
-const [, , port, outFile] = process.argv;
+const [, , port, outFile, pagePath = '/concept-note?lang=en'] = process.argv;
 if (!port || !outFile) {
-  console.error('Usage: node scripts/print-pdf.mjs <port> <outFile>');
+  console.error('Usage: node scripts/print-pdf.mjs <port> <outFile> [path]');
   process.exit(1);
 }
 
@@ -20,7 +22,7 @@ try {
   // cards, timeline) from collapsing to their narrow-screen single-column layout —
   // print layout uses this viewport width, not the physical page size.
   await page.setViewport({ width: 1280, height: 1600 });
-  await page.goto(`http://localhost:${port}/concept-note`, { waitUntil: 'networkidle0' });
+  await page.goto(`http://localhost:${port}${pagePath}`, { waitUntil: 'networkidle0' });
 
   await page.pdf({
     path: outFile,

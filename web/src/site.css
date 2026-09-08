@@ -4104,6 +4104,84 @@ section[id],
   color: var(--color-text-muted);
 }
 
+/* Concept Note — the three programme components. The source doc holds these in
+   a four-column table; at A4 portrait width that gives ~150px columns and rows
+   a full page tall, which Chrome will not split across pages. Stacked blocks
+   carry the identical content and break naturally. */
+.cn-component {
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+  background: var(--color-surface);
+}
+.cn-component h5 {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-primary-dark);
+}
+.cn-component p {
+  margin: 0 0 var(--space-sm);
+}
+.cn-component ul {
+  margin: 0 0 var(--space-md);
+  padding-left: 1.1rem;
+}
+.cn-component li {
+  margin-bottom: 0.3rem;
+}
+.cn-component-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs) !important;
+}
+.cn-component-result {
+  margin: 0 !important;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--teal-50);
+  border-radius: var(--radius-sm);
+  font-size: 0.9375rem;
+}
+
+/* Concept Note — review edition: everything that differs from the source doc
+   is marked red so the team can see the delta at a glance. */
+.cn-diff,
+.cn-diff * {
+  /* A review marker has to be unambiguous, so it overrides every component
+     colour inside it — card headings, timeline labels, SVG icon strokes. */
+  color: #c0261a !important;
+}
+.cn-diff-block {
+  border-left: 3px solid #c0261a;
+  padding-left: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+.cn-diff-block,
+.cn-diff-block * {
+  color: #c0261a !important;
+}
+.cn-legend {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0 var(--space-xl);
+  background: var(--color-bg-alt);
+  font-size: 0.875rem;
+}
+.cn-legend p {
+  margin: 0 0 var(--space-xs);
+}
+.cn-legend p:last-child {
+  margin-bottom: 0;
+}
+.cn-legend .cn-legend-key {
+  color: #c0261a;
+  font-weight: 600;
+}
+
 /* Concept Note — Engine/Bridge/Shield icon cards */
 .cn-icon-cards {
   display: grid;
@@ -5070,15 +5148,19 @@ section[id],
     orphans: 3;
     widows: 3;
   }
-  .concept-note-content tr,
+  /* Table rows are deliberately NOT in this list: a component row runs most of
+     a page on its own, so keeping it whole just pushes it to the next page and
+     leaves the current one blank. Let rows split and the table flows. */
   .cn-icon-cards,
   .cn-icon-card,
+  .cn-component,
   .cn-card-grid,
   .cn-card,
   .cn-loop,
   .cn-timeline,
   .cn-stats-row,
   .cn-uof,
+  .cn-legend,
   .cn-section {
     page-break-inside: avoid;
     break-inside: avoid;

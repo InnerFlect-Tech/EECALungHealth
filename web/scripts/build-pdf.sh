@@ -37,7 +37,28 @@ for _ in $(seq 1 30); do
   sleep 1
 done
 
-echo "Printing /concept-note to $OUT …"
-node "$ROOT/scripts/print-pdf.mjs" "$PORT" "$OUT"
+# Three editions of the note: the doc-faithful English one that goes live, the
+# full English one with everything not in the source doc marked in red, and the
+# Russian one. Pass an edition name to build just that one.
+print_edition() {
+  local out="$1" path="$2"
+  echo "Printing $path → $(basename "$out") …"
+  node "$ROOT/scripts/print-pdf.mjs" "$PORT" "$out" "$path"
+  echo "  $(wc -c < "$out" | awk '{print int($1/1024)}') KB"
+}
 
-echo "Wrote $(wc -c < "$OUT" | awk '{print int($1/1024)}') KB → $OUT"
+case "${1:-all}" in
+  en)   print_edition "$OUT" "/concept-note?lang=en" ;;
+  full) print_edition "$ROOT/public/concept-note-full.pdf" "/concept-note?doc=full&lang=en" ;;
+  ru)   print_edition "$ROOT/public/concept-note-ru.pdf" "/concept-note?doc=ru&lang=ru" ;;
+  all)
+    print_edition "$OUT" "/concept-note?lang=en"
+    print_edition "$ROOT/public/concept-note-full.pdf" "/concept-note?doc=full&lang=en"
+    if [[ -f "$ROOT/public/concept-note-body-ru.html" ]]; then
+      print_edition "$ROOT/public/concept-note-ru.pdf" "/concept-note?doc=ru&lang=ru"
+    else
+      echo "Skipping RU edition — public/concept-note-body-ru.html not present."
+    fi
+    ;;
+  *) echo "Usage: build-pdf.sh [en|full|ru|all]"; exit 1 ;;
+esac
