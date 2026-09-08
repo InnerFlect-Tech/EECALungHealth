@@ -165,7 +165,7 @@ diff = apply(diff, [
 
   // In Brief — in neither language version of the doc
   ['<div class="cn-section">\n          <h4>IN BRIEF:',
-   '<div class="cn-section cn-diff-block">\n          <p class="cn-suggestion">This whole section is in no version of the doc.</p>\n          <h4>IN BRIEF:'],
+   '<p class="cn-diff">[The In Brief section below is in no version of the doc.]</p>\n          <div class="cn-section cn-diff-block">\n          <h4>IN BRIEF:'],
 
   // Executive summary
   ['<h4>EXECUTIVE SUMMARY: A CATALYTIC TWO-YEAR PROGRAMME</h4>',
@@ -241,7 +241,7 @@ ruDiff = apply(ruDiff, [
 
   // In Brief — in neither language version of the doc
   ['<div class="cn-section">\n          <h4>КРАТКО:',
-   '<div class="cn-section cn-diff-block">\n          <p class="cn-suggestion">Этого раздела нет ни в одной версии исходного документа.</p>\n          <h4>КРАТКО:'],
+   '<p class="cn-diff">[Раздела «Кратко» ниже нет ни в одной версии исходного документа.]</p>\n          <div class="cn-section cn-diff-block">\n          <h4>КРАТКО:'],
 
   // Executive summary
   ['<h4>КРАТКОЕ РЕЗЮМЕ: КАТАЛИТИЧЕСКАЯ ДВУХЛЕТНЯЯ ПРОГРАММА</h4>',
