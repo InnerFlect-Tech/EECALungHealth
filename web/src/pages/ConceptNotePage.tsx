@@ -12,10 +12,11 @@ import { T, useI18n } from '../i18n/I18nProvider';
 // budget section simply omit the marker and get no chart.
 const BUDGET_SECTION_MARKER = '<!--budget-chart-->';
 
-// Four editions of the same note share this page. The default is the clean
-// English one; ?doc=full adds the proposed extra sections (marked in red),
-// ?doc=diff marks where the clean note departs from the source doc, and
-// ?doc=ru is the Russian edition.
+// Several editions of the same note share this page. Which one a visitor gets
+// follows the site language: Russian readers get the Russian note, everyone
+// else the English one. ?doc= overrides that for the internal editions —
+// full (proposed extra sections, marked red) and diff (departures from the
+// source doc, marked red), in either language.
 const BODY_FILES: Record<string, string> = {
   default: '/concept-note-body.html',
   full: '/concept-note-body-full.html',
@@ -33,12 +34,12 @@ const PDF_FILES: Record<string, string> = {
 };
 
 export function ConceptNotePage() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [searchParams] = useSearchParams();
   const [html, setHtml] = useState('');
   const [error, setError] = useState(false);
 
-  const variant = searchParams.get('doc') ?? 'default';
+  const variant = searchParams.get('doc') ?? (lang === 'ru' ? 'ru' : 'default');
   const bodyFile = BODY_FILES[variant] ?? BODY_FILES.default;
   const pdfFile = PDF_FILES[variant] ?? PDF_FILES.default;
 
@@ -83,6 +84,7 @@ export function ConceptNotePage() {
           <div className="concept-note-actions">
             <a
               href={pdfFile}
+              download
               className="btn btn-primary concept-note-download"
               onClick={(e) => {
                 // Hide gracefully until W7 ships the PDF
