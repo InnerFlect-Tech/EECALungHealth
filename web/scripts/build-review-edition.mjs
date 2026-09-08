@@ -28,7 +28,7 @@ const LEGEND = `
 const MECHANICS = `
           <div class="cn-diff-block">
           <p class="cn-suggestion">Suggested addition. The note explains what the Hub is and why it is worth funding, but never says when anything actually lands — the only timing anywhere in the document is the single "within 6 months (Phase 1)" line in the conclusion. This section makes the phasing explicit, which is what a funder needs in order to understand what a first tranche buys and what the next one depends on. It is in no version of the concept note doc, and the phase timings in particular need the team's sign-off before this goes to anyone outside.</p>
-          <h4>4. MECHANICS OF PROJECT IMPLEMENTATION (PHASED, 2-YEAR PROGRAMME)</h4>
+          <h4 class="cn-page-break">4. MECHANICS OF PROJECT IMPLEMENTATION (PHASED, 2-YEAR PROGRAMME)</h4>
           <div class="cn-section">
           <p>The programme is implemented in phases. Each phase is independently fundable, delivers a working result on its own, and the foundation unit is designed to replicate country-by-country – a donor never funds a promise, only a repeat of something already proven.</p>
 
@@ -73,7 +73,7 @@ const MECHANICS = `
 
           <div class="cn-diff-block">
           <p class="cn-suggestion">Suggested addition. The document already names the headline total and offers the line-item detail on request; this section adds the reasoning in between – how the money is staged phase by phase, and what Phase 1 actually covers – which is what a funder needs in order to judge the first tranche. The chart shows proportions only, no figures. One item to settle before this is used: the doc's total was calculated with a Phase 1 of USD 70,000, and the team has since raised that ask to USD 100,000 on the website, so the precise total needs re-deriving.</p>
-          <h4>5. BUDGET STRUCTURE (PHASED · 24 MONTHS)</h4>
+          <h4 class="cn-page-break">5. BUDGET STRUCTURE (PHASED · 24 MONTHS)</h4>
           <p>The programme is funded phase by phase. Phase 1 is a self-contained Foundation stage in one EECA country that delivers a fully working solution after 6 months; every later phase scales a proven unit. Phase 1R replicates the identical playbook country by country. Phase 2 builds out the regional platform. Phase 3 delivers nine-country coverage, full Bridge and Shield, and long-term institutionalization.</p>
           <p>Phase 1 carries only three lines – core team, development of the solution, and a small buffer. Communications, legal/administrative work and coordination are performed by the core team within their engagement. Staff, training, multi-country rollout and maintenance for later phases are contained within the Phase 2 and Phase 3 allocations.</p>
           </div>
@@ -115,15 +115,15 @@ must(metaEnd > 4, 'could not find the cover meta line');
 html = html.slice(0, metaEnd) + '\n' + LEGEND + html.slice(metaEnd);
 
 // The proposed sections sit between the investment thesis and the conclusion.
-const conclusionHeading = '          <h4>4. CONCLUSION:';
+const conclusionHeading = '          <h4 class="cn-page-break">4. CONCLUSION:';
 must(html.includes(conclusionHeading), 'could not find the conclusion heading');
 html = html.replace(conclusionHeading, MECHANICS + conclusionHeading);
 
 // Renumber the conclusion, since two sections now precede it, and give it the
 // suggested opening line.
 html = html.replace(
-  '<h4>4. CONCLUSION:',
-  '<h4><span class="cn-diff">6.</span> CONCLUSION:',
+  '<h4 class="cn-page-break">4. CONCLUSION:',
+  '<h4 class="cn-page-break"><span class="cn-diff">6.</span> CONCLUSION:',
 );
 const afterConclusionHeading = html.indexOf('</h4>', html.indexOf('CONCLUSION:')) + '</h4>\n'.length;
 html = html.slice(0, afterConclusionHeading) + CONCLUSION_LEAD + html.slice(afterConclusionHeading);

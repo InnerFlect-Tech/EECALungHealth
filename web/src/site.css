@@ -5183,6 +5183,37 @@ section[id],
     page-break-before: always;
     break-before: page;
   }
+  /* Print-only type scale for the two densest components, so a governance grid
+     plus its closing paragraph lands on one page, and two programme components
+     fit together rather than one per page. */
+  .concept-note-content .cn-card p {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+  }
+  .concept-note-content .cn-card h5 {
+    font-size: 0.875rem;
+  }
+  .concept-note-content .cn-card {
+    padding: var(--space-sm) var(--space-md);
+  }
+  .concept-note-content .cn-component {
+    padding: var(--space-md);
+    margin: var(--space-md) 0;
+  }
+  .concept-note-content .cn-component p,
+  .concept-note-content .cn-component li {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+  }
+  .concept-note-content .cn-component li {
+    margin-bottom: 0.15rem;
+  }
+  .concept-note-content .cn-component h5 {
+    font-size: 0.9375rem;
+  }
+  .concept-note-content .cn-component-result {
+    padding: var(--space-xs) var(--space-sm);
+  }
   /* Print's layout width doesn't reliably match the mobile breakpoints below —
      always use the desktop grid so cards sit side by side, not stacked. */
   .cn-icon-cards {
