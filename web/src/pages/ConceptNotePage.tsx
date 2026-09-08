@@ -12,18 +12,21 @@ import { T, useI18n } from '../i18n/I18nProvider';
 // budget section simply omit the marker and get no chart.
 const BUDGET_SECTION_MARKER = '<!--budget-chart-->';
 
-// Three editions of the same note share this page. The default is the
-// doc-faithful English one; ?doc=full adds the material that is not in the
-// source doc (marked in red), ?doc=ru is the Russian edition.
+// Four editions of the same note share this page. The default is the clean
+// English one; ?doc=full adds the proposed extra sections (marked in red),
+// ?doc=diff marks where the clean note departs from the source doc, and
+// ?doc=ru is the Russian edition.
 const BODY_FILES: Record<string, string> = {
   default: '/concept-note-body.html',
   full: '/concept-note-body-full.html',
+  diff: '/concept-note-body-diff.html',
   ru: '/concept-note-body-ru.html',
 };
 
 const PDF_FILES: Record<string, string> = {
   default: '/concept-note.pdf',
   full: '/concept-note-full.pdf',
+  diff: '/concept-note-diff.pdf',
   ru: '/concept-note-ru.pdf',
 };
 

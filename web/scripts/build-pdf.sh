@@ -50,15 +50,17 @@ print_edition() {
 case "${1:-all}" in
   en)   print_edition "$OUT" "/concept-note?lang=en" ;;
   full) print_edition "$ROOT/public/concept-note-full.pdf" "/concept-note?doc=full&lang=en" ;;
+  diff) print_edition "$ROOT/public/concept-note-diff.pdf" "/concept-note?doc=diff&lang=en" ;;
   ru)   print_edition "$ROOT/public/concept-note-ru.pdf" "/concept-note?doc=ru&lang=ru" ;;
   all)
     print_edition "$OUT" "/concept-note?lang=en"
     print_edition "$ROOT/public/concept-note-full.pdf" "/concept-note?doc=full&lang=en"
+    print_edition "$ROOT/public/concept-note-diff.pdf" "/concept-note?doc=diff&lang=en"
     if [[ -f "$ROOT/public/concept-note-body-ru.html" ]]; then
       print_edition "$ROOT/public/concept-note-ru.pdf" "/concept-note?doc=ru&lang=ru"
     else
       echo "Skipping RU edition — public/concept-note-body-ru.html not present."
     fi
     ;;
-  *) echo "Usage: build-pdf.sh [en|full|ru|all]"; exit 1 ;;
+  *) echo "Usage: build-pdf.sh [en|full|diff|ru|all]"; exit 1 ;;
 esac

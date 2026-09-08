@@ -5198,7 +5198,7 @@ section[id],
   }
   .concept-note-content .cn-component {
     padding: var(--space-md);
-    margin: var(--space-md) 0;
+    margin: var(--space-xl) 0;
   }
   .concept-note-content .cn-component p,
   .concept-note-content .cn-component li {

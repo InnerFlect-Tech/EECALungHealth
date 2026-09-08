@@ -1,31 +1,64 @@
-// Generates public/concept-note-body-full.html from public/concept-note-body.html.
+// Generates the two derived editions of the concept note from the live body.
 //
-// The review edition is the live concept note plus a set of proposed additions,
-// each marked in red with a short note saying what it is and why it is being
-// suggested. Generating it from the live body rather than maintaining a second
-// copy means the two can never silently drift apart — re-run this after any
-// edit to the live note.
+//   public/concept-note-body.html        the clean, ready-to-use note (hand-edited)
+//   public/concept-note-body-full.html   + proposed additions, marked red
+//   public/concept-note-body-diff.html   the same clean note, with everything
+//                                        that differs from the source doc marked red
 //
-// Usage: node scripts/build-review-edition.mjs
+// Both derived files are generated rather than maintained by hand, so they can
+// never silently drift from the live note. Every replacement below asserts on
+// its match, so an edit to the live body that breaks an anchor fails loudly
+// instead of quietly dropping a marker.
+//
+// Usage: node scripts/build-editions.mjs
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const src = join(root, 'public', 'concept-note-body.html');
-const out = join(root, 'public', 'concept-note-body-full.html');
+const read = (name) => readFileSync(join(root, 'public', name), 'utf8');
+const write = (name, body) => {
+  writeFileSync(join(root, 'public', name), body);
+  console.log(`Wrote public/${name}`);
+};
 
-let html = readFileSync(src, 'utf8');
+const live = read('concept-note-body.html');
 
-const LEGEND = `
+/** Applies [find, replace] pairs, requiring exactly one match for each. */
+function apply(html, pairs, label) {
+  for (const [find, replace] of pairs) {
+    const n = html.split(find).length - 1;
+    if (n !== 1) {
+      console.error(`build-editions (${label}): expected 1 match, found ${n}, for:\n  ${find.slice(0, 90)}`);
+      process.exit(1);
+    }
+    html = html.replace(find, replace);
+  }
+  return html;
+}
+
+function insertAfterCoverMeta(html, block) {
+  const end = html.indexOf('</p>', html.indexOf('class="cn-doc-meta"')) + '</p>'.length;
+  if (end < 4) {
+    console.error('build-editions: could not find the cover meta line');
+    process.exit(1);
+  }
+  return html.slice(0, end) + '\n' + block + html.slice(end);
+}
+
+// ---------------------------------------------------------------------------
+// Edition 2 — proposed additions, marked red
+// ---------------------------------------------------------------------------
+
+const REVIEW_LEGEND = `
           <div class="cn-legend">
             <p><strong>Review edition.</strong> This is the current concept note plus a set of <span class="cn-legend-key">proposed additions</span>, each marked in red. Everything in black is exactly the document as it stands today.</p>
             <p>Each red block opens with a short note saying what it is and why it is suggested. Nothing here has been added to the live document — this edition exists so the team can decide, section by section, what should go in.</p>
           </div>
 `;
 
-const MECHANICS = `
+const PROPOSED_SECTIONS = `
           <div class="cn-diff-block">
           <p class="cn-suggestion">Suggested addition. The note explains what the Hub is and why it is worth funding, but never says when anything actually lands — the only timing anywhere in the document is the single "within 6 months (Phase 1)" line in the conclusion. This section makes the phasing explicit, which is what a funder needs in order to understand what a first tranche buys and what the next one depends on. It is in no version of the concept note doc, and the phase timings in particular need the team's sign-off before this goes to anyone outside.</p>
           <h4 class="cn-page-break">4. MECHANICS OF PROJECT IMPLEMENTATION (PHASED, 2-YEAR PROGRAMME)</h4>
@@ -72,7 +105,7 @@ const MECHANICS = `
           </div>
 
           <div class="cn-diff-block">
-          <p class="cn-suggestion">Suggested addition. The document already names the headline total and offers the line-item detail on request; this section adds the reasoning in between – how the money is staged phase by phase, and what Phase 1 actually covers – which is what a funder needs in order to judge the first tranche. The chart shows proportions only, no figures. One item to settle before this is used: the doc's total was calculated with a Phase 1 of USD 70,000, and the team has since raised that ask to USD 100,000 on the website, so the precise total needs re-deriving.</p>
+          <p class="cn-suggestion">Suggested addition. The document already names the headline total and offers the line-item detail on request; this section adds the reasoning in between – how the money is staged phase by phase, and what Phase 1 actually covers – which is what a funder needs in order to judge the first tranche. The chart shows proportions only, no figures. One item to settle before this is used: the doc's total was calculated with a Phase 1 of USD 70,000, and the team has since raised that ask to USD 100,000, so the precise total needs re-deriving.</p>
           <h4 class="cn-page-break">5. BUDGET STRUCTURE (PHASED · 24 MONTHS)</h4>
           <p>The programme is funded phase by phase. Phase 1 is a self-contained Foundation stage in one EECA country that delivers a fully working solution after 6 months; every later phase scales a proven unit. Phase 1R replicates the identical playbook country by country. Phase 2 builds out the regional platform. Phase 3 delivers nine-country coverage, full Bridge and Shield, and long-term institutionalization.</p>
           <p>Phase 1 carries only three lines – core team, development of the solution, and a small buffer. Communications, legal/administrative work and coordination are performed by the core team within their engagement. Staff, training, multi-country rollout and maintenance for later phases are contained within the Phase 2 and Phase 3 allocations.</p>
@@ -102,34 +135,78 @@ const REFERENCES = `
           </div>
 `;
 
-function must(condition, message) {
-  if (!condition) {
-    console.error(`build-review-edition: ${message}`);
-    process.exit(1);
-  }
-}
+let review = insertAfterCoverMeta(live, REVIEW_LEGEND);
+review = apply(review, [
+  ['          <h4 class="cn-page-break">4. CONCLUSION:', PROPOSED_SECTIONS + '          <h4 class="cn-page-break">4. CONCLUSION:'],
+  ['<h4 class="cn-page-break">4. CONCLUSION:', '<h4 class="cn-page-break"><span class="cn-diff">6.</span> CONCLUSION:'],
+], 'review');
+const headingEnd = review.indexOf('</h4>', review.indexOf('CONCLUSION:')) + '</h4>\n'.length;
+review = review.slice(0, headingEnd) + CONCLUSION_LEAD + review.slice(headingEnd);
+write('concept-note-body-full.html', review.trimEnd() + '\n' + REFERENCES);
 
-// Legend goes directly under the cover meta line.
-const metaEnd = html.indexOf('</p>', html.indexOf('class="cn-doc-meta"')) + '</p>'.length;
-must(metaEnd > 4, 'could not find the cover meta line');
-html = html.slice(0, metaEnd) + '\n' + LEGEND + html.slice(metaEnd);
+// ---------------------------------------------------------------------------
+// Edition 3 — same clean note, with every departure from the source doc marked
+// ---------------------------------------------------------------------------
 
-// The proposed sections sit between the investment thesis and the conclusion.
-const conclusionHeading = '          <h4 class="cn-page-break">4. CONCLUSION:';
-must(html.includes(conclusionHeading), 'could not find the conclusion heading');
-html = html.replace(conclusionHeading, MECHANICS + conclusionHeading);
+const DIFF_LEGEND = `
+          <div class="cn-legend">
+            <p><strong>Comparison edition.</strong> Same document as the clean version — nothing added, nothing removed. Everything marked in <span class="cn-legend-key">red</span> is where it departs from the source concept note doc (<em>170826_EECA_LH_Sovereignty_Hub__12_m</em>), with the doc's own wording given in brackets. Black text is the doc's wording.</p>
+            <p>Not marked individually: the doc's typos and broken sentences are silently repaired throughout — "a strategic and locally-led <em>d</em> response", an executive-summary paragraph ending in a comma, the verbless sentence in 1.3, the broken construction in 1.4, and "from early 2025 onward<em>..</em>This".</p>
+          </div>
+`;
 
-// Renumber the conclusion, since two sections now precede it, and give it the
-// suggested opening line.
-html = html.replace(
-  '<h4 class="cn-page-break">4. CONCLUSION:',
-  '<h4 class="cn-page-break"><span class="cn-diff">6.</span> CONCLUSION:',
-);
-const afterConclusionHeading = html.indexOf('</h4>', html.indexOf('CONCLUSION:')) + '</h4>\n'.length;
-html = html.slice(0, afterConclusionHeading) + CONCLUSION_LEAD + html.slice(afterConclusionHeading);
+const note = (text) => `<span class="cn-diff"> [${text}]</span>`;
 
-// References close the document.
-html = html.trimEnd() + '\n' + REFERENCES;
+let diff = insertAfterCoverMeta(live, DIFF_LEGEND);
+diff = apply(diff, [
+  // Cover
+  ['<p class="subtitle">From Decision to Delivery',
+   `<p class="cn-diff">[The cover framing — "Detailed Investment Proposal", the lead sentence, the date and contact line — is not in the doc, whose title is "Concept Note / Regional Lung Health Hub in EECA Countries".]</p>\n          <p class="subtitle">From Decision to Delivery`],
 
-writeFileSync(out, html);
-console.log(`Wrote ${out}`);
+  // In Brief — in neither language version of the doc
+  ['<div class="cn-section">\n          <h4>IN BRIEF:',
+   '<div class="cn-section cn-diff-block">\n          <p class="cn-suggestion">This whole section is in no version of the doc.</p>\n          <h4>IN BRIEF:'],
+
+  // Executive summary
+  ['<h4>EXECUTIVE SUMMARY: A CATALYTIC TWO-YEAR PROGRAMME</h4>',
+   `<h4>EXECUTIVE SUMMARY:<span class="cn-diff"> A CATALYTIC TWO-YEAR PROGRAMME</span></h4>${note('the doc has no tagline here')}`],
+  ['a USD 100,000, 6-month Foundation Phase in one EECA country',
+   `<span class="cn-diff">a USD 100,000, 6-month Foundation Phase in one EECA country</span>${note('doc: "a USD 70,000, 6-month Foundation Phase in Kazakhstan" — the $70,000 was superseded when the team raised the Phase 1 ask')}`],
+  ['to a total programme value of USD 1.2 million. Full phased budget and terms are available on request.',
+   `<span class="cn-diff">to a total programme value of USD 1.2 million. Full phased budget and terms are available on request.</span>${note('doc: "to a total programme value of USD 1,210,000, with further details provided in subsequent sections" — no section of the doc provides them')}`],
+  ['to end tuberculosis, active in the EECA region since 2014.',
+   `to end tuberculosis, active in the EECA region since <span class="cn-diff">2014</span>${note('doc: 2014-2016')}.`],
+
+  // Section 2
+  ['within a $1.2 million budget over 2 years.',
+   `within a <span class="cn-diff">$1.2 million</span>${note('doc: $1,200,000')} budget over 2 years.`],
+  ['engaged in the EECA region since 2014, cultivating',
+   `engaged in the EECA region since <span class="cn-diff">2014</span>${note('doc: 2014-2016')}, cultivating`],
+  ['allocation of the $1.2 million budget directly',
+   `allocation of the <span class="cn-diff">$1.2 million</span>${note('doc: $1,210,000')} budget directly`],
+  ['Governance rests on four operating bodies, coordinated by a <strong>Regional Steering Committee</strong> of Parliamentary Council, Civil Society Council, and regional technical-expert representatives, which sets strategic direction and ensures alignment with regional priorities:',
+   `<span class="cn-diff">Governance rests on four operating bodies, coordinated by a <strong>Regional Steering Committee</strong> of Parliamentary Council, Civil Society Council, and regional technical-expert representatives, which sets strategic direction and ensures alignment with regional priorities:</span>${note('rewritten. Doc: "Regional Steering Committee: Composed of representatives from the Parliamentary Council, Civil Society Council, and key technical experts from the region. This committee will provide strategic direction, oversight, and ensure alignment with regional priorities." In the doc this sits above a bulleted list of the four bodies; presenting it as one more bullet is what made it read as a fifth branch. The four bodies below are set as cards; their wording is the doc\'s')}`],
+
+  // Section 2.3
+  ['<h5>Component 1: The Engine (AI-Powered Legislative Platform)</h5>',
+   `<h5>Component 1: The Engine (AI-Powered Legislative Platform)</h5>\n            <p class="cn-suggestion">The doc reads "The Engine —  App (AI-Powered Legislative Platform)" — a word is missing after the dash. The doc also sets all three components in a four-column table; at page width that produced rows a full page tall, so the same content is set as blocks.</p>`],
+  ['<p>Together these present the Hub as a single, integrated system',
+   `<p><span class="cn-diff">Together these</span>${note('doc: "The table above"')} present the Hub as a single, integrated system`],
+
+  // Section 3
+  ['<p>This $1.2 million programme establishes',
+   `<p>This <span class="cn-diff">$1.2 million</span>${note('doc: $1,210,000')} programme establishes`],
+
+  // Conclusion
+  ['a national screening-intelligence dashboard connected to national reporting',
+   `a <span class="cn-diff">national</span>${note('doc: "Kazakhstan"; the Russian doc adds "as pilot country; another country may be selected if needed"')} screening-intelligence dashboard connected to national reporting`],
+], 'diff');
+
+// The stat row and the missing loop graphic are presentation notes rather than
+// wording changes, so they sit as short annotations where they apply.
+diff = apply(diff, [
+  ['<div class="cn-stats-row">',
+   '<p class="cn-suggestion">The three figures below are the doc\'s own, lifted out of the paragraph above as a graphic.</p>\n          <div class="cn-stats-row">'],
+], 'diff-notes');
+
+write('concept-note-body-diff.html', diff);
