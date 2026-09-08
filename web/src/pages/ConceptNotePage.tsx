@@ -21,6 +21,7 @@ const BODY_FILES: Record<string, string> = {
   full: '/concept-note-body-full.html',
   diff: '/concept-note-body-diff.html',
   ru: '/concept-note-body-ru.html',
+  'ru-diff': '/concept-note-body-ru-diff.html',
 };
 
 const PDF_FILES: Record<string, string> = {
@@ -28,6 +29,7 @@ const PDF_FILES: Record<string, string> = {
   full: '/concept-note-full.pdf',
   diff: '/concept-note-diff.pdf',
   ru: '/concept-note-ru.pdf',
+  'ru-diff': '/concept-note-ru-diff.pdf',
 };
 
 export function ConceptNotePage() {

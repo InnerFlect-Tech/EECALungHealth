@@ -5214,6 +5214,22 @@ section[id],
   .concept-note-content .cn-component-result {
     padding: var(--space-xs) var(--space-sm);
   }
+  html[lang="ru"] .concept-note-content .cn-card p,
+  html[lang="ru"] .concept-note-content .cn-component p,
+  html[lang="ru"] .concept-note-content .cn-component li {
+    font-size: 0.7rem;
+    line-height: 1.38;
+  }
+  html[lang="ru"] .concept-note-content .cn-card {
+    padding: var(--space-xs) var(--space-sm);
+  }
+  html[lang="ru"] .concept-note-content .cn-card h5 {
+    font-size: 0.8125rem;
+  }
+  html[lang="ru"] .concept-note-content .cn-icon-card p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
   /* Print's layout width doesn't reliably match the mobile breakpoints below —
      always use the desktop grid so cards sit side by side, not stacked. */
   .cn-icon-cards {
