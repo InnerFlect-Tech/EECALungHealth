@@ -4163,6 +4163,14 @@ section[id],
 .cn-diff-block * {
   color: #c0261a !important;
 }
+.cn-suggestion {
+  font-size: 0.875rem;
+  font-style: italic;
+  background: #fdf2f0;
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin: 0 0 var(--space-md) !important;
+}
 .cn-legend {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -5147,6 +5155,11 @@ section[id],
   .concept-note-content li {
     orphans: 3;
     widows: 3;
+  }
+  /* A suggestion note belongs with the section it introduces. */
+  .cn-suggestion {
+    page-break-after: avoid;
+    break-after: avoid;
   }
   /* Table rows are deliberately NOT in this list: a component row runs most of
      a page on its own, so keeping it whole just pushes it to the next page and
