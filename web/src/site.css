@@ -5139,6 +5139,25 @@ section[id],
   .concept-note-body-section {
     padding-top: 0;
   }
+  /* Print runs a smaller, tighter body than the screen: on paper the measure is
+     narrower and the reader is not scrolling, so this packs noticeably more per
+     page and shortens the trailing gaps before each chapter break. */
+  .concept-note-content {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .concept-note-content p {
+    margin: var(--space-sm) 0;
+  }
+  .concept-note-content h4 {
+    font-size: 1rem;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+  }
+  .concept-note-content ul,
+  .concept-note-content ol {
+    margin: var(--space-sm) 0;
+  }
   .concept-note-content .table-scroll {
     overflow: visible;
   }
@@ -5214,21 +5233,21 @@ section[id],
   .concept-note-content .cn-component-result {
     padding: var(--space-xs) var(--space-sm);
   }
+  /* Russian runs about a fifth longer than English for the same content, so the
+     card and component blocks need a touch more compression in that language to
+     keep the governance grid and its closing paragraph on a single page. */
   html[lang="ru"] .concept-note-content .cn-card p,
   html[lang="ru"] .concept-note-content .cn-component p,
-  html[lang="ru"] .concept-note-content .cn-component li {
-    font-size: 0.7rem;
-    line-height: 1.38;
-  }
-  html[lang="ru"] .concept-note-content .cn-card {
-    padding: var(--space-xs) var(--space-sm);
+  html[lang="ru"] .concept-note-content .cn-component li,
+  html[lang="ru"] .concept-note-content .cn-icon-card p {
+    font-size: 0.75rem;
+    line-height: 1.42;
   }
   html[lang="ru"] .concept-note-content .cn-card h5 {
     font-size: 0.8125rem;
   }
-  html[lang="ru"] .concept-note-content .cn-icon-card p {
-    font-size: 0.75rem;
-    line-height: 1.4;
+  html[lang="ru"] .concept-note-content .cn-card {
+    padding: var(--space-xs) var(--space-sm);
   }
   /* Print's layout width doesn't reliably match the mobile breakpoints below —
      always use the desktop grid so cards sit side by side, not stacked. */
