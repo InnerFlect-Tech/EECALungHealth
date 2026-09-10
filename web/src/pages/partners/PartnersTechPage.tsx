@@ -102,7 +102,7 @@ export function PartnersTechPage() {
             ))}
           </div>
           <div className="pp-logos">
-            <span>Built on&nbsp;<b>the Global TB Caucus</b></span>
+            <span>In collaboration with&nbsp;<b>the Global TB Caucus</b></span>
             <span>Aligned with&nbsp;<b>WHO Europe — TB-Free Central Asia</b></span>
           </div>
         </div>

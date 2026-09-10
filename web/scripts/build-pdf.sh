@@ -25,11 +25,32 @@ if [[ ! -d "$ROOT/dist" ]]; then
   exit 1
 fi
 
+# The production build strips the internal review/comparison bodies from dist/
+# (see the strip-internal-concept-note-editions plugin in vite.config.ts) so they
+# never reach the public server. The printer serves dist/, so put them back for
+# the duration of this script — locally only. CI never runs this script, so the
+# dist/ it deploys stays clean.
+echo "Restoring internal editions into dist/ for printing …"
+for f in concept-note-body-full.html concept-note-body-diff.html concept-note-body-ru-diff.html; do
+  [[ -f "$ROOT/public/$f" ]] && cp "$ROOT/public/$f" "$ROOT/dist/$f"
+done
+
 # Serve dist/ via vite preview in the background.
 echo "Starting preview on :$PORT …"
 ( cd "$ROOT" && npx vite preview --port "$PORT" --strictPort ) >/tmp/eeca-preview.log 2>&1 &
 PREVIEW_PID=$!
-trap 'kill $PREVIEW_PID 2>/dev/null || true' EXIT
+cleanup() {
+  # $PREVIEW_PID is the subshell; the npx/node server is its grandchild, so
+  # killing the subshell alone leaves a server bound to the port. A stale one
+  # silently serves an older dist/ on the next run, which is very hard to spot.
+  pkill -P $PREVIEW_PID 2>/dev/null || true
+  kill $PREVIEW_PID 2>/dev/null || true
+  lsof -ti:"$PORT" 2>/dev/null | xargs -r kill 2>/dev/null || true
+  rm -f "$ROOT"/dist/concept-note-body-full.html \
+        "$ROOT"/dist/concept-note-body-diff.html \
+        "$ROOT"/dist/concept-note-body-ru-diff.html
+}
+trap cleanup EXIT
 
 # Wait for the server to accept requests.
 for _ in $(seq 1 30); do

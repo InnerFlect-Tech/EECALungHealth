@@ -46,7 +46,7 @@ export const translations = {
     'hero-headline': 'Decisions<br><span class="hero-accent">delivered as care.</span>',
     'hero-lead': 'A regional platform closing the lung-health delivery gap across nine EECA countries. Seeking Phase 1 partners to launch the Foundation Phase in one EECA country.',
     'statcard-eyebrow': 'At a glance',
-    'statcard-text': 'Built on the <a href="https://www.globaltbcaucus.org/" target="_blank" rel="noopener noreferrer">Global TB Caucus</a> network, fighting Tuberculosis since 2014.',
+    'statcard-text': 'In collaboration with the <a href="https://www.globaltbcaucus.org/" target="_blank" rel="noopener noreferrer">Global TB Caucus</a> network, fighting Tuberculosis since 2014.',
     'stat1v': '300K+', 'stat1l': 'patients in scope',
     'stat2v': 'Weeks', 'stat2l': 'from policy to action',
     'stat3v': '9', 'stat3l': 'national caucuses',
@@ -54,7 +54,7 @@ export const translations = {
 
     // Index - What Is
     'what-is-title': 'What is the EECA Lung Health Hub?',
-    'what-is-p1': 'The Hub builds on the established Global TB Caucus network – active in EECA since 2014, with nine national caucuses. It is a <strong>governed regional platform</strong> that turns lung-health policy into delivered care: a working model of health sovereignty as global funding recedes.',
+    'what-is-p1': 'The Hub works in collaboration with the Global TB Caucus network – active in EECA since 2014, with nine national caucuses. It is a <strong>governed regional platform</strong> that turns lung-health policy into delivered care: a working model of health sovereignty as global funding recedes.',
     'what-is-p2': 'It runs as one governed platform with three components – the <strong>Engine</strong> (AI-powered legislative platform), the <strong>Bridge</strong> (data-driven diplomacy and financing alignment), and the <strong>Shield</strong> (health security and continuity of care) – over a shared, governed data layer, to build resilient, self-reliant lung health systems across Eastern Europe and Central Asia.',
     'what-is-link': 'Why is this urgent?',
 
@@ -182,7 +182,7 @@ export const translations = {
     'opp-stat-num': '85%',
     'opp-stat-label': 'of the world\'s TB burden – and 99% of MDR-TB – sits in 18 priority countries, many across EECA.',
     'whatis-eyebrow': 'Overview',
-    'cred-label': 'Built on the <a href="https://www.globaltbcaucus.org/" target="_blank" rel="noopener noreferrer">Global TB Caucus</a> network – active in EECA since 2014',
+    'cred-label': 'In collaboration with the <a href="https://www.globaltbcaucus.org/" target="_blank" rel="noopener noreferrer">Global TB Caucus</a> network – active in EECA since 2014',
     'whatis-concept-note-cta': 'Read the Concept Note',
     'countries': 'Armenia · Azerbaijan · Georgia · Kazakhstan · Kyrgyzstan · Moldova · Tajikistan · Ukraine · Uzbekistan',
     'inaction-eyebrow': 'The cost of inaction',
@@ -232,7 +232,7 @@ export const translations = {
     'gov-title': 'Governance & Regional Ownership',
     'gov-lead': 'The Hub operates as an autonomous, regionally-led center with a lean governance structure.',
     'gov-p1': 'The <strong>Regional Steering Committee</strong> is composed of representatives from the Parliamentary Council, Civil Society Council, and key technical experts from the region. It provides strategic direction, oversight, and ensures alignment with regional priorities.',
-    'gov-p2': 'The <strong>Parliamentary Council</strong> draws directly from the active national Global TB Caucuses (Armenia, Azerbaijan, Georgia, Kazakhstan, Kyrgyzstan, Moldova, Tajikistan, Ukraine, Uzbekistan). It champions legislative and policy reforms, advocates for domestic resource mobilization, and ensures political buy-in at the highest levels. Their established relationships and influence are critical for translating policy into action.',
+    'gov-p2': 'The <strong>Parliamentary Council</strong> is formed with representatives from the nine national TB caucuses (Armenia, Azerbaijan, Georgia, Kazakhstan, Kyrgyzstan, Moldova, Tajikistan, Ukraine, Uzbekistan). It champions legislative and policy reforms, advocates for domestic resource mobilization, and ensures political buy-in at the highest levels. Their established relationships and influence are critical for translating policy into action.',
     'gov-p3': 'The <strong>Civil Society Council</strong> comprises representatives from affected communities and civil society organizations across the EECA region. It ensures that the Hub\'s activities are community-led, rights-based, and responsive to the needs of vulnerable populations, and provides ethical oversight–particularly for data use–and accountability and transparency.',
     'gov-p4': 'The <strong>Advisory Board of Former MPs (Ex-MPs)</strong> is a specialized body of former parliamentarians with deep health-policy and legislative experience. It mentors current caucus members, leads high-level diplomatic missions, and offers a "layer of certainty" through peer-to-peer political guidance.',
     'gov-p5': 'A small, agile <strong>Technical Secretariat</strong> runs day-to-day operations around three core leads – Parliamentary Engagement, Civil Society Engagement, and AI & Systems Architecture – plus finance, administration, and communications support. This structure ensures decisions are made by and for the EECA context, with agility and accountability.',
@@ -254,7 +254,7 @@ export const translations = {
     // Footer
     'footer-brand': 'EECA Lung Health Hub',
     'footer-tagline': 'Political will, delivered as care – across Eastern Europe & Central Asia.',
-    'footer-partner': 'Foundational partners',
+    'footer-partner': 'In collaboration with',
     'nav-impact': 'Impact', 'nav-participate': 'Contributors',
     'footer-explore': 'Explore',
     'footer-legal': 'Legal',
@@ -343,13 +343,13 @@ export const translations = {
     'gov-financials-roadmap-title': 'Audit roadmap',
     'gov-financials-roadmap-body': 'An independent audit is scheduled for Q3 2027, aligned with completion of the Phase 1 Foundation deliverables. Interim reporting is provided to partners at the end of each 90-day milestone.',
     'gov-financials-fiscal-title': 'Fiscal host & governance',
-    'gov-financials-fiscal-body': 'The Hub operates as an autonomous, regionally-led centre supported by the Global TB Caucus network. Governance is exercised through a Regional Steering Committee, a Parliamentary Council drawn from nine active national caucuses, a Civil Society Council, an Advisory Board of former MPs, and a lean Technical Secretariat.',
+    'gov-financials-fiscal-body': 'The Hub operates as an autonomous, regionally-led centre working in collaboration with the Global TB Caucus network. Governance is exercised through a Regional Steering Committee, a Parliamentary Council drawn from nine active national caucuses, a Civil Society Council, an Advisory Board of former MPs, and a lean Technical Secretariat.',
     'gov-financials-transparency-title': 'Transparency principles',
     'gov-financials-transparency-body': 'Aggregated, non-identifiable data only. ISO 27001-grade information security. GDPR-equivalent data protection. Sovereign, in-region hosting. Human-in-the-loop review on every AI-assisted output. Independent oversight and reporting to partners on a fixed cadence.',
 
     // ── W3 – Trust strip (site-wide, above footer) ──
     'trust-a': 'Aligned with WHO Europe',
-    'trust-b': 'Global TB Caucus lineage · active since 2014',
+    'trust-b': 'In collaboration with the Global TB Caucus · active since 2014',
     'trust-c': 'GDPR-equivalent data protection',
     'trust-d': 'Sovereign, in-region hosting',
     'trust-e': 'Independent audit · Q3 2027 roadmap',

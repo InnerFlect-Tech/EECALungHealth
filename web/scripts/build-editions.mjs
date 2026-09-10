@@ -151,6 +151,7 @@ write('concept-note-body-full.html', review.trimEnd() + '\n' + REFERENCES);
 const DIFF_LEGEND = `
           <div class="cn-legend">
             <p><strong>Comparison edition.</strong> Same document as the clean version — nothing added, nothing removed. Everything marked in <span class="cn-legend-key">red</span> is where it departs from the source concept note doc (<em>170826_EECA_LH_Sovereignty_Hub__12_m</em>), with the doc's own wording given in brackets. Black text is the doc's wording.</p>
+            <p><strong>New since the last review:</strong> every description of the relationship with the Global TB Caucus has been reworded from "built on / benefits from / draws directly from" to collaboration. This is a deliberate departure from the doc, requested by Alesia so that external readers do not read the Hub as a GTBC-owned initiative. The affected passages are marked below.</p>
             <p>Not marked individually: the doc's typos and broken sentences are silently repaired throughout — "a strategic and locally-led <em>d</em> response", an executive-summary paragraph ending in a comma, the verbless sentence in 1.3, the broken construction in 1.4, and "from early 2025 onward<em>..</em>This".</p>
           </div>
 `;
@@ -192,6 +193,26 @@ diff = apply(diff, [
    `<h5>Component 1: The Engine (AI-Powered Legislative Platform)</h5>\n            <p class="cn-suggestion">The doc reads "The Engine —  App (AI-Powered Legislative Platform)" — a word is missing after the dash. The doc also sets all three components in a four-column table; at page width that produced rows a full page tall, so the same content is set as blocks.</p>`],
   ['<p>Together these present the Hub as a single, integrated system',
    `<p><span class="cn-diff">Together these</span>${note('doc: "The table above"')} present the Hub as a single, integrated system`],
+
+  // Global TB Caucus relationship — reworded to collaboration (Alesia's request)
+  ['Crucially, the Hub is developed in collaboration with the <strong>Global TB Caucus</strong>,',
+   `<span class="cn-diff">Crucially, the Hub is developed in collaboration with the <strong>Global TB Caucus</strong></span>${note('doc: "the Hub is building on a solid and proven foundation – it builds upon the established, high-impact infrastructure and deep relationships of the Global TB Caucus"')},`],
+  ['offers exceptional regional reach for rapid, sustainable impact.',
+   `<span class="cn-diff">offers exceptional regional reach</span>${note('doc: "provides an unparalleled foundation"')} for rapid, sustainable impact.`],
+  ['<strong>2.1. Collaboration with the Global TB Caucus Network</strong>',
+   `<strong>2.1. <span class="cn-diff">Collaboration with</span> the Global TB Caucus Network</strong>${note('doc: "2.1. Building on Established Foundations: The Global TB Caucus Network"')}`],
+  ['the Hub works in collaboration with the Global TB Caucus.',
+   `the Hub <span class="cn-diff">works in collaboration with</span>${note('doc: "benefits from the pre-existing, robust infrastructure of"')} the Global TB Caucus.`],
+  ['The Hub collaborates with nine active national TB caucuses in Armenia,',
+   `<span class="cn-diff">The Hub collaborates with</span>${note('doc: "The Hub will directly integrate and amplify the work of"')} nine active national TB caucuses in Armenia,`],
+  ['while collaborating closely with the Global TB Caucus network.',
+   `<span class="cn-diff">while collaborating closely with</span>${note('doc: "while remaining strategically connected to the broader"')} the Global TB Caucus network.`],
+  ['Formed with representatives from the nine national TB caucuses (Armenia,',
+   `<span class="cn-diff">Formed with representatives from</span>${note('doc: "Drawing directly from the nine active national Global TB Caucuses"')} the nine national TB caucuses (Armenia,`],
+  ['while collaborating with the Global TB Caucus and its regional network.',
+   `<span class="cn-diff">while collaborating with the Global TB Caucus and its regional network</span>${note('doc: "while benefiting from the global expertise and network of the Global TB Caucus"')}.`],
+  ['<p>Working in collaboration with the Global TB Caucus network and by linking budget data,',
+   `<p><span class="cn-diff">Working in collaboration with</span>${note('doc: "Building on"')} the Global TB Caucus network and by linking budget data,`],
 
   // Section 3
   ['<p>This $1.2 million programme establishes',

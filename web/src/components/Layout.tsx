@@ -136,7 +136,7 @@ export function Footer() {
             <strong>{t('footer-brand')}</strong>
           </Link>
           <p>{t('footer-tagline')}</p>
-          <div className="footer-partners" aria-label="Foundational partners">
+          <div className="footer-partners" aria-label={t('footer-partner')}>
             <span className="footer-partners-label">{t('footer-partner')}</span>
             <div className="partner-logos">
               <a

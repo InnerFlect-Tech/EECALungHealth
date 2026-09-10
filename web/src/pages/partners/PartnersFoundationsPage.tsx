@@ -65,7 +65,7 @@ export function PartnersFoundationsPage() {
           <div className="pp-grid">
             {[
               { I: IcBuilding, t: 'A named, lasting institution', d: 'A permanent regional health platform that can carry your foundation’s name and legacy for decades.' },
-              { I: IcGlobe, t: 'National prestige & health diplomacy', d: 'Position your country as the regional leader, convening nine EECA parliaments through the Global TB Caucus.' },
+              { I: IcGlobe, t: 'National prestige & health diplomacy', d: 'Position your country as the regional leader, convening nine EECA parliaments in collaboration with the Global TB Caucus.' },
               { I: IcLock, t: 'Sovereignty by design', d: 'Aggregated, non-identifiable data hosted in-country/in-region under ISO 27001-grade security. Control stays national.' },
               { I: IcChart, t: 'Measurable, reportable impact', d: 'Clear deliverables and dashboards — legislation, budget decisions, patients protected — for credible annual reporting.' },
               { I: IcHandshake, t: 'Co-funding leverage', d: 'Your lead gift de-risks and unlocks matching support from WHO, ADB, the World Bank and the Global Fund.' },
@@ -105,7 +105,7 @@ export function PartnersFoundationsPage() {
             ))}
           </div>
           <div className="pp-logos">
-            <span>Built on&nbsp;<b>the Global TB Caucus</b></span>
+            <span>In collaboration with&nbsp;<b>the Global TB Caucus</b></span>
             <span>Aligned with&nbsp;<b>WHO Europe — TB-Free Central Asia</b></span>
             <span>Co-funding path:&nbsp;<b>ADB · World Bank · Global Fund</b></span>
           </div>
