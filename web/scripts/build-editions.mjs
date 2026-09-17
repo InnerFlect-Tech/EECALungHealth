@@ -1,14 +1,23 @@
-// Generates the two derived editions of the concept note from the live body.
+// Generates the review editions of the concept note from the live bodies.
 //
-//   public/concept-note-body.html        the clean, ready-to-use note (hand-edited)
-//   public/concept-note-body-full.html   + proposed additions, marked red
-//   public/concept-note-body-diff.html   the same clean note, with everything
-//                                        that differs from the source doc marked red
+//   public/concept-note-body.html             the live English note (hand-edited)
+//   public/concept-note-body-ru.html          the live Russian note (hand-edited)
+//   public/concept-note-body-revision.html    EN, this round's changes marked red
+//   public/concept-note-body-ru-revision.html RU, this round's changes marked red
 //
-// Both derived files are generated rather than maintained by hand, so they can
-// never silently drift from the live note. Every replacement below asserts on
-// its match, so an edit to the live body that breaks an anchor fails loudly
-// instead of quietly dropping a marker.
+// The revision editions are what goes to the team for comment: everything the
+// September 2026 source-accuracy pass changed is in red, everything black is
+// unchanged. Deletions cannot be highlighted, so the legend names them.
+//
+// Both are generated from the live bodies rather than maintained by hand, so
+// they cannot drift. Every replacement asserts on its match, so an edit to a
+// live body that breaks an anchor fails loudly instead of silently dropping a
+// marker.
+//
+// The earlier `full` and `diff` editions are retired. `full` carried proposed
+// additions that the team has now accepted — they live in the note itself.
+// `diff` compared against Alesia's source doc, which this round has moved well
+// beyond; the revision edition is the comparison the team needs now.
 //
 // Usage: node scripts/build-editions.mjs
 
@@ -23,17 +32,15 @@ const write = (name, body) => {
   console.log(`Wrote public/${name}`);
 };
 
-const live = read('concept-note-body.html');
-
-/** Applies [find, replace] pairs, requiring exactly one match for each. */
+/** Applies [find, replace] pairs, requiring an exact number of matches. */
 function apply(html, pairs, label) {
-  for (const [find, replace] of pairs) {
+  for (const [find, replace, expected = 1] of pairs) {
     const n = html.split(find).length - 1;
-    if (n !== 1) {
-      console.error(`build-editions (${label}): expected 1 match, found ${n}, for:\n  ${find.slice(0, 90)}`);
+    if (n !== expected) {
+      console.error(`build-editions (${label}): expected ${expected} match(es), found ${n}, for:\n  ${find.slice(0, 100)}`);
       process.exit(1);
     }
-    html = html.replace(find, replace);
+    html = html.split(find).join(replace);
   }
   return html;
 }
@@ -47,280 +54,131 @@ function insertAfterCoverMeta(html, block) {
   return html.slice(0, end) + '\n' + block + html.slice(end);
 }
 
+const red = (s) => `<span class="cn-diff">${s}</span>`;
+const note = (s) => `<span class="cn-diff"> [${s}]</span>`;
+
 // ---------------------------------------------------------------------------
-// Edition 2 — proposed additions, marked red
+// English revision edition
 // ---------------------------------------------------------------------------
 
-const REVIEW_LEGEND = `
+const EN_LEGEND = `
           <div class="cn-legend">
-            <p><strong>Review edition.</strong> This is the current concept note plus a set of <span class="cn-legend-key">proposed additions</span>, each marked in red. Everything in black is exactly the document as it stands today.</p>
-            <p>Each red block opens with a short note saying what it is and why it is suggested. Nothing here has been added to the live document — this edition exists so the team can decide, section by section, what should go in.</p>
+            <p><strong>Revision for review — September 2026.</strong> Everything marked in <span class="cn-legend-key">red</span> changed in this round. Black text is unchanged. Please comment directly on the red passages.</p>
+            <p>This round did three things: it acted on the team's nine comments, it corrected every figure that could not be supported by a published source, and it added a references section — the note previously cited nothing at all.</p>
+            <p><strong>Removed, and so not visible below.</strong> The claim of "approximately 300,000 vulnerable patients … a conservative estimate based on the annual incidence of TB alone in the target countries" is gone: WHO/ECDC record about 225,000 estimated TB cases in the <em>entire</em> WHO European Region in 2023, so the figure was roughly three times too high. The figures "85% of the TB burden" and "99% of MDR-TB" are gone: they describe the WHO European Region rather than EECA, and the 99% appears nowhere in the current WHO/ECDC report — it survives only in a 2007–2015 plan. Two references were dropped because nothing in the note cited them (Impakter, on US philanthropy; Gavi 6.0, on vaccines — whose link was also dead). Two claims were softened because no source exists for them: the statistic about an "average MP" facing a deluge of legislation, and, on the website, "22 of 26 high-burden countries that raised domestic TB budgets had an active caucus".</p>
           </div>
 `;
 
-const PROPOSED_SECTIONS = `
-          <div class="cn-diff-block">
-          <p class="cn-suggestion">Suggested addition. The note explains what the Hub is and why it is worth funding, but never says when anything actually lands — the only timing anywhere in the document is the single "within 6 months (Phase 1)" line in the conclusion. This section makes the phasing explicit, which is what a funder needs in order to understand what a first tranche buys and what the next one depends on. It is in no version of the concept note doc, and the phase timings in particular need the team's sign-off before this goes to anyone outside.</p>
-          <h4 class="cn-page-break">4. MECHANICS OF PROJECT IMPLEMENTATION (PHASED, 2-YEAR PROGRAMME)</h4>
-          <div class="cn-section">
-          <p>The programme is implemented in phases. Each phase is independently fundable, delivers a working result on its own, and the foundation unit is designed to replicate country-by-country – a donor never funds a promise, only a repeat of something already proven.</p>
-
-          <div class="cn-timeline">
-            <div class="cn-timeline-phase">
-              <span class="cn-timeline-when">Months 1–6</span>
-              <strong>Phase 1 · Foundation</strong>
-              <span>One EECA country</span>
-            </div>
-            <div class="cn-timeline-phase">
-              <span class="cn-timeline-when">Months 7–12</span>
-              <strong>Phase 1R · Replication</strong>
-              <span>Country by country</span>
-            </div>
-            <div class="cn-timeline-phase">
-              <span class="cn-timeline-when">Months 13–18</span>
-              <strong>Phase 2 · Regional Platform</strong>
-              <span>Multi-country build-out</span>
-            </div>
-            <div class="cn-timeline-phase">
-              <span class="cn-timeline-when">Months 19–24</span>
-              <strong>Phase 3 · Scale &amp; Integration</strong>
-              <span>Nine-country coverage</span>
-            </div>
-          </div>
-          </div>
-
-          <p><strong>Phase 1 – Foundation: One EECA Country (Months 1–6)</strong><br>
-          Objective: a working solution, live, after 6 months, in one country. The lead partner country is selected from the nine active national TB caucuses on criteria including caucus readiness, political momentum, and donor fit. Delivered at Month 6: lean governance established; a Legislative Ask Map (the exact regulatory changes needed in the lead country, validated with MPs and communities); the Hub App core on sovereign infrastructure (roles/authentication, country profile, stakeholder directory, caucus workspace); a screening-intelligence dashboard with a national-reporting interoperability pilot; and a caucus legislative workplan running in the App – the proof unit.</p>
-
-          <p><strong>Phase 1R – Country Replication (Months 7–12)</strong><br>
-          The identical playbook stamped into additional caucus countries, each producing its own Legislative Ask Map, dashboard and caucus workplan within 6 months. Replications run in parallel.</p>
-
-          <p><strong>Phase 2 – Regional Platform Build-Out (Months 13–18)</strong><br>
-          Full Sovereignty App: Secure MP Portal, Comparative-Law Intelligence (multi-country EECA database), AI-assisted drafting &amp; amendment analysis with mandatory human review; EN/RU multilingual rollout; hardened security posture (ISO 27001-grade, sovereign hosting); first Regional Parliamentary Summit on the platform; Decision Briefs and budget/policy intelligence production.</p>
-
-          <p><strong>Phase 3 – Scale &amp; Integration (Months 19–24)</strong><br>
-          Onboard the remaining caucus countries (full nine-country coverage); full Bridge (country-matching analytics, evidence-based missions, accountability frameworks); full Shield (signal-based early warning, continuity-of-care mapping, supply &amp; last-mile visibility dashboard; private-sector integration); comprehensive evaluation, sustainability &amp; domestic-financing strategy, long-term institutionalization.</p>
-
-          <p>The components in §2.3 (Engine · Bridge · Shield) are the <em>what</em>; the phases are the <em>when and how much</em>: the Engine's core ships in Phase 1 and completes in Phase 2; the Shield's intelligence layer seeds in Phase 1 and completes in Phase 3; the Bridge operates from Phase 2 and completes in Phase 3.</p>
-          </div>
-
-          <div class="cn-diff-block">
-          <p class="cn-suggestion">Suggested addition. The document already names the headline total and offers the line-item detail on request; this section adds the reasoning in between – how the money is staged phase by phase, and what Phase 1 actually covers – which is what a funder needs in order to judge the first tranche. The chart shows proportions only, no figures. One item to settle before this is used: the doc's total was calculated with a Phase 1 of USD 70,000, and the team has since raised that ask to USD 100,000, so the precise total needs re-deriving.</p>
-          <h4 class="cn-page-break">5. BUDGET STRUCTURE (PHASED · 24 MONTHS)</h4>
-          <p>The programme is funded phase by phase. Phase 1 is a self-contained Foundation stage in one EECA country that delivers a fully working solution after 6 months; every later phase scales a proven unit. Phase 1R replicates the identical playbook country by country. Phase 2 builds out the regional platform. Phase 3 delivers nine-country coverage, full Bridge and Shield, and long-term institutionalization.</p>
-          <p>Phase 1 carries only three lines – core team, development of the solution, and a small buffer. Communications, legal/administrative work and coordination are performed by the core team within their engagement. Staff, training, multi-country rollout and maintenance for later phases are contained within the Phase 2 and Phase 3 allocations.</p>
-          </div>
-<!--budget-chart-->
-          <div class="cn-diff-block">
-          <p><strong>Full phased budget, Phase 1 line-item detail, and terms are available on request.</strong> Please <a href="/contact">contact us</a> or start a <a href="/consultation">consultation</a> to receive the detailed budget package.</p>
-          </div>
-
-`;
-
-const CONCLUSION_LEAD = `          <p class="cn-diff">The EECA Lung Health Hub is a focused 24-month investment to close a critical gap: turning political decisions into real delivery of care – fast – entered through a 6-month Foundation Phase in one EECA country that delivers a working solution before any further funding is asked. <em>(Suggested opening line, to tie the conclusion back to the phased sections above. Only makes sense if those are kept.)</em></p>
-`;
-
-const REFERENCES = `
-          <div class="cn-diff-block">
-          <h4 class="cn-references">REFERENCES</h4>
-          <p class="cn-suggestion">Suggested addition. The note makes hard factual claims – 85% of the regional TB burden, 99% of MDR-TB, roughly 300,000 patients, donor withdrawal from 2025 – and currently cites nothing for any of them. All six entries below were checked against the live sources. Two corrections were made in the process: the Impakter piece published on 27 November 2025, not the 26th, and the WHO digital health strategy now runs to 2027, extended by World Health Assembly resolution WHA78(22) in May 2025. One open item: the WHO Global Tuberculosis Report 2025 was published on 12 November 2025, so the 2024 edition cited here is one cycle behind – worth re-checking the 18 / 85% / 99% figures against the newer edition before switching the citation.</p>
-          <ol>
-            <li>Human Rights Watch. Donor Nation Cuts to Global Health Financing Affect Millions. January 22, 2026. <a href="https://www.hrw.org/news/2026/01/22/donor-nation-cuts-to-global-health-financing-affect-millions" target="_blank" rel="noopener">hrw.org</a></li>
-            <li>Impakter. Individual American Donors Are Shifting to Domestic Needs: Implications for Philanthropy. November 27, 2025. <a href="https://impakter.com/individual-american-donors-are-shifting-to-domestic-needs-implications-for-philanthropy/" target="_blank" rel="noopener">impakter.com</a></li>
-            <li>World Health Organization. Global Tuberculosis Report 2024. October 29, 2024. <a href="https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2024" target="_blank" rel="noopener">who.int</a></li>
-            <li>Global TB Caucus. <a href="https://www.globaltbcaucus.org/" target="_blank" rel="noopener">globaltbcaucus.org</a></li>
-            <li>World Health Organization. Global strategy on digital health 2020–2027. <a href="https://www.who.int/publications/i/item/9789240116870" target="_blank" rel="noopener">who.int</a></li>
-            <li>Gavi, the Vaccine Alliance. Gavi's Strategy for 2026–2030 (Gavi 6.0). <a href="https://www.gavi.org/our-alliance/strategy/gavi-6-0" target="_blank" rel="noopener">gavi.org</a></li>
-          </ol>
-          </div>
-`;
-
-let review = insertAfterCoverMeta(live, REVIEW_LEGEND);
-review = apply(review, [
-  ['          <h4 class="cn-page-break">4. CONCLUSION:', PROPOSED_SECTIONS + '          <h4 class="cn-page-break">4. CONCLUSION:'],
-  ['<h4 class="cn-page-break">4. CONCLUSION:', '<h4 class="cn-page-break"><span class="cn-diff">6.</span> CONCLUSION:'],
-], 'review');
-const headingEnd = review.indexOf('</h4>', review.indexOf('CONCLUSION:')) + '</h4>\n'.length;
-review = review.slice(0, headingEnd) + CONCLUSION_LEAD + review.slice(headingEnd);
-write('concept-note-body-full.html', review.trimEnd() + '\n' + REFERENCES);
-
-// ---------------------------------------------------------------------------
-// Edition 3 — same clean note, with every departure from the source doc marked
-// ---------------------------------------------------------------------------
-
-const DIFF_LEGEND = `
-          <div class="cn-legend">
-            <p><strong>Comparison edition.</strong> Same document as the clean version — nothing added, nothing removed. Everything marked in <span class="cn-legend-key">red</span> is where it departs from the source concept note doc (<em>170826_EECA_LH_Sovereignty_Hub__12_m</em>), with the doc's own wording given in brackets. Black text is the doc's wording.</p>
-            <p><strong>New since the last review:</strong> every description of the relationship with the Global TB Caucus has been reworded from "built on / benefits from / draws directly from" to collaboration. This is a deliberate departure from the doc, requested by Alesia so that external readers do not read the Hub as a GTBC-owned initiative. The affected passages are marked below.</p>
-            <p>Not marked individually: the doc's typos and broken sentences are silently repaired throughout — "a strategic and locally-led <em>d</em> response", an executive-summary paragraph ending in a comma, the verbless sentence in 1.3, the broken construction in 1.4, and "from early 2025 onward<em>..</em>This".</p>
-          </div>
-`;
-
-const note = (text) => `<span class="cn-diff"> [${text}]</span>`;
-
-let diff = insertAfterCoverMeta(live, DIFF_LEGEND);
-diff = apply(diff, [
-  // Cover
-  ['<p class="subtitle">From Decision to Delivery',
-   `<p class="cn-diff">[The cover framing — "Detailed Investment Proposal", the lead sentence, the date and contact line — is not in the doc, whose title is "Concept Note / Regional Lung Health Hub in EECA Countries".]</p>\n          <p class="subtitle">From Decision to Delivery`],
-
-  // In Brief — in neither language version of the doc
-  ['<div class="cn-section">\n          <h4>IN BRIEF:',
-   '<p class="cn-diff">[The In Brief section below is in no version of the doc.]</p>\n          <div class="cn-section cn-diff-block">\n          <h4>IN BRIEF:'],
-
+const EN_MARKS = [
   // Executive summary
-  ['<h4>EXECUTIVE SUMMARY: A CATALYTIC TWO-YEAR PROGRAMME</h4>',
-   `<h4>EXECUTIVE SUMMARY:<span class="cn-diff"> A CATALYTIC TWO-YEAR PROGRAMME</span></h4>${note('the doc has no tagline here')}`],
-  ['a USD 100,000, 6-month Foundation Phase in one EECA country',
-   `<span class="cn-diff">a USD 100,000, 6-month Foundation Phase in one EECA country</span>${note('doc: "a USD 70,000, 6-month Foundation Phase in Kazakhstan" — the $70,000 was superseded when the team raised the Phase 1 ask')}`],
-  ['to a total programme value of USD 1.2 million. Full phased budget and terms are available on request.',
-   `<span class="cn-diff">to a total programme value of USD 1.2 million. Full phased budget and terms are available on request.</span>${note('doc: "to a total programme value of USD 1,210,000, with further details provided in subsequent sections" — no section of the doc provides them')}`],
-  ['to end tuberculosis, active in the EECA region since 2014.',
-   `to end tuberculosis, active in the EECA region since <span class="cn-diff">2014</span>${note('doc: 2014-2016')}.`],
+  ['<h4>EXECUTIVE SUMMARY</h4>',
+   `<h4>EXECUTIVE SUMMARY</h4>${note('the tagline "A Catalytic Two-Year Programme" was removed')}`],
+  ['built as a phased programme over two years, opening with a $100,000, six-month Foundation Phase in one EECA country that delivers a fully working solution',
+   red('built as a phased programme over two years, opening with a $100,000, six-month Foundation Phase in one EECA country that delivers a fully working solution') +
+   note('was "structured … over 2 years: a USD 100,000, 6-month Foundation Phase". "Built" per comment; "$" replaces "USD" throughout; this is now the only statement of duration in the executive summary')],
+  ['to a total programme value of $1.2 million.', red('to a total programme value of $1.2 million.')],
+  ['Its regional network for Eastern Europe and Central Asia has been active since 2016.<sup>3</sup>',
+   red('Its regional network for Eastern Europe and Central Asia has been active since 2016.<sup>3</sup>') +
+   note('was "active in the EECA region since 2014". The Global TB Caucus was founded globally in 2014; its Eurasian Parliamentary Group on TB was established in June 2016'), 1],
+  ['<p>Functioning as a <strong>Health Security Coordination Center</strong>, the Hub is designed to protect continuity of care where the regional burden is heaviest. The nine partner countries include three of the six highest-burden countries in the WHO European Region: Ukraine (42,000 estimated cases in 2023), Uzbekistan (20,000) and Kazakhstan (14,000).<sup>1</sup></p>',
+   `<p class="cn-diff">Functioning as a <strong>Health Security Coordination Center</strong>, the Hub is designed to protect continuity of care where the regional burden is heaviest. The nine partner countries include three of the six highest-burden countries in the WHO European Region: Ukraine (42,000 estimated cases in 2023), Uzbekistan (20,000) and Kazakhstan (14,000).<sup>1</sup> <em>(Replaces the 300,000 claim. These are published per-country figures, quoted rather than summed.)</em></p>`],
 
-  // Section 2
-  ['within a $1.2 million budget over 2 years.',
-   `within a <span class="cn-diff">$1.2 million</span>${note('doc: $1,200,000')} budget over 2 years.`],
-  ['engaged in the EECA region since 2014, cultivating',
-   `engaged in the EECA region since <span class="cn-diff">2014</span>${note('doc: 2014-2016')}, cultivating`],
-  ['allocation of the $1.2 million budget directly',
-   `allocation of the <span class="cn-diff">$1.2 million</span>${note('doc: $1,210,000')} budget directly`],
-  ['Governance rests on four operating bodies, coordinated by a <strong>Regional Steering Committee</strong> of Parliamentary Council, Civil Society Council, and regional technical-expert representatives, which sets strategic direction and ensures alignment with regional priorities:',
-   `<span class="cn-diff">Governance rests on four operating bodies, coordinated by a <strong>Regional Steering Committee</strong> of Parliamentary Council, Civil Society Council, and regional technical-expert representatives, which sets strategic direction and ensures alignment with regional priorities:</span>${note('rewritten. Doc: "Regional Steering Committee: Composed of representatives from the Parliamentary Council, Civil Society Council, and key technical experts from the region. This committee will provide strategic direction, oversight, and ensure alignment with regional priorities." In the doc this sits above a bulleted list of the four bodies; presenting it as one more bullet is what made it read as a fifth branch. The four bodies below are set as cards; their wording is the doc\'s')}`],
+  // 1.1
+  ['The WHO European Region recorded an estimated 225,000 new and relapse tuberculosis cases in 2023, about 84% of them in the 18 countries WHO designates as high-priority – a group that includes all nine EECA countries this programme works with. Incidence across those 18 averages 46 per 100,000, five times the EU/EEA average. The Region also carries the world\'s heaviest drug-resistant burden: an estimated 65,000 rifampicin-resistant and multidrug-resistant (RR/MDR-TB) cases, and nine of the 30 countries with the highest MDR-TB burden worldwide.<sup>1</sup>',
+   red('The WHO European Region recorded an estimated 225,000 new and relapse tuberculosis cases in 2023, about 84% of them in the 18 countries WHO designates as high-priority – a group that includes all nine EECA countries this programme works with. Incidence across those 18 averages 46 per 100,000, five times the EU/EEA average. The Region also carries the world\'s heaviest drug-resistant burden: an estimated 65,000 rifampicin-resistant and multidrug-resistant (RR/MDR-TB) cases, and nine of the 30 countries with the highest MDR-TB burden worldwide.<sup>1</sup>') +
+   note('every figure here is quoted from the WHO/ECDC report and now carries a reference')],
+  ['<div class="cn-stats-row">', '<div class="cn-stats-row cn-diff">'],
 
-  // Section 2.3
-  ['<h5>Component 1: The Engine (AI-Powered Legislative Platform)</h5>',
-   `<h5>Component 1: The Engine (AI-Powered Legislative Platform)</h5>\n            <p class="cn-suggestion">The doc reads "The Engine —  App (AI-Powered Legislative Platform)" — a word is missing after the dash. The doc also sets all three components in a four-column table; at page width that produced rows a full page tall, so the same content is set as blocks.</p>`],
-  ['<p>Together these present the Hub as a single, integrated system',
-   `<p><span class="cn-diff">Together these</span>${note('doc: "The table above"')} present the Hub as a single, integrated system`],
+  // 1.2 and 1.4
+  ['from early 2025 onward.<sup>2</sup>', `from early 2025 onward.${red('<sup>2</sup>')}${note('now sourced')}`],
+  ['It also stems from the legislative workload carried by parliamentarians: where health policy competes with a heavy flow of other legislation, the capacity for swift, informed decision-making on complex health questions is constrained.',
+   red('It also stems from the legislative workload carried by parliamentarians: where health policy competes with a heavy flow of other legislation, the capacity for swift, informed decision-making on complex health questions is constrained.') +
+   note('softened — the previous wording implied a statistic about "an average MP" that no source supports')],
 
-  // Global TB Caucus relationship — reworded to collaboration (Alesia's request)
-  ['Crucially, the Hub is developed in collaboration with the <strong>Global TB Caucus</strong>,',
-   `<span class="cn-diff">Crucially, the Hub is developed in collaboration with the <strong>Global TB Caucus</strong></span>${note('doc: "the Hub is building on a solid and proven foundation – it builds upon the established, high-impact infrastructure and deep relationships of the Global TB Caucus"')},`],
-  ['offers exceptional regional reach for rapid, sustainable impact.',
-   `<span class="cn-diff">offers exceptional regional reach</span>${note('doc: "provides an unparalleled foundation"')} for rapid, sustainable impact.`],
-  ['<strong>2.1. Collaboration with the Global TB Caucus Network</strong>',
-   `<strong>2.1. <span class="cn-diff">Collaboration with</span> the Global TB Caucus Network</strong>${note('doc: "2.1. Building on Established Foundations: The Global TB Caucus Network"')}`],
-  ['the Hub works in collaboration with the Global TB Caucus.',
-   `the Hub <span class="cn-diff">works in collaboration with</span>${note('doc: "benefits from the pre-existing, robust infrastructure of"')} the Global TB Caucus.`],
-  ['The Hub collaborates with nine active national TB caucuses in Armenia,',
-   `<span class="cn-diff">The Hub collaborates with</span>${note('doc: "The Hub will directly integrate and amplify the work of"')} nine active national TB caucuses in Armenia,`],
-  ['while collaborating closely with the Global TB Caucus network.',
-   `<span class="cn-diff">while collaborating closely with</span>${note('doc: "while remaining strategically connected to the broader"')} the Global TB Caucus network.`],
-  ['Formed with representatives from the nine national TB caucuses (Armenia,',
-   `<span class="cn-diff">Formed with representatives from</span>${note('doc: "Drawing directly from the nine active national Global TB Caucuses"')} the nine national TB caucuses (Armenia,`],
-  ['while collaborating with the Global TB Caucus and its regional network.',
-   `<span class="cn-diff">while collaborating with the Global TB Caucus and its regional network</span>${note('doc: "while benefiting from the global expertise and network of the Global TB Caucus"')}.`],
-  ['<p>Working in collaboration with the Global TB Caucus network and by linking budget data,',
-   `<p><span class="cn-diff">Working in collaboration with</span>${note('doc: "Building on"')} the Global TB Caucus network and by linking budget data,`],
+  // 2, 2.1, 2.3
+  ['within a $1.2 million budget.', red('within a $1.2 million budget.') + note('"over 2 years" removed as a duplicate statement of duration')],
+  ['Its regional network for Eastern Europe and Central Asia has been active since 2016, cultivating',
+   red('Its regional network for Eastern Europe and Central Asia has been active since 2016,') + ' cultivating'],
+  ['<strong>2.3. The $1.2 Million Programme: The EECA Lung Health Hub</strong>',
+   `<strong>2.3. The $1.2 Million Programme: The EECA Lung Health Hub</strong>${note('"(2-Year Program)" removed')}`],
+  ['<p class="cn-component-label">Key deliverables</p>',
+   `<p class="cn-component-label">Key deliverables${note('"(within 24 months)" removed here and on the other two components')}</p>`, 3],
+  ['(aligned with the WHO global strategy on digital health<sup>4</sup>)',
+   red('(aligned with the WHO global strategy on digital health<sup>4</sup>)')],
+  ['<li>Demonstrated decision value in the lead partner country, with a clear roadmap for regional scale</li>',
+   `<li>${red('Demonstrated decision value in the lead partner country')}${note('was "across 2–3 pilot countries", which contradicted the one-country Phase 1 stated everywhere else')}, with a clear roadmap for regional scale</li>`],
 
-  // Section 3
-  ['<p>This $1.2 million programme establishes',
-   `<p>This <span class="cn-diff">$1.2 million</span>${note('doc: $1,210,000')} programme establishes`],
+  // sections 4 and 5, accepted from the review edition
+  ['<h4 class="cn-page-break">4. MECHANICS OF PROJECT IMPLEMENTATION</h4>',
+   `<h4 class="cn-page-break cn-diff">4. MECHANICS OF PROJECT IMPLEMENTATION</h4>\n          <p class="cn-suggestion">Sections 4 and 5 were proposed in the previous review edition and carried no comments, so they are treated as accepted and are now part of the note. The month ranges appear only in the timeline graphic; the four phase headings below no longer repeat them.</p>`],
+  ['<h4 class="cn-page-break">5. BUDGET STRUCTURE</h4>',
+   `<h4 class="cn-page-break cn-diff">5. BUDGET STRUCTURE</h4>${note('shortened per comment: detail on request, then how the money splits')}`],
 
-  // Conclusion
-  ['a national screening-intelligence dashboard connected to national reporting',
-   `a <span class="cn-diff">national</span>${note('doc: "Kazakhstan"; the Russian doc adds "as pilot country; another country may be selected if needed"')} screening-intelligence dashboard connected to national reporting`],
-], 'diff');
+  // conclusion
+  ['<p>The EECA Lung Health Hub closes a critical gap: turning political decisions into real delivery of care – fast – entered through a Foundation Phase in one EECA country that delivers a working solution before any further funding is asked.</p>',
+   '<p class="cn-diff">The EECA Lung Health Hub closes a critical gap: turning political decisions into real delivery of care – fast – entered through a Foundation Phase in one EECA country that delivers a working solution before any further funding is asked. <em>(Accepted from the review edition; "24-month" dropped, since the duration is stated just below.)</em></p>'],
+  ['<p>Within six months (Phase 1), the investment delivers:', `<p>${red('Within six months')} (Phase 1), the investment delivers:`],
+  ['<p>Within two years, the investment delivers:</p>', `<p>${red('Within two years')}, the investment delivers:</p>${note('was "Within 24 months"')}`],
+  ['<li>Protected continuity of care across the nine partner countries, beginning with the highest-burden settings</li>',
+   `<li>${red('Protected continuity of care across the nine partner countries, beginning with the highest-burden settings')}${note('was "for 300,000+ vulnerable patients"')}</li>`],
 
-// The stat row and the missing loop graphic are presentation notes rather than
-// wording changes, so they sit as short annotations where they apply.
-diff = apply(diff, [
-  ['<div class="cn-stats-row">',
-   '<p class="cn-suggestion">The three figures below are the doc\'s own, lifted out of the paragraph above as a graphic.</p>\n          <div class="cn-stats-row">'],
-], 'diff-notes');
+  // references
+  ['<h4 class="cn-references">REFERENCES</h4>',
+   `<h4 class="cn-references cn-diff">REFERENCES</h4>\n          <p class="cn-suggestion">New. The note previously had no references section at all, and no inline citations. Each claim that rests on a source now carries a superscript number pointing here. All four links were checked and resolve.</p>`],
+];
 
-write('concept-note-body-diff.html', diff);
+write('concept-note-body-revision.html',
+  apply(insertAfterCoverMeta(read('concept-note-body.html'), EN_LEGEND), EN_MARKS, 'en-revision'));
 
 // ---------------------------------------------------------------------------
-// Russian editions — the clean one is hand-edited from the Russian doc; this
-// derives the comparison edition from it, the same way as for English.
+// Russian revision edition
 // ---------------------------------------------------------------------------
 
-const RU_DIFF_LEGEND = `
+const RU_LEGEND = `
           <div class="cn-legend">
-            <p><strong>Сравнительная версия.</strong> Тот же документ, что и чистая версия, — ничего не добавлено и не удалено. Всё, что выделено <span class="cn-legend-key">красным</span>, отличается от исходной концептуальной записки (<em>RUS 170826_EECA_LH_Sovereignty_Hub__12_m</em>); формулировка исходного документа приведена в скобках. Чёрный текст — формулировки исходного документа.</p>
-            <p><strong>Новое с прошлой версии:</strong> все описания отношений с Глобальным парламентским кокусом по туберкулёзу переформулированы: вместо «опирается на / выигрывает от / формируется из» — сотрудничество. Это намеренное отступление от документа по просьбе Алесии, чтобы внешние читатели не воспринимали Хаб как инициативу, принадлежащую Кокусу. Кроме того, название организации приведено к одной форме — в документе их пять. Затронутые фрагменты отмечены ниже.</p>
-            <p>Отдельно не отмечено: опечатки и незавершённые предложения исходного документа исправлены по всему тексту — «безопасности <em>о</em> сфере здоровья лёгких» в подзаголовке, предложение без сказуемого в разделе 1.3, оборванная конструкция в 1.4, «здоровью <em>лешких</em>» в заголовке 2.3 и сноска-цифра после «18 приоритетных стран».</p>
+            <p><strong>Редакция для обсуждения — сентябрь 2026.</strong> Всё, что выделено <span class="cn-legend-key">красным</span>, изменено в этом раунде. Чёрный текст не менялся. Комментарии удобнее оставлять прямо к красным фрагментам.</p>
+            <p>В этом раунде сделано три вещи: учтены девять комментариев команды, исправлены все цифры, которые не подтверждались опубликованным источником, и добавлен раздел источников — раньше записка не ссылалась ни на что.</p>
+            <p><strong>Удалено и поэтому ниже не видно.</strong> Утверждение о «примерно 300 000 уязвимых пациентов … консервативная оценка на основе годовой заболеваемости туберкулёзом» убрано: по данным ВОЗ/ECDC во <em>всём</em> Европейском регионе ВОЗ в 2023 году расчётно 225 000 случаев ТБ, то есть цифра была завышена примерно втрое. Показатели «85 % бремени ТБ» и «99 % МЛУ-ТБ» убраны: они относятся к Европейскому региону ВОЗ, а не к ВЕЦА, и 99 % отсутствует в текущем отчёте ВОЗ/ECDC — этот показатель встречается только в плане 2007–2015 годов. Два источника исключены, поскольку в тексте на них не было ссылок (Impakter — о частной филантропии в США; Gavi 6.0 — о вакцинах, к тому же ссылка не работала). Две формулировки смягчены из-за отсутствия источника: утверждение о «среднем депутате» и статистика «22 из 26 стран» на сайте.</p>
           </div>
 `;
 
-const ruNote = (text) => `<span class="cn-diff"> [${text}]</span>`;
+const RU_MARKS = [
+  ['<h4>КРАТКОЕ РЕЗЮМЕ</h4>', `<h4>КРАТКОЕ РЕЗЮМЕ</h4>${note('подзаголовок «Каталитическая двухлетняя программа» удалён')}`],
+  ['построенной как поэтапная программа на два года, которая начинается с шестимесячной Фазы основания стоимостью $100 000 в одной из стран ВЕЦА',
+   red('построенной как поэтапная программа на два года, которая начинается с шестимесячной Фазы основания стоимостью $100 000 в одной из стран ВЕЦА') +
+   note('«построенной» вместо «структурированной»; «$» вместо «долларов США»; это единственное упоминание сроков в кратком резюме')],
+  ['Её региональная сеть для Восточной Европы и Центральной Азии работает с 2016 года.<sup>3</sup>',
+   red('Её региональная сеть для Восточной Европы и Центральной Азии работает с 2016 года.<sup>3</sup>') +
+   note('было «с 2014 года». Глобальный кокус основан в 2014 году, его Евразийская парламентская группа по ТБ — в июне 2016 года')],
+  ['<p>Выполняя функцию <strong>Центра координации безопасности здравоохранения</strong>, Хаб призван защищать непрерывность медицинской помощи там, где региональное бремя наиболее велико. В число девяти стран-партнёров входят три из шести стран с наибольшим бременем в Европейском регионе ВОЗ: Украина (42 000 расчётных случаев в 2023 году), Узбекистан (20 000) и Казахстан (14 000).<sup>1</sup></p>',
+   '<p class="cn-diff">Выполняя функцию <strong>Центра координации безопасности здравоохранения</strong>, Хаб призван защищать непрерывность медицинской помощи там, где региональное бремя наиболее велико. В число девяти стран-партнёров входят три из шести стран с наибольшим бременем в Европейском регионе ВОЗ: Украина (42 000 расчётных случаев в 2023 году), Узбекистан (20 000) и Казахстан (14 000).<sup>1</sup> <em>(Заменяет утверждение о 300 000. Это опубликованные страновые показатели, приведённые дословно, а не сумма.)</em></p>'],
+  ['В Европейском регионе ВОЗ в 2023 году зарегистрировано расчётно 225 000 новых случаев туберкулёза и рецидивов',
+   red('В Европейском регионе ВОЗ в 2023 году зарегистрировано расчётно 225 000 новых случаев туберкулёза и рецидивов')],
+  ['находятся в Регионе.<sup>1</sup>', red('находятся в Регионе.<sup>1</sup>') + note('каждая цифра взята из отчёта ВОЗ/ECDC и теперь снабжена ссылкой')],
+  ['<div class="cn-stats-row">', '<div class="cn-stats-row cn-diff">'],
+  ['начиная с начала 2025 года.<sup>2</sup>', `начиная с начала 2025 года.${red('<sup>2</sup>')}${note('теперь со ссылкой')}`],
+  ['Она также связана с законодательной нагрузкой на парламентариев: когда политика здравоохранения конкурирует с плотным потоком других законодательных актов, способность к быстрому и обоснованному принятию решений по сложным вопросам здравоохранения оказывается ограниченной.',
+   red('Она также связана с законодательной нагрузкой на парламентариев: когда политика здравоохранения конкурирует с плотным потоком других законодательных актов, способность к быстрому и обоснованному принятию решений по сложным вопросам здравоохранения оказывается ограниченной.') +
+   note('смягчено — прежняя формулировка подразумевала статистику о «среднем депутате», которая ничем не подтверждена')],
+  ['в рамках бюджета $1,2 млн.', red('в рамках бюджета $1,2 млн.') + note('«на 2 года» убрано как повтор')],
+  ['<strong>2.3. Программа стоимостью $1,2 млн: Хаб по здоровью лёгких в регионе ВЕЦА</strong>',
+   `<strong>2.3. Программа стоимостью $1,2 млн: Хаб по здоровью лёгких в регионе ВЕЦА</strong>${note('«(2-летняя программа)» удалено')}`],
+  ['<p class="cn-component-label">Ключевые результаты</p>', `<p class="cn-component-label">Ключевые результаты${note('«(в течение 24 месяцев)» убрано здесь и у двух других компонентов')}</p>`, 3],
+  ['<li>продемонстрированная ценность решений в ведущей стране-партнёре с чёткой дорожной картой регионального масштабирования.</li>',
+   `<li>${red('продемонстрированная ценность решений в ведущей стране-партнёре')}${note('было «в 2–3 пилотных странах», что противоречило Фазе 1 в одной стране')} с чёткой дорожной картой регионального масштабирования.</li>`],
+  ['<h4 class="cn-page-break">4. МЕХАНИКА РЕАЛИЗАЦИИ ПРОЕКТА</h4>',
+   `<h4 class="cn-page-break cn-diff">4. МЕХАНИКА РЕАЛИЗАЦИИ ПРОЕКТА</h4>\n          <p class="cn-suggestion">Разделы 4 и 5 предлагались в предыдущей редакции и не получили комментариев, поэтому считаются принятыми и включены в записку. Месяцы указаны только на схеме; в четырёх заголовках фаз они больше не повторяются.</p>`],
+  ['<h4 class="cn-page-break">5. СТРУКТУРА БЮДЖЕТА</h4>',
+   `<h4 class="cn-page-break cn-diff">5. СТРУКТУРА БЮДЖЕТА</h4>${note('сокращено по комментарию: детализация по запросу, затем распределение средств')}`],
+  ['<p>Хаб закрывает критический разрыв: превращает политические решения в реальную помощь пациентам — быстро — начиная с Фазы основания в одной стране ВЕЦА, которая даёт работающее решение до того, как будет запрошено дальнейшее финансирование.</p>',
+   '<p class="cn-diff">Хаб закрывает критический разрыв: превращает политические решения в реальную помощь пациентам — быстро — начиная с Фазы основания в одной стране ВЕЦА, которая даёт работающее решение до того, как будет запрошено дальнейшее финансирование. <em>(Принято из редакции для обсуждения; «24 месяца» убрано, срок указан ниже.)</em></p>'],
+  ['<p>В течение первых шести месяцев (Фаза 1)', `<p>${red('В течение первых шести месяцев')} (Фаза 1)`],
+  ['<p>В течение двух лет инвестиция обеспечивает:</p>', `<p>${red('В течение двух лет')} инвестиция обеспечивает:</p>${note('было «В течение 24 месяцев»')}`],
+  ['<li>защищённую непрерывность помощи в девяти странах-партнёрах, начиная с территорий с наибольшим бременем.</li>',
+   `<li>${red('защищённую непрерывность помощи в девяти странах-партнёрах, начиная с территорий с наибольшим бременем')}${note('было «для 300 000+ уязвимых пациентов»')}.</li>`],
+  ['<h4 class="cn-references">ИСТОЧНИКИ</h4>',
+   `<h4 class="cn-references cn-diff">ИСТОЧНИКИ</h4>\n          <p class="cn-suggestion">Новый раздел. Раньше в записке не было ни списка источников, ни сносок. Каждое утверждение, опирающееся на источник, теперь снабжено надстрочным номером. Все четыре ссылки проверены и открываются.</p>`],
+];
 
-let ruLive;
-try {
-  ruLive = read('concept-note-body-ru.html');
-} catch {
-  console.log('Skipping RU editions — public/concept-note-body-ru.html not present.');
-  process.exit(0);
-}
-
-let ruDiff = insertAfterCoverMeta(ruLive, RU_DIFF_LEGEND);
-ruDiff = apply(ruDiff, [
-  // Cover
-  ['<p class="subtitle">От решения к результату',
-   `<p class="cn-diff">[Оформление обложки — «Подробное инвестиционное предложение», вводная фраза, дата и контакт — отсутствует в исходном документе, озаглавленном «Концептуальная записка / Региональный хаб по здоровью лёгких в странах ВЕЦА».]</p>\n          <p class="subtitle">От решения к результату`],
-
-  // In Brief — in neither language version of the doc
-  ['<div class="cn-section">\n          <h4>КРАТКО:',
-   '<p class="cn-diff">[Раздела «Кратко» ниже нет ни в одной версии исходного документа.]</p>\n          <div class="cn-section cn-diff-block">\n          <h4>КРАТКО:'],
-
-  // Executive summary
-  ['<h4>КРАТКОЕ РЕЗЮМЕ: КАТАЛИТИЧЕСКАЯ ДВУХЛЕТНЯЯ ПРОГРАММА</h4>',
-   `<h4>КРАТКОЕ РЕЗЮМЕ:<span class="cn-diff"> КАТАЛИТИЧЕСКАЯ ДВУХЛЕТНЯЯ ПРОГРАММА</span></h4>${ruNote('в исходном документе подзаголовка нет')}`],
-  ['Фаза основания стоимостью 100 000 долларов США продолжительностью 6 месяцев в одной из стран ВЕЦА',
-   `<span class="cn-diff">Фаза основания стоимостью 100 000 долларов США продолжительностью 6 месяцев в одной из стран ВЕЦА</span>${ruNote('в документе: «Фаза основания стоимостью 70 000 долларов США … в Казахстане» — сумма 70 000 устарела после того, как команда повысила запрос по Фазе 1')}`],
-  ['до общей стоимости программы 1,2 млн долларов США. Полный поэтапный бюджет и условия предоставляются по запросу.',
-   `<span class="cn-diff">до общей стоимости программы 1,2 млн долларов США. Полный поэтапный бюджет и условия предоставляются по запросу.</span>${ruNote('в документе: «до общей стоимости программы 1 210 000 долларов США (подробности приведены в последующих разделах)» — таких разделов в документе нет')}`],
-  ['которая с 2014 года работает в регионе ВЕЦА',
-   `которая с <span class="cn-diff">2014 года</span>${ruNote('в документе: 2014–2016 годов')} работает в регионе ВЕЦА`],
-
-  // Section 2
-  ['в рамках бюджета 1,2 млн долларов США на 2 года',
-   `в рамках бюджета <span class="cn-diff">1,2 млн долларов США</span>${ruNote('в документе: 1 210 000 долларов США')} на 2 года`],
-  ['Эта сеть активно работает в регионе ВЕЦА с 2014 года',
-   `Эта сеть активно работает в регионе ВЕЦА с <span class="cn-diff">2014 года</span>${ruNote('в документе: 2014–2016 годов')}`],
-  ['позволяя эффективно направлять бюджет 1,2 млн долларов США непосредственно',
-   `позволяя эффективно направлять бюджет <span class="cn-diff">1,2 млн долларов США</span>${ruNote('в документе: 1 210 000 долларов США')} непосредственно`],
-  ['Управление опирается на четыре рабочих органа, координируемых <strong>Региональным руководящим комитетом</strong>, в состав которого входят представители Парламентского совета, Совета гражданского общества и ключевые технические эксперты региона и который обеспечивает стратегическое руководство, надзор и соответствие региональным приоритетам:',
-   `<span class="cn-diff">Управление опирается на четыре рабочих органа, координируемых <strong>Региональным руководящим комитетом</strong>, в состав которого входят представители Парламентского совета, Совета гражданского общества и ключевые технические эксперты региона и который обеспечивает стратегическое руководство, надзор и соответствие региональным приоритетам:</span>${ruNote('переформулировано. В документе: «Региональный руководящий комитет: состоит из представителей Парламентского совета, Совета гражданского общества и ключевых технических экспертов региона. Комитет будет обеспечивать стратегическое руководство, надзор и соответствие региональным приоритетам.» В документе эта фраза стоит над маркированным списком четырёх органов; подача её как ещё одного пункта списка и создавала впечатление пятого органа. Формулировки четырёх органов ниже — из документа')}`],
-
-  // Отношения с Глобальным ТБ Кокусом — переформулированы как сотрудничество
-  ['Важно, что Хаб развивается в сотрудничестве с <strong>Глобальным парламентским кокусом по туберкулёзу</strong> (Global TB Caucus)',
-   `<span class="cn-diff">Важно, что Хаб развивается в сотрудничестве с <strong>Глобальным парламентским кокусом по туберкулёзу</strong></span>${ruNote('в документе: «Хаб строится на уже существующей и проверенной основе. Он опирается на инфраструктуру и сложившиеся рабочие отношения Глобального ТБ Кокуса»')} (Global TB Caucus)`],
-  ['обеспечивает исключительный региональный охват для быстрого и устойчивого воздействия.',
-   `обеспечивает <span class="cn-diff">исключительный региональный охват</span>${ruNote('в документе: «беспрецедентную основу»')} для быстрого и устойчивого воздействия.`],
-  ['<strong>2.1. Сотрудничество с сетью Глобального парламентского кокуса по туберкулёзу</strong>',
-   `<strong>2.1. <span class="cn-diff">Сотрудничество с</span> сетью Глобального парламентского кокуса по туберкулёзу</strong>${ruNote('в документе: «2.1. Опора на проверенную основу: сеть Глобального парламентского кокуса по туберкулёзу (Глобальный ТБ Кокус)»')}`],
-  ['Хаб работает в сотрудничестве с Глобальным парламентским кокусом по туберкулёзу.',
-   `Хаб <span class="cn-diff">работает в сотрудничестве с</span>${ruNote('в документе: «выигрывает от уже существующей надёжной инфраструктуры»')} Глобальным парламентским кокусом по туберкулёзу.`],
-  ['Хаб сотрудничает с девятью активными национальными кокусами по туберкулёзу в Армении,',
-   `<span class="cn-diff">Хаб сотрудничает с</span>${ruNote('в документе: «Хаб будет напрямую интегрировать и усиливать работу»')} девятью активными национальными кокусами по туберкулёзу в Армении,`],
-  ['тесно сотрудничая при этом с сетью Глобального парламентского кокуса по туберкулёзу.',
-   `<span class="cn-diff">тесно сотрудничая при этом с</span>${ruNote('в документе: «сохраняя при этом стратегическую связь с более широкой сетью»')} сетью Глобального парламентского кокуса по туберкулёзу.`],
-  ['одновременно сотрудничая с Глобальным парламентским кокусом по туберкулёзу и его региональной сетью.',
-   `<span class="cn-diff">одновременно сотрудничая с Глобальным парламентским кокусом по туберкулёзу и его региональной сетью</span>${ruNote('в документе: «одновременно опираясь на глобальный опыт и сеть Глобального ТБ Кокуса»')}.`],
-  ['<p>Работая в сотрудничестве с сетью Глобального парламентского кокуса по туберкулёзу и связывая бюджетные данные,',
-   `<p><span class="cn-diff">Работая в сотрудничестве с</span>${ruNote('в документе: «Опираясь на»')} сетью Глобального парламентского кокуса по туберкулёзу и связывая бюджетные данные,`],
-
-  // 2.3
-  ['<h5>Компонент 1: Двигатель — укрепление национального потенциала (ИИ-платформа для законодательной работы)</h5>',
-   '<h5>Компонент 1: Двигатель — укрепление национального потенциала (ИИ-платформа для законодательной работы)</h5>\n            <p class="cn-suggestion">В документе все три компонента представлены таблицей из четырёх колонок; при ширине страницы строки занимали целую полосу, поэтому тот же текст оформлен блоками. Обратите внимание: русский документ называет Компонент 1 полнее, чем английский, где после тире пропущено слово.</p>'],
-  ['<p>Вместе эти компоненты представляют Хаб как единую интегрированную систему',
-   `<p><span class="cn-diff">Вместе эти компоненты представляют</span>${ruNote('в документе: «Приведённая выше таблица представляет»')} Хаб как единую интегрированную систему`],
-
-  // Section 3
-  ['<p>Эта программа стоимостью 1,2 млн долларов США создаёт',
-   `<p>Эта программа стоимостью <span class="cn-diff">1,2 млн долларов США</span>${ruNote('в документе: 1 210 000 долларов США')} создаёт`],
-
-  // Conclusion
-  ['включая приложение Хаба, национальную панель данных по скринингу',
-   `включая приложение Хаба, <span class="cn-diff">национальную</span>${ruNote('в документе: «панель данных по скринингу в Казахстане (в качестве пилотной страны; при необходимости может быть выбрана другая страна)»')} панель данных по скринингу`],
-], 'ru-diff');
-
-ruDiff = apply(ruDiff, [
-  ['<div class="cn-stats-row">',
-   '<p class="cn-suggestion">Три показателя ниже взяты из абзаца выше и вынесены в виде графики.</p>\n          <div class="cn-stats-row">'],
-], 'ru-diff-notes');
-
-write('concept-note-body-ru-diff.html', ruDiff);
+write('concept-note-body-ru-revision.html',
+  apply(insertAfterCoverMeta(read('concept-note-body-ru.html'), RU_LEGEND), RU_MARKS, 'ru-revision'));

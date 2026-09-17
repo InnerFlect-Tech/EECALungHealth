@@ -35,7 +35,7 @@ export function PartnersTechPage() {
         <div className="pp-wrap pp-stats-grid">
           <div className="pp-stat"><b>9</b><span>National parliaments reached</span></div>
           <div className="pp-stat"><b>2</b><span>Live pilots (KZ &amp; AZ)</span></div>
-          <div className="pp-stat"><b>300k+</b><span>Patients in scope</span></div>
+          <div className="pp-stat"><b>225K</b><span>TB cases a year (WHO European Region)</span></div>
           <div className="pp-stat"><b>100%</b><span>AI outputs human-reviewed</span></div>
         </div>
       </div>
@@ -112,7 +112,7 @@ export function PartnersTechPage() {
       <section className="pp-sec">
         <div className="pp-wrap">
           <div className="pp-quote">
-            <p>This is not a chatbot demo. It’s governed AI in production, inside real parliaments — assisting the people who decide, and protecting continuity of care for 300,000+ patients.</p>
+            <p>This is not a chatbot demo. It’s governed AI in production, inside real parliaments — assisting the people who decide, and protecting continuity of care where the regional TB burden is heaviest.</p>
             <cite>— The case for partnering on the Sovereignty Hub</cite>
           </div>
         </div>

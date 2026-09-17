@@ -11,12 +11,10 @@ import react from '@vitejs/plugin-react';
 // once stays on the server until someone removes it by hand; keeping them out
 // of dist/ in the first place is the only safe point to stop them.
 const INTERNAL_ONLY = [
-  'concept-note-body-full.html',
-  'concept-note-body-diff.html',
-  'concept-note-body-ru-diff.html',
-  'concept-note-full.pdf',
-  'concept-note-diff.pdf',
-  'concept-note-ru-diff.pdf',
+  'concept-note-body-revision.html',
+  'concept-note-body-ru-revision.html',
+  'concept-note-revision.pdf',
+  'concept-note-ru-revision.pdf',
 ];
 
 function stripInternalEditions() {

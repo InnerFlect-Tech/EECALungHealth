@@ -508,7 +508,7 @@ const M: Record<string, string> = {
   'Book a consultation': 'Записаться на консультацию',
   'Explore a partnership': 'Обсудить партнёрство',
   'Request the concept note': 'Запросить концепт-ноту',
-  'Backed by nine national caucuses – active since 2014.': 'Поддержано девятью национальными парламентскими группами – действуют с 2014 года.',
+  'Working with nine national caucuses – active in EECA since 2016.': 'В сотрудничестве с девятью национальными парламентскими группами – работают в регионе ВЕЦА с 2016 года.',
   'Standards-based, human-reviewed, sovereign by design.': 'Стандартизировано, проверяется людьми, суверенно по своей архитектуре.',
   'Each phase proven before the next is funded.': 'Каждый этап доказан прежде, чем финансируется следующий.',
 
@@ -548,9 +548,9 @@ const M: Record<string, string> = {
   'Open the Concept Note': 'Открыть концепт-ноту',
   'Take the Survey': 'Пройти опрос',
 
-  'patients in scope': 'пациентов в фокусе',
+  'TB cases a year, WHO European Region': 'случаев ТБ в год, Европейский регион ВОЗ',
   'national caucuses': 'национальных парламентских групп',
-  'network active since': 'сеть действует с',
+  'network active in EECA since': 'сеть работает в ВЕЦА с',
 
   // Policymakers body
   'Draft': 'Разработка',
@@ -572,14 +572,14 @@ const M: Record<string, string> = {
     'Решают люди, а не машины. Полный аудиторский след, отсутствие персональных рисков, никаких недоказанных «прорывов ИИ».',
   'The lag': 'Разрыв во времени',
   'You have the will. The system has the lag.': 'У вас есть воля. У системы – разрыв во времени.',
-  'An average parliamentarian faces a deluge of legislation, and complex health policy stalls between commitment and action – for months, sometimes years. Donors withdraw, systems fragment, patients wait. The Hub closes that gap.':
-    'Средний парламентарий сталкивается с потоком законодательных инициатив, и сложная политика здравоохранения застревает между намерением и действием – на месяцы, а иногда и годы. Доноры уходят, системы фрагментируются, пациенты ждут. Хаб закрывает этот разрыв.',
+  'Parliamentarians carry a heavy legislative workload, and complex health policy stalls between commitment and action – for months, sometimes years. Donors withdraw, systems fragment, patients wait. The Hub closes that gap.':
+    'Парламентарии несут большую законодательную нагрузку, и сложная политика здравоохранения застревает между намерением и действием – на месяцы, а иногда и годы. Доноры уходят, системы фрагментируются, пациенты ждут. Хаб закрывает этот разрыв.',
   'Conventional path': 'Обычный путь',
   'Months–years': 'Месяцы–годы',
   'With the Hub': 'С Хабом',
   'Weeks': 'Недели',
-  'high-burden countries that raised domestic TB budgets had an active caucus':
-    'стран с высоким бременем ТБ, увеличивших внутреннее финансирование, имели действующую парламентскую группу',
+  'Parliamentary caucuses are where domestic health budgets are argued for, amended and passed.':
+    'Именно в парламентских группах обсуждаются, корректируются и принимаются национальные бюджеты здравоохранения.',
   'The execution loop': 'Цикл исполнения',
   'From your decision to delivered care.': 'От вашего решения до оказанной помощи.',
   'Why it matters to you': 'Почему это важно для вас',

@@ -31,7 +31,7 @@ fi
 # the duration of this script — locally only. CI never runs this script, so the
 # dist/ it deploys stays clean.
 echo "Restoring internal editions into dist/ for printing …"
-for f in concept-note-body-full.html concept-note-body-diff.html concept-note-body-ru-diff.html; do
+for f in concept-note-body-revision.html concept-note-body-ru-revision.html; do
   [[ -f "$ROOT/public/$f" ]] && cp "$ROOT/public/$f" "$ROOT/dist/$f"
 done
 
@@ -46,9 +46,8 @@ cleanup() {
   pkill -P $PREVIEW_PID 2>/dev/null || true
   kill $PREVIEW_PID 2>/dev/null || true
   lsof -ti:"$PORT" 2>/dev/null | xargs -r kill 2>/dev/null || true
-  rm -f "$ROOT"/dist/concept-note-body-full.html \
-        "$ROOT"/dist/concept-note-body-diff.html \
-        "$ROOT"/dist/concept-note-body-ru-diff.html
+  rm -f "$ROOT"/dist/concept-note-body-revision.html \
+        "$ROOT"/dist/concept-note-body-ru-revision.html
 }
 trap cleanup EXIT
 
@@ -70,20 +69,18 @@ print_edition() {
 
 case "${1:-all}" in
   en)   print_edition "$OUT" "/concept-note?lang=en" ;;
-  full) print_edition "$ROOT/public/concept-note-full.pdf" "/concept-note?doc=full&lang=en" ;;
-  diff) print_edition "$ROOT/public/concept-note-diff.pdf" "/concept-note?doc=diff&lang=en" ;;
-  ru)   print_edition "$ROOT/public/concept-note-ru.pdf" "/concept-note?doc=ru&lang=ru"
-        print_edition "$ROOT/public/concept-note-ru-diff.pdf" "/concept-note?doc=ru-diff&lang=ru" ;;
+  rev)  print_edition "$ROOT/public/concept-note-revision.pdf" "/concept-note?doc=revision&lang=en"
+        print_edition "$ROOT/public/concept-note-ru-revision.pdf" "/concept-note?doc=ru-revision&lang=ru" ;;
+  ru)   print_edition "$ROOT/public/concept-note-ru.pdf" "/concept-note?doc=ru&lang=ru" ;;
   all)
     print_edition "$OUT" "/concept-note?lang=en"
-    print_edition "$ROOT/public/concept-note-full.pdf" "/concept-note?doc=full&lang=en"
-    print_edition "$ROOT/public/concept-note-diff.pdf" "/concept-note?doc=diff&lang=en"
+    print_edition "$ROOT/public/concept-note-revision.pdf" "/concept-note?doc=revision&lang=en"
+    print_edition "$ROOT/public/concept-note-ru-revision.pdf" "/concept-note?doc=ru-revision&lang=ru"
     if [[ -f "$ROOT/public/concept-note-body-ru.html" ]]; then
       print_edition "$ROOT/public/concept-note-ru.pdf" "/concept-note?doc=ru&lang=ru"
-      print_edition "$ROOT/public/concept-note-ru-diff.pdf" "/concept-note?doc=ru-diff&lang=ru"
     else
       echo "Skipping RU edition — public/concept-note-body-ru.html not present."
     fi
     ;;
-  *) echo "Usage: build-pdf.sh [en|full|diff|ru|all]"; exit 1 ;;
+  *) echo "Usage: build-pdf.sh [en|ru|rev|all]"; exit 1 ;;
 esac

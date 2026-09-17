@@ -144,7 +144,7 @@ export function DesignSystemPage() {
               <p className="statcard-eyebrow">The opportunity</p>
               <p className="statcard-text">A multi-year regional programme, entered at a 6-month Foundation Phase – full budget on request.</p>
               <ul className="statgrid">
-                <li><strong>300K+</strong><span>vulnerable patients</span></li>
+                <li><strong>225K</strong><span>TB cases a year (WHO European Region)</span></li>
                 <li><strong>9</strong><span>national caucuses</span></li>
                 <li><strong>~1 week</strong><span>decision to action</span></li>
                 <li><strong>6&nbsp;mo</strong><span>Foundation Phase</span></li>

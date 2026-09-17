@@ -33,9 +33,9 @@ export function PartnersFoundationsPage() {
       {/* STATS */}
       <div className="pp-stats">
         <div className="pp-wrap pp-stats-grid">
-          <div className="pp-stat"><b>2014</b><span>Network active in EECA since</span></div>
+          <div className="pp-stat"><b>2016</b><span>Network active in EECA since</span></div>
           <div className="pp-stat"><b>9</b><span>National parliaments (TB Caucus)</span></div>
-          <div className="pp-stat"><b>300k+</b><span>Vulnerable patients</span></div>
+          <div className="pp-stat"><b>225K</b><span>TB cases a year (WHO European Region)</span></div>
           <div className="pp-stat"><b>24&nbsp;mo</b><span>Multi-phase programme</span></div>
         </div>
       </div>

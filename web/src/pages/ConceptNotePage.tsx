@@ -12,25 +12,22 @@ import { T, useI18n } from '../i18n/I18nProvider';
 // budget section simply omit the marker and get no chart.
 const BUDGET_SECTION_MARKER = '<!--budget-chart-->';
 
-// Several editions of the same note share this page. Which one a visitor gets
-// follows the site language: Russian readers get the Russian note, everyone
-// else the English one. ?doc= overrides that for the internal editions —
-// full (proposed extra sections, marked red) and diff (departures from the
-// source doc, marked red), in either language.
+// The note ships in two public editions, English and Russian, chosen by site
+// language. ?doc=revision and ?doc=ru-revision are internal review copies with
+// the current round's changes marked in red; they are stripped from the
+// production build and never reach the public site.
 const BODY_FILES: Record<string, string> = {
   default: '/concept-note-body.html',
-  full: '/concept-note-body-full.html',
-  diff: '/concept-note-body-diff.html',
   ru: '/concept-note-body-ru.html',
-  'ru-diff': '/concept-note-body-ru-diff.html',
+  revision: '/concept-note-body-revision.html',
+  'ru-revision': '/concept-note-body-ru-revision.html',
 };
 
 const PDF_FILES: Record<string, string> = {
   default: '/concept-note.pdf',
-  full: '/concept-note-full.pdf',
-  diff: '/concept-note-diff.pdf',
   ru: '/concept-note-ru.pdf',
-  'ru-diff': '/concept-note-ru-diff.pdf',
+  revision: '/concept-note-revision.pdf',
+  'ru-revision': '/concept-note-ru-revision.pdf',
 };
 
 export function ConceptNotePage() {
@@ -113,7 +110,7 @@ export function ConceptNotePage() {
             <div className="concept-note-content">
               <div dangerouslySetInnerHTML={{ __html: htmlParts[0] }} />
               {hasBudgetSection && (
-                <div className={variant === 'full' ? 'cn-uof cn-diff-block' : 'cn-uof'}>
+                <div className={variant.includes('revision') ? 'cn-uof cn-diff-block' : 'cn-uof'}>
                   <UseOfFundsChart compact />
                 </div>
               )}

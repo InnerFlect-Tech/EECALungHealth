@@ -14,7 +14,7 @@ const HERO: Record<Audience, { eyebrow: string; title: string; lead: string; cta
   policymakers: {
     eyebrow: 'For policymakers', title: 'Act with certainty. See it delivered.',
     lead: 'Move from commitment to enacted, financed policy in weeks – with governed, human-reviewed tools and the backing of a proven regional parliamentary network.',
-    cta: 'Book a consultation', proof: 'Backed by nine national caucuses – active since 2014.', img: '/assets/images/policymakers.webp',
+    cta: 'Book a consultation', proof: 'Working with nine national caucuses – active in EECA since 2016.', img: '/assets/images/policymakers.webp',
   },
   partners: {
     eyebrow: 'For partners', title: 'A governed platform to build on.',
@@ -59,9 +59,9 @@ const CLOSE: Record<Audience, { title: string; lead: string }> = {
 };
 
 const PROOF = [
-  { value: 300, fmt: (n: number) => `${Math.round(n)}K+`, l: 'patients in scope' },
+  { value: 225, fmt: (n: number) => `${Math.round(n)}K`, l: 'TB cases a year, WHO European Region' },
   { value: 9, fmt: (n: number) => String(Math.round(n)), l: 'national caucuses' },
-  { value: 2014, fmt: (n: number) => String(Math.round(n)), l: 'network active since' },
+  { value: 2016, fmt: (n: number) => String(Math.round(n)), l: 'network active in EECA since' },
 ];
 
 const cssw = (w: string) => ({ '--w': w } as React.CSSProperties);
@@ -87,12 +87,12 @@ function Policymakers() {
           <Reveal>
             <p className="eyebrow">{tr('The lag', lang)}</p>
             <h2>{tr('You have the will. The system has the lag.', lang)}</h2>
-            <p className="section-lead">{tr('An average parliamentarian faces a deluge of legislation, and complex health policy stalls between commitment and action – for months, sometimes years. Donors withdraw, systems fragment, patients wait. The Hub closes that gap.', lang)}</p>
+            <p className="section-lead">{tr('Parliamentarians carry a heavy legislative workload, and complex health policy stalls between commitment and action – for months, sometimes years. Donors withdraw, systems fragment, patients wait. The Hub closes that gap.', lang)}</p>
           </Reveal>
           <Reveal className="sig">
             <div className="sig-bar-row"><span className="sig-bar-lab">{tr('Conventional path', lang)}</span><div className="sig-bar-track"><div className="sig-bar barfill sig-slow" style={cssw('100%')}>{tr('Months–years', lang)}</div></div></div>
             <div className="sig-bar-row"><span className="sig-bar-lab">{tr('With the Hub', lang)}</span><div className="sig-bar-track"><div className="sig-bar barfill sig-fast" style={cssw('18%')}>{tr('Weeks', lang)}</div></div></div>
-            <div className="sig-stat"><strong><CountUp value={22} />/26</strong><span>{tr('high-burden countries that raised domestic TB budgets had an active caucus', lang)}</span></div>
+            <div className="sig-stat"><span>{tr('Parliamentary caucuses are where domestic health budgets are argued for, amended and passed.', lang)}</span></div>
           </Reveal>
         </div>
       </section>
