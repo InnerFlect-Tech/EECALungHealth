@@ -139,15 +139,9 @@ export function Footer() {
           <div className="footer-partners" aria-label={t('footer-partner')}>
             <span className="footer-partners-label">{t('footer-partner')}</span>
             <div className="partner-logos">
-              <a
-                href="https://www.globaltbcaucus.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="partner-logo"
-                aria-label="Global TB Caucus – opens in new tab"
-              >
+              <span className="partner-logo">
                 <img src="/assets/images/logos/01_GTBC_logotype_main_CMJN.jpg" alt="Global TB Caucus" />
-              </a>
+              </span>
               <a
                 href="https://innerflect.tech/"
                 target="_blank"

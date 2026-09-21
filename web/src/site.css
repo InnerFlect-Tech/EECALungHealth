@@ -2543,7 +2543,9 @@ section[id],
   transition: transform var(--transition);
   width: fit-content;
 }
-.partner-logo:hover {
+/* Only the logos that are still links get the hover lift — the Global TB
+   Caucus mark is no longer clickable, so it must not signal that it is. */
+a.partner-logo:hover {
   transform: translateY(-2px);
 }
 .partner-logo img {
