@@ -11,6 +11,13 @@ import { AdminResponseDetailPage } from './pages/admin/AdminResponseDetailPage';
 import { AudiencePage } from './pages/AudiencePage';
 import { ContactPage } from './pages/ContactPage';
 import { DesignSystemPage } from './pages/DesignSystemPage';
+// Review-only: these three pages are not linked from anywhere and still carry
+// claims that are not true yet (live pilots, committed co-funding). They are
+// mounted behind import.meta.env.DEV so they can be read locally but cannot
+// reach the production bundle's route table.
+import { PartnersFoundationsPage } from './pages/partners/PartnersFoundationsPage';
+import { PartnersTechPage } from './pages/partners/PartnersTechPage';
+import { PartnersTargetsPage } from './pages/partners/PartnersTargetsPage';
 import { LegalPage } from './pages/LegalPage';
 import { ForFundersPage } from './pages/ForFundersPage';
 import { ConceptNotePage } from './pages/ConceptNotePage';
@@ -42,6 +49,14 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           {/* Internal design-system reference (noindex) */}
           <Route path="/design" element={<DesignSystemPage />} />
+          {/* Unlinked partner drafts — local review only, never in production */}
+          {import.meta.env.DEV && (
+            <>
+              <Route path="/partners/foundations" element={<PartnersFoundationsPage />} />
+              <Route path="/partners/tech" element={<PartnersTechPage />} />
+              <Route path="/partners/targets" element={<PartnersTargetsPage />} />
+            </>
+          )}
           {/* Legal */}
           <Route path="/privacy" element={<LegalPage doc="privacy" />} />
           <Route path="/terms" element={<LegalPage doc="terms" />} />

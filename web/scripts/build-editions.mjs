@@ -65,6 +65,7 @@ const EN_LEGEND = `
           <div class="cn-legend">
             <p><strong>Revision for review — September 2026.</strong> Everything marked in <span class="cn-legend-key">red</span> changed in this round. Black text is unchanged. Please comment directly on the red passages.</p>
             <p>This round did three things: it acted on the team's nine comments, it corrected every figure that could not be supported by a published source, and it added a references section — the note previously cited nothing at all.</p>
+            <p>It also acts on the team's later request to reframe the Global TB Caucus relationship: every "in collaboration with the Global TB Caucus" now reads "with support from the Global TB Caucus", the section 2.1 heading changed accordingly, and on the website all links to globaltbcaucus.org were removed and "Multi-year MoU with the Global TB Caucus" became "Working with parliamentary leaders across the EECA region".</p>
             <p><strong>Removed, and so not visible below.</strong> The claim of "approximately 300,000 vulnerable patients … a conservative estimate based on the annual incidence of TB alone in the target countries" is gone: WHO/ECDC record about 225,000 estimated TB cases in the <em>entire</em> WHO European Region in 2023, so the figure was roughly three times too high. The figures "85% of the TB burden" and "99% of MDR-TB" are gone: they describe the WHO European Region rather than EECA, and the 99% appears nowhere in the current WHO/ECDC report — it survives only in a 2007–2015 plan. Two references were dropped because nothing in the note cited them (Impakter, on US philanthropy; Gavi 6.0, on vaccines — whose link was also dead). Two claims were softened because no source exists for them: the statistic about an "average MP" facing a deluge of legislation, and, on the website, "22 of 26 high-burden countries that raised domestic TB budgets had an active caucus".</p>
           </div>
 `;
@@ -122,6 +123,20 @@ const EN_MARKS = [
   ['<li>Protected continuity of care across the nine partner countries, beginning with the highest-burden settings</li>',
    `<li>${red('Protected continuity of care across the nine partner countries, beginning with the highest-burden settings')}${note('was "for 300,000+ vulnerable patients"')}</li>`],
 
+  // Global TB Caucus reframed from collaborator to supporter (team request)
+  ['the Hub is developed with support from the <strong>Global TB Caucus</strong>',
+   red('the Hub is developed with support from the <strong>Global TB Caucus</strong>') +
+   note('was "in collaboration with". The Hub is not a joint venture with the Caucus; it receives their support')],
+  ['<strong>2.1. Support from the Global TB Caucus Network</strong>',
+   `<strong class="cn-diff">2.1. Support from the Global TB Caucus Network</strong>${note('heading was "Collaboration with the Global TB Caucus Network"')}`],
+  ['the Hub works with support from the Global TB Caucus.',
+   red('the Hub works with support from the Global TB Caucus.')],
+  ['with support from the Global TB Caucus network.', red('with support from the Global TB Caucus network.')],
+  ['with support from the Global TB Caucus and its regional network.',
+   red('with support from the Global TB Caucus and its regional network.')],
+  ['<p>Working with support from the Global TB Caucus network and by linking',
+   `<p>${red('Working with support from the Global TB Caucus network')} and by linking`],
+
   // references
   ['<h4 class="cn-references">REFERENCES</h4>',
    `<h4 class="cn-references cn-diff">REFERENCES</h4>\n          <p class="cn-suggestion">New. The note previously had no references section at all, and no inline citations. Each claim that rests on a source now carries a superscript number pointing here. All four links were checked and resolve.</p>`],
@@ -138,6 +153,7 @@ const RU_LEGEND = `
           <div class="cn-legend">
             <p><strong>Редакция для обсуждения — сентябрь 2026.</strong> Всё, что выделено <span class="cn-legend-key">красным</span>, изменено в этом раунде. Чёрный текст не менялся. Комментарии удобнее оставлять прямо к красным фрагментам.</p>
             <p>В этом раунде сделано три вещи: учтены девять комментариев команды, исправлены все цифры, которые не подтверждались опубликованным источником, и добавлен раздел источников — раньше записка не ссылалась ни на что.</p>
+            <p>Учтена и более поздняя просьба команды переформулировать отношения с Глобальным парламентским кокусом по туберкулёзу: везде, где было «в сотрудничестве с», теперь «при поддержке», заголовок раздела 2.1 изменён соответственно, а на сайте убраны все ссылки на globaltbcaucus.org и формулировка «Многолетний MoU с Кокусом» заменена на «Работа с парламентскими лидерами в регионе ВЕЦА».</p>
             <p><strong>Удалено и поэтому ниже не видно.</strong> Утверждение о «примерно 300 000 уязвимых пациентов … консервативная оценка на основе годовой заболеваемости туберкулёзом» убрано: по данным ВОЗ/ECDC во <em>всём</em> Европейском регионе ВОЗ в 2023 году расчётно 225 000 случаев ТБ, то есть цифра была завышена примерно втрое. Показатели «85 % бремени ТБ» и «99 % МЛУ-ТБ» убраны: они относятся к Европейскому региону ВОЗ, а не к ВЕЦА, и 99 % отсутствует в текущем отчёте ВОЗ/ECDC — этот показатель встречается только в плане 2007–2015 годов. Два источника исключены, поскольку в тексте на них не было ссылок (Impakter — о частной филантропии в США; Gavi 6.0 — о вакцинах, к тому же ссылка не работала). Две формулировки смягчены из-за отсутствия источника: утверждение о «среднем депутате» и статистика «22 из 26 стран» на сайте.</p>
           </div>
 `;
@@ -176,6 +192,20 @@ const RU_MARKS = [
   ['<p>В течение двух лет инвестиция обеспечивает:</p>', `<p>${red('В течение двух лет')} инвестиция обеспечивает:</p>${note('было «В течение 24 месяцев»')}`],
   ['<li>защищённую непрерывность помощи в девяти странах-партнёрах, начиная с территорий с наибольшим бременем.</li>',
    `<li>${red('защищённую непрерывность помощи в девяти странах-партнёрах, начиная с территорий с наибольшим бременем')}${note('было «для 300 000+ уязвимых пациентов»')}.</li>`],
+  ['Хаб развивается при поддержке <strong>Глобального парламентского кокуса по туберкулёзу</strong>',
+   red('Хаб развивается при поддержке <strong>Глобального парламентского кокуса по туберкулёзу</strong>') +
+   note('было «в сотрудничестве с». Хаб — не совместный проект с Кокусом; Кокус оказывает поддержку')],
+  ['<strong>2.1. Поддержка со стороны сети Глобального парламентского кокуса по туберкулёзу</strong>',
+   `<strong class="cn-diff">2.1. Поддержка со стороны сети Глобального парламентского кокуса по туберкулёзу</strong>${note('заголовок был «Сотрудничество с сетью Глобального парламентского кокуса по туберкулёзу»')}`],
+  ['Хаб работает при поддержке Глобального парламентского кокуса по туберкулёзу.',
+   red('Хаб работает при поддержке Глобального парламентского кокуса по туберкулёзу.')],
+  ['опираясь при этом на поддержку сети Глобального парламентского кокуса по туберкулёзу.',
+   red('опираясь при этом на поддержку сети Глобального парламентского кокуса по туберкулёзу.')],
+  ['опираясь при этом на поддержку Глобального парламентского кокуса по туберкулёзу',
+   red('опираясь при этом на поддержку Глобального парламентского кокуса по туберкулёзу')],
+  ['<p>Работая при поддержке сети Глобального парламентского кокуса по туберкулёзу и связывая',
+   `<p>${red('Работая при поддержке сети Глобального парламентского кокуса по туберкулёзу')} и связывая`],
+
   ['<h4 class="cn-references">ИСТОЧНИКИ</h4>',
    `<h4 class="cn-references cn-diff">ИСТОЧНИКИ</h4>\n          <p class="cn-suggestion">Новый раздел. Раньше в записке не было ни списка источников, ни сносок. Каждое утверждение, опирающееся на источник, теперь снабжено надстрочным номером. Все четыре ссылки проверены и открываются.</p>`],
 ];
