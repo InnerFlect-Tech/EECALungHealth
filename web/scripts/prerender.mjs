@@ -49,6 +49,7 @@ const EXCLUDED_ROUTES = new Set([
   '/budget/:token', '/donors', '/design', '*',
   '/partners/foundations', '/partners/tech', '/partners/targets',
   '/meeting/2026-10-15', // internal meeting worksheet: noindex, not in sitemap
+  '/demo/design-directions', // internal design review: noindex, not in sitemap
 ]);
 
 // Minimum visible text for a page to count as rendered.

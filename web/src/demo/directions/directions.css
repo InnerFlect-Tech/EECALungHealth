@@ -1,0 +1,38 @@
+/* Switcher chrome for /demo/design-directions (neutral on purpose, so it does not bias the directions) */
+.dd-root { min-height: 100dvh; background: #fff; }
+.dd-switcher {
+  position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 16px;
+  height: 44px; padding: 0 16px; background: #111; color: #fff; font: 500 13px/1 Inter, system-ui, sans-serif;
+}
+.dd-brand, .dd-current { color: #bbb; text-decoration: none; white-space: nowrap; }
+.dd-brand:hover, .dd-current:hover { color: #fff; }
+.dd-current { margin-left: auto; }
+.dd-tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.dd-tabs button {
+  display: flex; align-items: center; gap: 8px; border: 0; background: none; color: #bbb; cursor: pointer;
+  font: inherit; padding: 6px 10px; border-radius: 6px; white-space: nowrap;
+}
+.dd-tabs button:hover { color: #fff; background: #222; }
+.dd-tabs button[aria-selected='true'] { color: #111; background: #fff; }
+.dd-letter { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 4px; background: #333; color: #fff; font-size: 11px; font-weight: 700; }
+.dd-tabs button[aria-selected='true'] .dd-letter { background: #111; }
+.dd-loading { padding: 48px; font: 14px Inter, sans-serif; color: #666; }
+.dd-index { max-width: 1080px; margin: 0 auto; padding: 64px 24px; font-family: Inter, system-ui, sans-serif; color: #111; }
+.dd-eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #666; margin: 0 0 12px; }
+.dd-index h1 { font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.02em; margin: 0 0 12px; }
+.dd-lead { max-width: 640px; color: #444; line-height: 1.6; margin: 0 0 40px; }
+.dd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.dd-card {
+  display: flex; flex-direction: column; gap: 10px; text-align: left; padding: 24px; border: 1px solid #ddd;
+  border-radius: 8px; background: #fff; cursor: pointer; font: inherit; color: inherit;
+}
+.dd-card:hover { border-color: #111; }
+.dd-card-letter { font-size: 12px; font-weight: 700; color: #666; }
+.dd-card-name { font-size: 20px; font-weight: 600; }
+.dd-card-line { color: #555; line-height: 1.55; font-size: 14px; flex: 1; }
+.dd-card-go { font-weight: 600; font-size: 14px; }
+@media (max-width: 760px) {
+  .dd-cards { grid-template-columns: 1fr; }
+  .dd-name { display: none; }
+  .dd-brand { display: none; }
+}
