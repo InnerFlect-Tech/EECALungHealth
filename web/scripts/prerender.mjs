@@ -33,6 +33,7 @@ const PUBLIC_ROUTES = [
   { path: '/consultation', priority: '0.8' },
   { path: '/consultation/funder', priority: '0.6' },
   { path: '/contact', priority: '0.6' },
+  { path: '/demo/parliamentary-intelligence', priority: '0.5' },
   { path: '/privacy', priority: '0.3', changefreq: 'yearly' },
   { path: '/terms', priority: '0.3', changefreq: 'yearly' },
   { path: '/disclaimer', priority: '0.3', changefreq: 'yearly' },

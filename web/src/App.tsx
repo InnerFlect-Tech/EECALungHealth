@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ScrollManager } from './components/ScrollManager';
 import { I18nProvider } from './i18n/I18nProvider';
@@ -23,10 +24,11 @@ import { ForFundersPage } from './pages/ForFundersPage';
 import { ConceptNotePage } from './pages/ConceptNotePage';
 import { GovernanceFinancialsPage } from './pages/GovernanceFinancialsPage';
 import { FunderFitPage } from './pages/FunderFitPage';
-import { lazy, Suspense } from 'react';
 
 // Unlinked audit page – loaded on demand so marked/mermaid stay out of the main bundle.
 const AuditPage = lazy(() => import('./pages/AuditPage').then((m) => ({ default: m.AuditPage })));
+
+const ParliamentaryDemoPage = lazy(() => import('./pages/ParliamentaryDemoPage'));
 
 export default function App() {
   return (
@@ -52,6 +54,7 @@ export default function App() {
           <Route path="/governance/financials" element={<GovernanceFinancialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/audit/2026-10-15" element={<Suspense fallback={null}><AuditPage /></Suspense>} />
+          <Route path="/demo/parliamentary-intelligence" element={<Suspense fallback={<div style={{ minHeight: '100vh' }} />}><ParliamentaryDemoPage /></Suspense>} />
           {/* Internal design-system reference (noindex) */}
           <Route path="/design" element={<DesignSystemPage />} />
           {/* Unlinked partner drafts — local review only, never in production */}
