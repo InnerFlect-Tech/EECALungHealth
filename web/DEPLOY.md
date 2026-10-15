@@ -1,8 +1,17 @@
 # Deploying EECA Hub
 
-> **Current live path:** production is now `https://eecalunghealth.com`, deployed
-> via CI: `gh workflow run deploy.yml --ref main` (see `.github/workflows/deploy.yml`,
-> rsync-over-SSH). The FTP instructions below are the historical/fallback path to
+> **Current live path:** production is `https://eecalunghealth.com`. Every push to
+> `main` that touches `web/` deploys automatically (`.github/workflows/deploy.yml`,
+> rsync-over-SSH), then `scripts/smoke-test.sh` checks the live pages. Manual run:
+> `gh workflow run deploy.yml --ref main`.
+>
+> **Prerendering:** `npm run build` also runs `scripts/prerender.mjs`, which renders
+> each public page in headless Chrome to static HTML (`dist/team.html`, …) and
+> regenerates `sitemap.xml`. This is what lets ChatGPT, search engines and link
+> previews read the site without running JavaScript. **When you add a route to
+> `src/App.tsx`, add it to `PUBLIC_ROUTES` or `EXCLUDED_ROUTES` in that script** —
+> the build fails until you do. On macOS 12 the bundled Chrome won't start; build with
+> `PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"`. The FTP instructions below are the historical/fallback path to
 > the old partner-hosted domain (retired) — kept for reference only.
 
 **FTP (legacy, retired domain):** `web@sovereigntyhub.innovations4health.org` → document root `/`

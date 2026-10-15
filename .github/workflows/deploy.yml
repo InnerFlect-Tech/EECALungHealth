@@ -1,12 +1,12 @@
 name: Deploy — eecalunghealth.com
 
-# Manual-only for now (workflow_dispatch): it will NOT auto-run on push.
-# Enable push-to-main auto-deploy only after cutover (uncomment the `push` block).
+# Deploys automatically on every push to main that touches the site, and can
+# still be run by hand: gh workflow run deploy.yml --ref main
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main]
-  #   paths: ['web/**', '.github/workflows/deploy.yml']
+  push:
+    branches: [main]
+    paths: ['web/**', '.github/workflows/deploy.yml']
 
 concurrency:
   group: deploy-eecalunghealth
@@ -22,6 +22,8 @@ jobs:
         with:
           node-version: '24'
 
+      # Build also prerenders every public page (scripts/prerender.mjs) so
+      # crawlers and AI tools that don't run JavaScript see the content.
       - name: Build (web/)
         working-directory: web
         run: |
@@ -47,3 +49,9 @@ jobs:
             --exclude 'api/uploads/' \
             -e "ssh -i ~/.ssh/deploy_key -p ${SSH_PORT}" \
             web/dist/ "${SSH_USER}@${SSH_HOST}:${DEPLOY_PATH}/"
+
+      - name: Smoke test live site (no-JS fetch, like ChatGPT)
+        working-directory: web
+        run: |
+          sleep 10
+          scripts/smoke-test.sh https://eecalunghealth.com

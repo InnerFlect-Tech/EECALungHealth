@@ -1,9 +1,24 @@
 # Disable cPanel Node.js Passenger so static + PHP files are served
 PassengerEnabled off
 
+# /team must not be redirected to /team/ just because a folder of that name
+# exists (e.g. /consultation/ holds funder.html).
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
+
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
+
+# Real files (assets, api/*.php, prerendered *.html) are served as-is.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Prerendered pages: /team -> /team.html (written by scripts/prerender.mjs).
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ /$1.html [L]
+
+# Everything else (admin, budget share links) gets the bare SPA shell.
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+RewriteRule . /app-shell.html [L]
