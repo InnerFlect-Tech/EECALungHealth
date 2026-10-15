@@ -39,6 +39,7 @@ const PUBLIC_ROUTES = [
   { path: '/disclaimer', priority: '0.3', changefreq: 'yearly' },
   // Unlinked audit page: reachable from the sitemap and by direct link only.
   { path: '/audit/2026-10-15', priority: '0.4', changefreq: 'yearly' },
+  { path: '/demo/care-continuity', priority: '0.5' },
 ];
 
 // Routes deliberately left client-only: private, parameterised, redirects,
