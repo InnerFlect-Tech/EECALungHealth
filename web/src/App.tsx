@@ -26,6 +26,7 @@ import { GovernanceFinancialsPage } from './pages/GovernanceFinancialsPage';
 import { FunderFitPage } from './pages/FunderFitPage';
 
 // Unlinked audit page – loaded on demand so marked/mermaid stay out of the main bundle.
+const MeetingQuestionsPage = lazy(() => import('./pages/MeetingQuestionsPage').then((m) => ({ default: m.MeetingQuestionsPage })));
 const AuditPage = lazy(() => import('./pages/AuditPage').then((m) => ({ default: m.AuditPage })));
 const CareContinuityDemoPage = lazy(() => import('./pages/CareContinuityDemoPage').then((m) => ({ default: m.CareContinuityDemoPage })));
 
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/audit/2026-10-15" element={<Suspense fallback={null}><AuditPage /></Suspense>} />
           <Route path="/demo/parliamentary-intelligence" element={<Suspense fallback={<div style={{ minHeight: '100vh' }} />}><ParliamentaryDemoPage /></Suspense>} />
+          <Route path="/meeting/2026-10-15" element={<Suspense fallback={null}><MeetingQuestionsPage /></Suspense>} />
           <Route path="/demo/care-continuity" element={<Suspense fallback={null}><CareContinuityDemoPage /></Suspense>} />
           {/* Internal design-system reference (noindex) */}
           <Route path="/design" element={<DesignSystemPage />} />
